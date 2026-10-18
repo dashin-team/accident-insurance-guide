@@ -540,14 +540,12 @@ footer li{margin:4px 0;word-break:break-all}
 
   <div class="contact" id="contact">
     <div class="view">
-      <div style="font-size:13px;opacity:.85" id="cvCo">富邦人壽　業務員</div>
       <div class="name" id="cvName">梁仕翰</div>
       <div class="row"><span aria-hidden="true">💬</span><span>LINE：<span id="cvLine">（請點「編輯聯絡資訊」填寫）</span></span></div>
       <div class="row"><span aria-hidden="true">📞</span><span>電話：<a id="cvTel" href="#">（請點「編輯聯絡資訊」填寫）</a></span></div>
     </div>
     <div class="edit">
-      <label class="f" for="ceCo">公司／職稱</label><input type="text" id="ceCo">
-      <label class="f" for="ceName">業務員姓名</label><input type="text" id="ceName">
+      <label class="f" for="ceName">姓名</label><input type="text" id="ceName">
       <label class="f" for="ceLine">LINE ID</label><input type="text" id="ceLine" autocapitalize="off">
       <label class="f" for="ceTel">電話</label><input type="tel" id="ceTel" inputmode="tel">
       <p style="font-size:12px;opacity:.85;margin:8px 0 0">資料只儲存在這支裝置的瀏覽器（localStorage），不會上傳。</p>
@@ -699,11 +697,11 @@ function initGap(){
 
 /* ---------- contact (localStorage only) ---------- */
 const CK = 'acc-tool-contact-v1';
-const CDEF = {co:'富邦人壽　業務員', name:'梁仕翰', line:'', tel:''};
+const CDEF = {name:'梁仕翰', line:'', tel:''};
 function loadC(){ try { return Object.assign({}, CDEF, JSON.parse(localStorage.getItem(CK)||'{}')); } catch(e){ return Object.assign({}, CDEF); } }
 function showC(){
   const c = loadC();
-  $('#cvCo').textContent = c.co || ''; $('#cvName').textContent = c.name || '';
+  $('#cvName').textContent = c.name || '';
   $('#cvLine').textContent = c.line || '（請點「編輯聯絡資訊」填寫）';
   const t = $('#cvTel'); t.textContent = c.tel || '（請點「編輯聯絡資訊」填寫）';
   if (c.tel) t.href = 'tel:' + c.tel.replace(/[^\d+]/g,''); else t.removeAttribute('href');
@@ -712,10 +710,10 @@ function initContact(){
   const box = $('#contact');
   $('#cEdit').onclick = () => {
     if (!box.classList.contains('editing')){
-      const c = loadC(); $('#ceCo').value=c.co; $('#ceName').value=c.name; $('#ceLine').value=c.line; $('#ceTel').value=c.tel;
+      const c = loadC(); $('#ceName').value=c.name; $('#ceLine').value=c.line; $('#ceTel').value=c.tel;
       box.classList.add('editing'); $('#cEdit').textContent='儲存'; $('#cCancel').hidden=false;
     } else {
-      const c = {co:$('#ceCo').value.trim(), name:$('#ceName').value.trim(), line:$('#ceLine').value.trim(), tel:$('#ceTel').value.trim()};
+      const c = {name:$('#ceName').value.trim(), line:$('#ceLine').value.trim(), tel:$('#ceTel').value.trim()};
       try { localStorage.setItem(CK, JSON.stringify(c)); } catch(e){}
       box.classList.remove('editing'); $('#cEdit').textContent='編輯聯絡資訊'; $('#cCancel').hidden=true; showC();
     }
