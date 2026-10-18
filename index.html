@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<title>意外風險小教室｜意外險理賠與失能等級一次看懂</title>
+<title>意外險教育訓練｜理賠項目、職業等級與失能表</title>
 <style>
 :root{
   --bg:#f6f3ee; --card:#ffffff; --ink:#1f2a37; --muted:#5b6675; --line:#e4ddd2;
@@ -160,18 +160,26 @@ section{padding:22px 0 4px}
 .g2m{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
 .g2m label.f{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(min-width:760px){.g2m{grid-template-columns:repeat(4,1fr)}}
+details.acc.talk{border-color:#cfe6e3;background:#f4fbfa}
+details.acc.talk>summary b{color:var(--teal)}
+details.acc.qa>summary b{color:var(--pri)}
+.say{background:#fff;border:1px solid #d7ebe8;border-radius:12px 12px 12px 4px;padding:10px 12px;margin:8px 0;font-size:15px}
+.qa .say{border-color:#dbe5f1}
+.lbl{font-size:13px;font-weight:700;color:var(--teal);margin-top:2px}
+.tip{background:var(--softw);border-radius:10px;padding:8px 12px;margin:8px 0 0;font-size:14px}
+details.acc.quiz>summary b{font-size:15px}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
-    <span class="tag">意外風險小教室</span>
-    <h1>意外不會預約，<br>但準備可以先做。</h1>
-    <p>花幾分鐘，一起看懂意外發生時，哪些情況可能有保障、怎麼計算，以及目前的準備夠不夠。</p>
+    <span class="tag">單位教育訓練</span>
+    <h1>意外險教育訓練<br><span style="font-size:.62em;font-weight:700;opacity:.95">理賠項目・職業等級・失能表</span></h1>
+    <p>給夥伴的重點整理：條款怎麼看、理賠怎麼算、客戶怎麼說。</p>
     <div class="def">
-      <div style="font-weight:700">保險上的「意外」是什麼？</div>
-      <div style="font-size:15px;opacity:.95">依傷害保險單示範條款，意外傷害事故是指「<b>非由疾病引起之外來突發事故</b>」。三個條件缺一不可：</div>
+      <div style="font-weight:700">夥伴要記住：保險上的「意外」</div>
+      <div style="font-size:15px;opacity:.95">傷害保險單示範條款第 2 條：意外傷害事故是指「<b>非由疾病引起之外來突發事故</b>」。三個條件缺一不可：</div>
       <div class="chips3">
         <div>外來<small>由身體以外的因素造成</small></div>
         <div>突發<small>突然發生、無法預期</small></div>
@@ -183,13 +191,14 @@ section{padding:22px 0 4px}
 
 <nav class="toc" aria-label="章節導覽">
   <div class="wrap" id="tocWrap">
-    <a href="#s1">什麼是意外</a>
-    <a href="#s2">理賠項目及舉例</a>
-    <a href="#s3">職業等級比較</a>
-    <a href="#s4">失能等級表</a>
+    <a href="#s1">意外定義</a>
+    <a href="#s2">理賠項目</a>
+    <a href="#s3">職業等級</a>
+    <a href="#s4">失能表</a>
     <a href="#s5">舊制 vs 新制</a>
-    <a href="#s6">保障檢視試算</a>
-    <a href="#s7">想想三件事</a>
+    <a href="#s6">問答與拒絕處理</a>
+    <a href="#s7">練習工具</a>
+    <a href="#s8">重點複習</a>
   </div>
 </nav>
 
@@ -197,8 +206,8 @@ section{padding:22px 0 4px}
 
 <!-- ===== 1 ===== -->
 <section id="s1">
-  <h2><span class="no">1</span>意外，和你想的一樣嗎？</h2>
-  <p class="lead">同樣是受傷，原因不同，保險上的認定也可能不同。點開看看：</p>
+  <h2><span class="no">1</span>意外的定義：先判斷「是不是意外」</h2>
+  <p class="lead">客戶問「這個賠不賠」，第一步永遠是對照三要件。點開看判斷範例與實務提醒。</p>
   <details class="acc"><summary><b>✅ 通常屬於意外</b><span>例：雨天摔車骨折、在家滑倒撞頭、切菜切傷手指</span></summary><div class="body">
       <ul style="margin:0;padding-left:20px">
         <li>雨天騎車打滑摔車，手腕骨折</li>
@@ -212,18 +221,23 @@ section{padding:22px 0 4px}
         <li>長期姿勢不良造成的椎間盤突出（非突發）</li>
         <li>運動後的慢性肌腱炎（非單一突發事故）</li>
       </ul>
-      <p class="note" style="margin:8px 0 0">實際仍以個案事故經過、醫療證明及保險公司審核為準。</p></div></details>
-  <details class="acc"><summary><b>⏱ 兩個常被忽略的細節</b><span>180 天內的因果關係、兩年請求時效</span></summary><div class="body">
+      <p class="note" style="margin:8px 0 0">實際仍以個案事故經過、醫療證明及保險公司審核為準，夥伴不要當場替公司下理賠結論。</p></div></details>
+  <details class="acc"><summary><b>⏱ 實務提醒：180 天與兩年時效</b><span>理賠服務時一定要提醒客戶的兩個時間點</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li><b>180 天</b>：示範條款約定，意外事故發生之日起 180 日內身故或致成失能，依約給付；超過 180 日者，若能證明與該次意外有因果關係，仍可申請。</li>
-      <li><b>兩年時效</b>：保險契約所生的權利，自得為請求之日起，經過兩年不行使而消滅。受傷後記得保留診斷書與收據。</li>
+      <li><b>兩年時效</b>：保險契約所生的權利，自得為請求之日起，經過兩年不行使而消滅。提醒客戶受傷後保留診斷書與收據。</li>
     </ul></div></details>
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：意外的定義</b><span>用生活例子講三要件，不要背條文</span></summary><div class="body">
+    <div class="say">「保險上的意外，要同時符合三個條件：外來、突發、不是疾病引起的。像下雨天騎車滑倒骨折，就是典型的意外；但如果是先中風才跌倒，起因是疾病，通常就不算意外，要看醫療險或其他保障。」</div>
+    <div class="say">「所以我們在看保障的時候，會把『意外』和『疾病』分開來看，兩邊都照顧到，才不會出事時才發現有缺口。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>個案是否屬意外，以事故經過、醫療證明及公司審核為準；說明時用「通常」「一般來說」，不要對客戶保證一定賠或一定不賠。</p>
+  </div></details>
 </section>
 
 <!-- ===== 2 ===== -->
 <section id="s2">
   <h2><span class="no">2</span>理賠項目及舉例</h2>
-  <p class="lead">點開卡片看說明與例子。<span class="pill dep">依商品而定</span> 表示並非每張保單都有，<b>實際以各商品條款為準</b>；範例金額皆為假設。</p>
+  <p class="lead">夥伴要能說清楚每一項「什麼情況賠、怎麼算」。<span class="pill dep">依商品而定</span> 表示並非每張保單都有，<b>實際以各商品條款為準</b>；範例金額皆為假設。</p>
 
   <details class="benefit">
     <summary><span class="ico">🕊️</span><span><span class="t">意外身故保險金</span><br><span class="s">因意外身故，給付保險金額</span></span></summary>
@@ -329,12 +343,22 @@ section{padding:22px 0 4px}
       <p class="note">各商品可能另有約定（例如特定危險運動），<b>實際以各商品條款為準</b>。</p>
     </div>
   </details>
+
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：實支實付 vs 日額</b><span>一個看收據、一個看天數，各有用途</span></summary><div class="body">
+    <div class="say">「實支實付是『花多少、補多少』，看的是收據上健保以外自己付的錢，有每次的上限；日額型是『住幾天、領幾天』，跟花多少錢無關，比較像住院期間的生活補貼。」</div>
+    <div class="say">「像骨折開刀用到自費材料，實支實付比較能補到醫療費；如果住院比較久、需要家人請假照顧，日額型可以補貼收入的空窗。兩種的角色不一樣。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>門診是否給付、自費項目範圍、是否接受副本理賠，<b>依各商品條款</b>；先看客戶現有保單再說明，不要一概而論。</p>
+  </div></details>
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：骨折未住院</b><span>很多客戶不知道「沒住院也可能有給付」</span></summary><div class="body">
+    <div class="say">「有些日額型的傷害醫療有『骨折未住院』的設計：就算只打石膏回家休養，也會依骨折部位對應的天數，乘以日額的一半來計算。例如手指完全骨折是 14 天，日額 1,000 元的話，就是 14 × 1,000 × 1/2 ＝ 7,000 元。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>以上是示範條款日額型的規定；實支實付型通常沒有這個設計。是否提供及日數表內容，<b>依各商品條款</b>。不完全骨折按 1/2、骨骼龜裂按 1/4 計算。</p>
+  </div></details>
 </section>
 
 <!-- ===== 3 職業等級 ===== -->
 <section id="s3">
   <h2><span class="no">3</span>職業等級比較</h2>
-  <p class="lead">意外險依工作風險把職業分成 <b>第 1～6 類</b>，另有 <b>D 類（傷害險不承保）</b>。類別越高，工作中發生意外的機會或嚴重度越高。</p>
+  <p class="lead">意外險依工作風險把職業分成 <b>第 1～6 類</b>，另有 <b>D 類（傷害險不承保）</b>。送件前一定要確認客戶的實際工作性質。</p>
 
   <div class="card">
     <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>風險較低</span><span>風險較高</span></div>
@@ -344,21 +368,27 @@ section{padding:22px 0 4px}
     <div id="occCards"></div>
   </div>
 
-  <details class="acc"><summary><b>📘 職業類別怎麼看？</b><span>看實際工作性質；類別越高風險越高，保費一般也越高</span></summary><div class="body">
+  <details class="acc"><summary><b>📘 夥伴要記住：職業類別怎麼看</b><span>看實際工作性質；類別越高風險越高，保費一般也越高</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li><b>看的是「實際工作性質」</b>，不是公司名稱或職稱。同一家公司，內勤（第 1 類）與外勤（第 2 類）就不同。</li>
-      <li><b>類別越高，風險越高，保費一般也越高</b>；部分類別或職業可能有保額限制或不予承保（各商品規則不同）。</li>
-      <li><b>D 類</b>：表示傷害險不承保的工作性質；壽險或傷害險不承保的職業，醫療險亦不承保。</li>
+      <li><b>類別越高，風險越高，保費一般也越高</b>；部分類別或職業可能有保額限制或不予承保（依各商品投保規則）。</li>
+      <li><b>D 類</b>：表示傷害險不承保的工作性質；壽險或傷害險不承保的職業，醫療險亦不承保，其他附約依各商品投保規則。</li>
     </ul></div></details>
 
-  <details class="acc warnl"><summary><b>🔔 換工作了，記得通知保險公司</b><span>職業變更通知義務；風險增加未通知，理賠可能按比例折算</span></summary><div class="body">
-    <p style="margin:0 0 6px">傷害保險單示範條款約定「職業或職務變更的通知義務」：被保險人變更職業或職務時，要保人或被保險人應即時通知保險公司。</p>
+  <details class="acc warnl"><summary><b>🔔 職業變更通知義務</b><span>風險增加未通知，理賠可能按保費比例折算</span></summary><div class="body">
+    <p style="margin:0 0 6px">傷害保險單示範條款第 13 條：被保險人變更職業或職務時，要保人或被保險人應即時通知保險公司。</p>
     <ul style="margin:0;padding-left:20px">
       <li><b>風險降低</b>（例如從工地轉內勤）：自變更之日起，按差額比率退還未滿期保險費。</li>
       <li><b>風險增加</b>：自變更之日起，按差額比率增收未滿期保險費；若新職業屬拒保範圍，保險公司得終止契約並退還未滿期保險費。</li>
-      <li><b>風險增加卻未通知而發生事故</b>：保險公司會<b>按原收保險費與應收保險費的比率折算保險金</b>給付，可能因此少領。</li>
+      <li><b>風險增加卻未通知而發生事故</b>：保險公司<b>按原收保險費與應收保險費的比率折算保險金</b>給付。</li>
     </ul>
-    <div class="ex-box"><b>例子</b>：原本是辦公室內勤（第 1 類），轉職為外送員（送外賣機車駕駛，第 3 類）卻沒有通知。之後送餐途中發生事故，理賠可能依保費比例打折。</div>
+    <div class="ex-box"><b>案例</b>：客戶原本是辦公室內勤（第 1 類），轉職為外送員（送外賣機車駕駛，第 3 類）卻沒有通知。之後送餐途中發生事故，理賠可能依保費比例打折。</div>
+  </div></details>
+
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：職業類別與換工作通知</b><span>把「通知」講成保護客戶自己的權益</span></summary><div class="body">
+    <div class="say">「意外險的保費主要是看工作內容的風險，不是看職稱。所以我會請您描述一下平常實際在做什麼，這樣類別才會準，以後理賠也比較不會有爭議。」</div>
+    <div class="say">「之後如果換工作或工作內容改變，記得跟我說一聲。換到比較安全的工作，保費可以退差額；換到風險比較高的工作，要補一點保費。如果沒通知，萬一出事，理賠可能會按照保費比例打折，那就太可惜了。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>建立客戶「換工作就通知」的習慣，年度保單健檢時主動確認職業是否變動。職類以最新公司規定及核保結果為準。</p>
   </div></details>
 
   <div class="card">
@@ -370,14 +400,14 @@ section{padding:22px 0 4px}
     <div id="occInfo" class="note" style="margin-bottom:8px"></div>
     <div class="res" id="occRes"></div>
     <div style="text-align:center;margin-top:10px"><button class="btn ghost" id="occMore" type="button" hidden>顯示更多</button></div>
-    <p class="note" style="margin-top:10px">資料來源：公司職業分類表（啟用日期 105.01.01）。分類表可能更新，實際職類以最新公司規定及核保結果為準；標示 <span class="flag">需加強確認</span> 者為該表「附表二：加強確認重要職業／工作性質表」所列項目。</p>
+    <p class="note" style="margin-top:10px">資料來源：公司職業分類表（啟用日期 105.01.01）。分類表可能更新，實際職類以最新公司投保規定及核保結果為準；標示 <span class="flag">需加強確認</span> 者為該表「附表二：加強確認重要職業／工作性質表」所列項目。</p>
   </div>
 </section>
 
 <!-- ===== 4 失能表 ===== -->
 <section id="s4">
   <h2><span class="no">4</span>失能程度與保險金給付表（11 級 80 項）</h2>
-  <p class="lead">意外失能給付的依據（傷害保險單示範條款附表），現行為 <b>11 級 80 項</b>，依身體部位分 9 大類。</p>
+  <p class="lead">意外失能給付的依據（傷害保險單示範條款附表），現行為 <b>11 級 80 項</b>，依身體部位分 9 大類。夥伴要會查、會算。</p>
 
   <details class="acc"><summary><b>📈 等級與給付比例</b><span>第 1 級 100% → 第 11 級 5%，點等級可帶入試算</span></summary><div class="body">
     <div class="lv-list" id="lvList"></div>
@@ -421,7 +451,7 @@ section{padding:22px 0 4px}
     <p style="margin:6px 0 0"><b>舊保單怎麼辦？</b>109 年修正時，金管會函示：實施日前已銷售的長年期及一年期保證續保商品之有效契約，於 109 年 1 月 1 日之後發生的保險事故（以事故日為準），採<b>「從新從優」</b>原則。更早的舊制保單適用規則不同，詳見第 5 段。</p>
   </div></details>
 
-  <details class="acc"><summary><b>📌 認定上的重點</b><span>永久失能、多項合計上限、同一手足擇重給付</span></summary><div class="body">
+  <details class="acc"><summary><b>📌 夥伴要記住：認定重點</b><span>永久失能、多項合計上限、同一手足擇重給付</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li>失能須為<b>永久</b>狀態，通常需經治療後症狀固定，再由專科醫師開立失能診斷書。</li>
       <li>同一事故多項失能：各項相加，最高以保險金額為限；同一手或同一足只給付較嚴重的一項。</li>
@@ -429,12 +459,18 @@ section{padding:22px 0 4px}
       <li>表中「缺失」「喪失機能」「顯著運動障害」等用語，各有附註定義（例如關節活動度的百分比），實際以條款附註為準。</li>
     </ul>
   </div></details>
+
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：11 級 80 項 vs 只保 1～6 級</b><span>讓客戶看懂「輕度失能」也需要照顧</span></summary><div class="body">
+    <div class="say">「意外失能是照表給付的。現行的失能表有 11 個等級、80 個項目，第 1 級最嚴重給 100%，第 11 級最輕微給 5%。」</div>
+    <div class="say">「有些保障只賠第 1～6 級，也就是比較嚴重的 37 項；像一手拇指缺失是第 11 級、一足五趾缺失是第 7 級，這些就要涵蓋 1～11 級的保障才會給付。我們可以一起看看您手上的保單是哪一種。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>用下方「依身體部位查詢」現場查給客戶看，比口頭說明更清楚；各險種涵蓋等級<b>依各商品條款</b>。</p>
+  </div></details>
 </section>
 
 <!-- ===== 5 舊制 vs 新制 ===== -->
 <section id="s5">
   <h2><span class="no">5</span>舊制 6 級 28 項 vs 新制 11 級 80 項</h2>
-  <p class="lead">民國 95 年 10 月 1 日以前，傷害保險使用舊制「6 級 28 項」；之後改為 11 級，並陸續修正到現在的 80 項。</p>
+  <p class="lead">民國 95 年 10 月 1 日以前，傷害保險使用舊制「6 級 28 項」；之後改為 11 級，並陸續修正到現在的 80 項。幫客戶檢視舊保單時特別有用。</p>
 
   <div class="cmp">
     <div class="col">
@@ -451,7 +487,7 @@ section{padding:22px 0 4px}
     </div>
   </div>
 
-  <details class="acc "><summary><b>🗓 完整沿革</b><span>95/10/1 前 6級28項 → 11級75項 → 79項 → 109/1/1 80項</span></summary><div class="body">
+  <details class="acc"><summary><b>🗓 完整沿革</b><span>95/10/1 前 6級28項 → 11級75項 → 79項 → 109/1/1 80項</span></summary><div class="body">
     <div class="timeline">
       <div><b>95/10/1 以前</b>：舊制 6 級 28 項</div>
       <div><b>95/10/1 起</b>：11 級 75 項（金管保二字第 09502069411 號，95/8/10）</div>
@@ -460,7 +496,7 @@ section{padding:22px 0 4px}
     </div>
   </div></details>
 
-  <details class="acc "><summary><b>新制改了什麼？</b><span>分級更細、範圍更廣、多數比例提高</span></summary><div class="body">
+  <details class="acc"><summary><b>新制改了什麼？</b><span>分級更細、範圍更廣、多數比例提高</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li><b>分級更細</b>：由 6 個等級變成 11 個等級，給付比例從 100% 到 5%，輕度失能也有對應比例。</li>
       <li><b>範圍更廣</b>：由 28 項擴充為 80 項，同一部位依嚴重程度分得更細，原本未列入的情況也被納入。</li>
@@ -477,25 +513,88 @@ section{padding:22px 0 4px}
     <p style="margin:6px 0 0">所以不能一概而論「新的一定比較好」，要看實際的失能情況與適用的版本。</p>
   </div></details>
 
-  <details class="acc "><summary><b>📄 舊保單適用哪一版？</b><span>長年期舊保單可能仍依原契約失能表，請核對條款</span></summary><div class="body">
+  <details class="acc"><summary><b>📄 舊保單適用哪一版？</b><span>長年期舊保單可能仍依原契約失能表，請核對條款</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li>金管會 95 年函示：<b>保險期間超過一年</b>的長年期保單，已簽訂的有效契約基於對價平衡，<b>仍依原契約條款（舊表）辦理</b>；<b>一年期以下</b>的有效契約，自實施日後發生的事故即適用新表。</li>
       <li>109 年改為 80 項時，金管會則要求長年期及一年期保證續保商品的有效契約，對 109/1/1 之後發生的事故採<b>「從新從優」</b>。</li>
-      <li>因為各次修正的適用規則不同，<b>舊的長年期保單可能仍依原契約所附的失能表</b>。建議把保單條款後面的附表拿出來核對，實際以各保單條款及保險公司審核為準。</li>
+      <li>因為各次修正的適用規則不同，<b>舊的長年期保單可能仍依原契約所附的失能表</b>。請把保單條款後面的附表拿出來核對，實際以各保單條款及保險公司審核為準。</li>
     </ul>
   </div></details>
 
-  <details class="acc "><summary><b>另一個常見落差：只保「1～6 級」</b><span>第 7～11 級的 43 項輕度失能（如手指、腳趾）不在範圍</span></summary><div class="body">
-    <p style="margin:0 0 8px">現在有些失能相關保障（例如常見的失能扶助型給付）只針對新制 11 級 80 項中的 <b>第 1～6 級</b>（共 37 項）。如果只有這類保障，<b>第 7～11 級的 43 項較輕度失能</b>就不在給付範圍。以下這些生活中較可能發生的傷害，需要涵蓋 1～11 級的保障才會給付：</p>
+  <details class="acc"><summary><b>另一個常見落差：只保「1～6 級」</b><span>第 7～11 級的 43 項輕度失能（如手指、腳趾）不在範圍</span></summary><div class="body">
+    <p style="margin:0 0 8px">有些失能相關保障（例如常見的失能扶助型給付）只針對新制 11 級 80 項中的 <b>第 1～6 級</b>（共 37 項）。如果只有這類保障，<b>第 7～11 級的 43 項較輕度失能</b>就不在給付範圍。以下這些傷害，需要涵蓋 1～11 級的保障才會給付：</p>
     <div class="items" id="minorList"></div>
     <p class="note" style="margin-top:8px">意外險的失能保險金通常涵蓋 1～11 級；其他險種涵蓋範圍<b>實際以各商品條款為準</b>。</p>
   </div></details>
+
+  <details class="acc talk"><summary><b>💬 怎麼跟客戶說：舊保單是舊制還是新制</b><span>先檢視、不急著換，重點是看清楚條款</span></summary><div class="body">
+    <div class="say">「您這張保單是 95 年以前買的長年期保單，條款後面附的失能表可能還是舊制的 6 級 28 項。新制分得比較細、多數項目比較有利，但也有少數情況舊制給得比較多，所以不能只說新的比較好。」</div>
+    <div class="say">「我建議我們先把條款附表拿出來對照，看您在意的風險有沒有被照顧到，再決定要不要補強。舊保單不一定要換，重點是知道它保什麼、不保什麼。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>不要為了新件而建議解約；長年期商品解約可能有解約金損失，且年齡、健康狀況改變可能影響新契約核保。實際適用版本以保單條款及公司審核為準。</p>
+  </div></details>
 </section>
 
-<!-- ===== 6 缺口試算 ===== -->
+<!-- ===== 6 常見問答與拒絕處理 ===== -->
 <section id="s6">
-  <h2><span class="no">6</span>意外保障檢視試算</h2>
-  <p class="lead">若意外導致無法工作，家裡需要多少準備？填入概略數字即可，<b>不會儲存或上傳</b>。</p>
+  <h2><span class="no">6</span>常見問答與拒絕處理</h2>
+  <p class="lead">客戶的疑問通常是真實的擔心。先理解，再用事實回應；產品只是解決問題的工具。點開看<b>回應話術</b>與<b>夥伴實務提醒</b>。</p>
+  <details class="acc qa"><summary><b>Q1. 我有健保、公司也有團保，不需要吧？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「健保和團保都是很好的基礎，我們先一起看看它們保了什麼。健保給付有一定範圍，自費材料、病房差額這些通常要自己負擔；團保是公司幫您準備的福利，保額和項目由公司決定，而且通常跟著在職狀態，換工作或離職時就可能中斷。」</div><div class="say">「我們可以把團保內容拿出來，確認哪些已經足夠、哪些還有空白，再決定需不需要補。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>請客戶提供團保保障明細；團保離職後能否續保、保障範圍<b>依各團體保險契約</b>。不貶低健保或團保，重點是找出真正的空白。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q2. 意外險這麼便宜，是不是沒什麼用？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「意外險保費相對低，是因為它只保「意外」這一種原因、不保疾病，範圍很明確。便宜不代表沒用：意外造成的身故、失能，以及傷害醫療（依保單項目），都可能依約給付。」</div><div class="say">「重點不是便宜或貴，而是保額和項目有沒有符合您的需要。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>保費主要與職業類別等因素有關，<b>依各商品規定</b>；不要把「便宜」當主要訴求，回到客戶需求。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q3. 中風、心肌梗塞時跌倒受傷，算不算意外？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「保險上的意外，是「非由疾病引起的外來突發事故」。如果是先中風或心肌梗塞才跌倒，起因是疾病，一般來說不屬於意外，會比較適合由醫療險或其他疾病相關保障來處理。」</div><div class="say">「實際還是要看事故經過和醫療證明，由保險公司審核，我可以協助您準備資料。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>個案勿當場下理賠結論；協助收集診斷書與事故經過，交由公司審核。這也是說明「意外與疾病保障要分開規劃」的好時機。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q4. 酒駕受傷，意外險賠不賠？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「傷害保險單示範條款把「飲酒後駕（騎）車，吐氣或血液所含酒精成份超過道路交通法令規定標準」列為除外責任，因此造成的身故、失能或傷害，意外險不負給付責任。」</div><div class="say">「所以除了保險，最好的保障還是：喝酒不開車、不騎車。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>依示範條款第 8 條；客觀說明條款即可，不評論、不說教。其他除外責任與不保事項見第 2 段。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q5. 沒住院、只看門診，有沒有賠？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「要看您的保單是哪一種。實支實付型是憑收據補健保以外自付的費用，有些商品包含門診或門診手術；日額型原則上按住院天數給付，但有些日額型有「骨折未住院」的設計。」</div><div class="say">「我們把您的條款拿出來看就知道，記得先保留收據和診斷書。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>門診是否給付、給付範圍<b>依各商品條款</b>；骨折未住院的計算方式見第 2 段（示範條款日額型）。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q6. 換工作沒有通知保險公司，會怎樣？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「依示範條款，換工作或職務時要即時通知保險公司。換到風險較低的工作，可以退還保費差額；換到風險較高的工作，要補保費差額。」</div><div class="say">「如果風險變高卻沒有通知，萬一發生事故，保險公司會按「原收保費與應收保費的比率」折算理賠金額，可能會少領，所以換工作記得跟我說一聲。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>依示範條款第 13 條；新職業若屬拒保範圍，保險公司得終止契約並退還未滿期保險費。年度健檢時主動確認客戶職業是否變動。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q7. 我很小心，不會發生意外啦。</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「您很注意安全，這真的很好，也是最重要的第一道防線。只是意外的定義就是「外來、突發」，很多時候不是自己能控制的，例如被別人撞到、路面濕滑。」</div><div class="say">「保險是第二道防線，目的是萬一真的發生，生活不要因此被打亂。要不要準備、準備多少，還是由您決定。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>不使用恐嚇式說法，也不引用未經查證的統計數字；尊重客戶的判斷，先建立信任。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q8. 我已經有壽險了，還需要意外險嗎？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「壽險很重要，主要照顧身故和「完全失能」。壽險的完全失能是很嚴重的狀態，金管會函示人壽保險的完全失能項目為 7 項，例如雙目均失明、四肢機能永久完全喪失等。」</div><div class="say">「如果是一手拇指缺失、一目失明這類部分失能，壽險通常不給付；意外險的失能保險金則依 1～11 級、80 項按比例給付。意外的醫療費用，也要看有沒有傷害醫療保障。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>壽險完全失能項目以各保單附表為準，<b>依各商品條款</b>；說明時可搭配第 4 段的身體部位查詢。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q9. 我的舊保單要不要換掉？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「不一定要換。我們先看三件事：這張保單用的是哪一版失能表、保額夠不夠、有沒有您需要但沒保到的項目。」</div><div class="say">「舊制在少數情況下給付反而比較高，所以要看清楚再決定；如果只是保額不足，也可以考慮補強，而不是解約。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>不為新件而建議解約；長年期商品解約可能有解約金損失，年齡、健康狀況改變也可能影響新契約核保。適用版本以保單條款及公司審核為準（見第 5 段）。</p>
+  </div></details>
+  <details class="acc qa"><summary><b>Q10. 出國有買旅平險，這樣就夠了吧？</b><span>點開看回應話術與實務提醒</span></summary><div class="body">
+    <div class="lbl">💬 對客戶的回應話術</div>
+    <div class="say">「旅平險很適合出國時加強保障，但它的保障期間只限於約定的旅程期間，回國之後就結束了。」</div><div class="say">「日常通勤、工作、在家裡發生的意外，還是需要平常的意外保障，兩者是互補的。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>旅平險的保障期間、海外醫療等內容<b>依各商品條款</b>。</p>
+  </div></details>
+
+</section>
+
+<!-- ===== 7 練習工具 ===== -->
+<section id="s7">
+  <h2><span class="no">7</span>練習工具：意外保障缺口試算</h2>
+  <p class="lead">夥伴可以先用範例數字練習，熟悉後再陪客戶一起填。數字只在畫面上計算，<b>不會儲存或上傳</b>。</p>
   <div class="card">
     <div class="g2m">
       <div><label class="f" for="gInc">年收入</label><div class="unit"><input type="number" id="gInc" inputmode="decimal" min="0" placeholder="例如 80"><span>萬元</span></div></div>
@@ -522,26 +621,40 @@ section{padding:22px 0 4px}
       </div>
     </div>
   </div>
-  <details class="acc "><summary><b>同一份保額，不同等級可以領多少？</b><span>依「現有意外失能保額」換算各等級給付</span></summary><div class="body">
-    
+  <details class="acc"><summary><b>同一份保額，不同等級可以領多少？</b><span>依「現有意外失能保額」換算各等級給付</span></summary><div class="body">
     <div class="scrollx"><table class="t" id="gLvTable"></table></div>
-    <p class="note" style="margin-top:8px">試算為簡化估計，未考慮通膨、勞保或其他社會保險給付，僅供討論參考。</p>
+    <p class="note" style="margin-top:8px">試算為簡化估計，未考慮通膨、勞保或其他社會保險給付，僅供練習與討論參考。</p>
+  </div></details>
+  <details class="acc talk"><summary><b>💬 怎麼帶客戶做試算</b><span>從客戶的生活出發，不從商品出發</span></summary><div class="body">
+    <div class="say">「我們先不談保險，先算一下：如果有一段時間不能工作，家裡每個月的支出、房貸要靠什麼撐？目前的存款和保障可以撐多久？」</div>
+    <div class="say">「算出來如果已經足夠，那很好，代表您準備得很充分；如果有缺口，我們再一起想辦法，看哪一部分最需要先處理。」</div>
+    <p class="tip"><b>夥伴實務提醒：</b>數字由客戶自己決定，夥伴只協助釐清；不誇大風險、不保證結果。</p>
   </div></details>
 </section>
 
-<!-- ===== 7 結尾 ===== -->
-<section id="s7">
-  <h2><span class="no">7</span>看完，可以想想三件事</h2>
+<!-- ===== 8 重點複習 ===== -->
+<section id="s8">
+  <h2><span class="no">8</span>重點複習</h2>
   <ol class="three">
-    <li><b>如果明天發生意外，家裡的生活費誰來支撐？</b><br><span class="note">想想收入中斷時，固定支出能撐多久。</span></li>
-    <li><b>我現在的保障，涵蓋 1～11 級失能，還是只有嚴重失能？</b><br><span class="note">輕度失能（例如手指、腳趾）發生機率較高，也會影響工作。</span></li>
-    <li><b>我的職業類別、醫療保障，跟現在的生活還一致嗎？</b><br><span class="note">換工作、買房、有了孩子，都是重新檢視的好時機。</span></li>
+    <li><b>先判斷是不是意外</b><br><span class="note">外來、突發、非疾病，三要件缺一不可；疾病引起的跌倒通常不算意外。</span></li>
+    <li><b>失能看 11 級 80 項</b><br><span class="note">1 級 100% 到 11 級 5%；確認客戶保障涵蓋 1～11 級，還是只有 1～6 級。</span></li>
+    <li><b>職業類別與通知義務</b><br><span class="note">看實際工作性質；換工作要通知，風險增加未通知可能按保費比例折算。</span></li>
   </ol>
+  <h3 style="margin:16px 0 8px">✏️ 小測驗（點題目看答案）</h3>
+  <details class="acc quiz"><summary><b>1. 保險上「意外傷害事故」的三要件是什麼？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 外來、突發、非由疾病引起（傷害保險單示範條款第 2 條）。見第 1 段。</p></div></details>
+  <details class="acc quiz"><summary><b>2. 一手拇指缺失，屬於第幾級？保額 300 萬可領多少？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 第 11 級（項次 8-2-8），給付 5%，300 萬 × 5% ＝ 15 萬。見第 4 段。</p></div></details>
+  <details class="acc quiz"><summary><b>3. 日額型骨折未住院：手指完全骨折、日額 1,000 元，可領多少？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 指骨完全骨折日數 14 天，14 × 1,000 × 1/2 ＝ 7,000 元（依示範條款日額型；依各商品條款）。見第 2 段。</p></div></details>
+  <details class="acc quiz"><summary><b>4. 現行失能表是幾級幾項？從什麼時候開始？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 11 級 80 項，自民國 109 年 1 月 1 日起（新增 4-1-2）。見第 4、5 段。</p></div></details>
+  <details class="acc quiz"><summary><b>5. 客戶從內勤轉外送員卻沒通知，之後送餐途中發生事故，會怎樣？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 風險增加未通知，保險公司按原收保險費與應收保險費的比率折算保險金（示範條款第 13 條）。見第 3 段。</p></div></details>
+  <details class="acc quiz"><summary><b>6. 「送外賣機車駕駛」在公司職業分類表是第幾類？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 第 3 類（代碼 05010410）。可用第 3 段職業查詢確認。</p></div></details>
+  <details class="acc quiz"><summary><b>7. 只保 1～6 級的保障，涵蓋 11 級 80 項中的幾項？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 37 項；第 7～11 級的 43 項較輕度失能不在範圍。見第 5 段。</p></div></details>
+  <details class="acc quiz"><summary><b>8. 酒駕（酒精濃度超標）騎車摔傷，意外險賠不賠？</b><span>點一下看答案</span></summary><div class="body"><p style="margin:0">✅ 不賠，屬示範條款第 8 條除外責任。見第 2 段。</p></div></details>
+
 </section>
 </main>
 
 <footer class="wrap">
-  <div class="disc"><b>聲明：</b>本頁為一般說明，實際理賠以保單條款及保險公司審核為準。頁面中的範例金額皆為假設，用於說明計算方式；標示「依商品而定」之項目，實際以各商品條款為準。</div>
+  <div class="disc"><b>聲明：</b>本頁為單位內部教育訓練用之一般說明，實際理賠以保單條款及保險公司審核為準。頁面中的範例金額皆為假設，用於說明計算方式；標示「依商品而定」「依各商品條款」之項目，實際以各商品條款為準。對客戶說明時，請以公司核准之商品資料與條款為準。</div>
   <details class="acc"><summary><b>📚 資料來源</b><span>示範條款、失能表、金管會函令、職業分類表等</span></summary><div class="body">
   <ol>
     <li>中華民國人壽保險商業同業公會，〈傷害保險單示範條款〉（113/06/28 修正）：意外傷害事故定義（第 2 條）、身故（第 5 條）、失能給付規則（第 6 條）、除外責任（第 8 條）、不保事項（第 9 條）、職業變更通知（第 13 條）、時效（第 20 條）。<a href="https://law.lia-roc.org.tw/Law/Content?lsid=FL006854">https://law.lia-roc.org.tw/Law/Content?lsid=FL006854</a></li>
@@ -549,15 +662,16 @@ section{padding:22px 0 4px}
     <li>金融監督管理委員會，金管保壽字第 10804920500 號函（108/06/21）：新增 4-1-2 項，109/1/1 起實施及從新從優適用原則。<a href="https://law.fsc.gov.tw/LawContent.aspx?id=GL002746">https://law.fsc.gov.tw/LawContent.aspx?id=GL002746</a></li>
     <li>保誠人壽，傷害保險示範條款修正說明：<a href="https://www.pcalife.com.tw/zh/legal-policy/law-advocacy/injury-Insurancemodel-revise/">https://www.pcalife.com.tw/zh/legal-policy/law-advocacy/injury-Insurancemodel-revise/</a>；旺旺友聯產險公告（11 級 79 項修正為 11 級 80 項）：<a href="https://www.wwunion.com/?p=11149">https://www.wwunion.com/?p=11149</a></li>
     <li>11 級 75 項 → 11 級 79 項（104/8/4 起，金管保壽字第 10402543750 號）：<a href="https://www.rmim.com.tw/news-detail.php?id=7884">https://www.rmim.com.tw/news-detail.php?id=7884</a>；國泰人壽說明 PDF：<a href="https://www.cathaylife.com.tw/cathaylife/-/media/231e55d1e0174de1bf19e4370872b4ba.pdf">https://www.cathaylife.com.tw/cathaylife/-/media/231e55d1e0174de1bf19e4370872b4ba.pdf</a></li>
-    <li>95/10/1 改制（舊制 6 級 28 項 → 11 級 75 項）及新舊表適用原則：金管會金管保二字第 09502069411 號函（95/08/10）<a href="https://law.fsc.gov.tw/LawContent.aspx?id=FE060867">https://law.fsc.gov.tw/LawContent.aspx?id=FE060867</a></li>
+    <li>95/10/1 改制（舊制 6 級 28 項 → 11 級 75 項）及新舊表適用原則、人壽保險完全失能項目為 7 項：金管會金管保二字第 09502069411 號函（95/08/10）<a href="https://law.fsc.gov.tw/LawContent.aspx?id=FE060867">https://law.fsc.gov.tw/LawContent.aspx?id=FE060867</a></li>
     <li>舊制 6 級 28 項、新舊制差異與兩項「舊制較高」之小細節：淺談保險觀念（大仁）〈失能等級表：新制（11 級 80 項）跟舊制（6 級 28 項）的差別〉<a href="https://letf.com.tw/%E3%80%90%E5%A4%B1%E8%83%BD%E7%AD%89%E7%B4%9A%E8%A1%A8%EF%BC%9A%E6%96%B0%E5%88%B6%EF%BC%8811-%E7%B4%9A-80-%E9%A0%85%EF%BC%89%E8%B7%9F%E8%88%8A%E5%88%B6%EF%BC%886-%E7%B4%9A-28-%E9%A0%85%EF%BC%89/">letf.com.tw</a>；鄭正一〈傷害保險示範條款失能等級表的演變及從新從優原則〉<a href="http://www.bestmethod.com.tw/search/label/6%E7%B4%9A28%E9%A0%85">bestmethod.com.tw</a></li>
     <li>傷害醫療保險給付附加條款示範條款（實支實付型、日額型、骨折未住院日數表）：<a href="https://www.nlia.org.tw/wp-content/uploads/doc/chiuhui/%E5%82%B7%E5%AE%B3%E4%BF%9D%E9%9A%AA%E5%96%AE%E7%A4%BA%E7%AF%84%E6%A2%9D%E6%AC%BE1090708.pdf">產險公會 傷害保險單示範條款 PDF</a>；壽險公會附件：<a href="https://law.lia-roc.org.tw/Law/GetFile/0000372774">https://law.lia-roc.org.tw/Law/GetFile/0000372774</a></li>
     <li>重大燒燙傷定義舉例：國泰人壽新意外傷害重大燒燙傷保險金附加條款：<a href="https://www.cathaylife.com.tw/official/content/dam/cathaylife-official/files/laws-policies/public-info/insurance/accessory-contract/OI5.pdf">OI5.pdf</a></li>
     <li>失能扶助型保障常限 1～6 級之舉例：安達人壽一年期一至六級意外傷害失能扶助保險金附約條款：<a href="https://life.chubb.com/content/dam/chubb-sites/life-chubb-com/tw-zh/documents/dir-code.pdf">dir-code.pdf</a></li>
     <li>職業等級：公司職業分類表（行政資源／新契約規定／職業分類表，啟用日期 105.01.01，含附表一、附表二）。分類表可能更新，請以最新公司投保規定為準。參考：壽險公會「臺灣地區傷害保險個人職業分類表」。</li>
+    <li>壽險完全失能項目舉例（雙目均失明、四肢機能永久完全喪失等）：新光人壽網路投保定期壽險說明 <a href="https://online-info.skl.com.tw/article_detail_8">https://online-info.skl.com.tw/article_detail_8</a></li>
   </ol>
   </div></details>
-  <p>頁面為離線單檔，不連線、不追蹤；僅聯絡資訊會存在本機。</p>
+  <p>頁面為離線單檔，不連線、不追蹤、不儲存任何資料。</p>
 </footer>
 
 <button class="toTop" id="toTop" type="button" aria-label="回到頂端">↑</button>
