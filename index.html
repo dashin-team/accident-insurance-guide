@@ -537,28 +537,6 @@ section{padding:22px 0 4px}
     <li><b>我現在的保障，涵蓋 1～11 級失能，還是只有嚴重失能？</b><br><span class="note">輕度失能（例如手指、腳趾）發生機率較高，也會影響工作。</span></li>
     <li><b>我的職業類別、醫療保障，跟現在的生活還一致嗎？</b><br><span class="note">換工作、買房、有了孩子，都是重新檢視的好時機。</span></li>
   </ol>
-
-  <div class="card" style="margin-top:14px;background:var(--softw);border-color:#f0dcc6">
-    <p style="margin:0">保險不是越多越好，而是<b>剛好接得住你在意的風險</b>。如果你願意，我可以陪你把手上的保單拿出來，一項一項對照今天看到的內容，整理成一張清楚的保障表。不急，也沒有壓力，有需要的時候再找我就好。</p>
-  </div>
-
-  <div class="contact" id="contact">
-    <div class="view">
-      <div class="name" id="cvName">梁仕翰</div>
-      <div class="row"><span aria-hidden="true">💬</span><span>LINE：<span id="cvLine">（請點「編輯聯絡資訊」填寫）</span></span></div>
-      <div class="row"><span aria-hidden="true">📞</span><span>電話：<a id="cvTel" href="#">（請點「編輯聯絡資訊」填寫）</a></span></div>
-    </div>
-    <div class="edit">
-      <label class="f" for="ceName">姓名</label><input type="text" id="ceName">
-      <label class="f" for="ceLine">LINE ID</label><input type="text" id="ceLine" autocapitalize="off">
-      <label class="f" for="ceTel">電話</label><input type="tel" id="ceTel" inputmode="tel">
-      <p style="font-size:12px;opacity:.85;margin:8px 0 0">資料只儲存在這支裝置的瀏覽器（localStorage），不會上傳。</p>
-    </div>
-    <div class="btns">
-      <button class="btn" type="button" id="cEdit">編輯聯絡資訊</button>
-      <button class="btn ghost" type="button" id="cCancel" hidden>取消</button>
-    </div>
-  </div>
 </section>
 </main>
 
@@ -723,7 +701,7 @@ function showC(){
   if (c.tel) t.href = 'tel:' + c.tel.replace(/[^\d+]/g,''); else t.removeAttribute('href');
 }
 function initContact(){
-  const box = $('#contact');
+  const box = $('#contact'); if (!box) return;
   $('#cEdit').onclick = () => {
     if (!box.classList.contains('editing')){
       const c = loadC(); $('#ceName').value=c.name; $('#ceLine').value=c.line; $('#ceTel').value=c.tel;
