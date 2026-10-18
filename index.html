@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>意外風險小教室｜意外險理賠與失能等級一次看懂</title>
+<style>
+:root{
+  --bg:#f6f3ee; --card:#ffffff; --ink:#1f2a37; --muted:#5b6675; --line:#e4ddd2;
+  --pri:#1d4e89; --pri2:#2f6db5; --teal:#1f8a83; --warm:#c9773a; --soft:#eef4fb; --softw:#fbf1e7;
+  --ok:#2e7d4f; --warn:#b4532a; --r:16px; --sh:0 2px 10px rgba(31,42,55,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;font-size:16px;line-height:1.65}
+a{color:var(--pri2)}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(160deg,#173f70 0%,#1d4e89 55%,#2a7a8c 100%);color:#fff;padding:36px 0 30px;border-radius:0 0 28px 28px}
+.hero .tag{display:inline-block;font-size:13px;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:999px;letter-spacing:.05em}
+.hero h1{font-size:28px;line-height:1.35;margin:14px 0 10px;letter-spacing:.02em}
+.hero p{margin:0;opacity:.92}
+.hero .def{margin-top:18px;background:rgba(255,255,255,.12);border-radius:14px;padding:14px}
+.chips3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.chips3 div{background:#fff;color:var(--pri);border-radius:12px;padding:10px 6px;text-align:center;font-weight:700}
+.chips3 small{display:block;font-weight:400;color:var(--muted);font-size:12px;line-height:1.4;margin-top:2px}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(246,243,238,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding:8px 16px;scrollbar-width:none}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;min-height:44px;display:flex;align-items:center;padding:0 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px;white-space:nowrap}
+nav.toc a.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+section{padding:28px 0 8px}
+h2{font-size:22px;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+h2 .no{flex:0 0 auto;width:32px;height:32px;border-radius:10px;background:var(--pri);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:16px}
+.lead{color:var(--muted);margin:0 0 16px}
+h3{font-size:18px;margin:0 0 6px}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);padding:16px;margin:0 0 12px;border:1px solid #eee8de}
+.note{font-size:13px;color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--soft);color:var(--pri);font-weight:600;vertical-align:middle;margin-left:4px;white-space:nowrap}
+.pill.dep{background:var(--softw);color:var(--warn)}
+.pill.ex{background:#fdecec;color:#a33}
+.grid2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
+details.benefit{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid #eee8de;margin:0 0 12px;overflow:hidden}
+details.benefit summary{list-style:none;cursor:pointer;min-height:56px;padding:14px 48px 14px 16px;position:relative;display:flex;align-items:center;gap:12px}
+details.benefit summary::-webkit-details-marker{display:none}
+details.benefit summary:after{content:"＋";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--pri2);font-size:20px}
+details.benefit[open] summary:after{content:"－"}
+.ico{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:20px}
+.benefit .t{font-weight:700;line-height:1.4}
+.benefit .s{font-size:13px;color:var(--muted);font-weight:400}
+.benefit .body{padding:0 16px 16px}
+.ex-box{background:var(--softw);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:15px}
+.ex-box b{color:var(--warm)}
+.formula{background:var(--soft);border-radius:10px;padding:8px 12px;font-weight:600;color:var(--pri);margin:8px 0}
+.btn{min-height:44px;min-width:44px;border-radius:12px;border:1px solid var(--pri);background:var(--pri);color:#fff;font-size:16px;padding:0 16px;cursor:pointer;font-family:inherit}
+.btn.ghost{background:#fff;color:var(--pri)}
+.btn:active{transform:scale(.98)}
+.chipbar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:15px;cursor:pointer;font-family:inherit;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--pri);color:#fff;border-color:var(--pri)}
+label.f{display:block;font-size:14px;color:var(--muted);margin:10px 0 4px}
+input[type=number],input[type=text],input[type=tel],input[type=search],select{width:100%;min-height:48px;border:1px solid #d4cbbd;border-radius:12px;padding:0 12px;font-size:17px;background:#fff;color:var(--ink);font-family:inherit}
+input:focus,select:focus{outline:3px solid rgba(47,109,181,.25);border-color:var(--pri2)}
+.unit{position:relative}.unit span{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
+.unit input{padding-right:48px}
+.big{font-size:30px;font-weight:800;color:var(--pri);line-height:1.2}
+/* levels */
+.lv-list{display:grid;gap:6px}
+.lv{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:8px;min-height:44px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 10px;cursor:pointer;font-family:inherit;font-size:15px;text-align:left;color:var(--ink);width:100%}
+.lv[aria-pressed="true"]{border-color:var(--pri);box-shadow:0 0 0 2px rgba(29,78,137,.2)}
+.lv .bar{height:12px;border-radius:6px;background:#edf0f4;overflow:hidden}
+.lv .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--pri2));border-radius:6px}
+.lv b{font-size:15px}.lv .p{text-align:right;font-weight:700;color:var(--pri)}
+.items{display:grid;gap:8px}
+.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start}
+.item .c{font-size:12px;color:var(--muted)}
+.item .lvb{grid-row:1/3;grid-column:2;text-align:center;min-width:56px;border-radius:10px;padding:4px 6px;background:var(--soft);color:var(--pri);font-weight:800;font-size:15px;line-height:1.2}
+.item .lvb small{display:block;font-size:12px;font-weight:600}
+.item.minor .lvb{background:var(--softw);color:var(--warm)}
+.item button{grid-column:1/3;justify-self:start}
+.small-btn{min-height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;padding:0 12px;font-size:14px;color:var(--pri);cursor:pointer;font-family:inherit}
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cmp .col{border-radius:14px;padding:14px;background:#fff;border:1px solid var(--line)}
+.cmp .col.new{border-color:var(--pri2);background:var(--soft)}
+.dots{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px}
+.dots i{width:10px;height:10px;border-radius:3px;background:#c9d3df}
+.dots i.s{background:var(--pri2)} .dots i.m{background:var(--warm)}
+.timeline{position:relative;margin:8px 0 0 8px;padding-left:18px;border-left:3px solid #cdd8e6}
+.timeline div{position:relative;margin:0 0 12px}
+.timeline div:before{content:"";position:absolute;left:-26px;top:6px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--pri2)}
+.timeline div.now:before{background:var(--pri2)}
+.timeline b{color:var(--pri)}
+/* occupation */
+.occ-scale{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:6px 0 4px}
+.occ-scale span{height:10px;border-radius:5px}
+.occ-cards{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:760px){.occ-cards{grid-template-columns:1fr 1fr}}
+.occ{border-radius:14px;background:#fff;border:1px solid var(--line);padding:12px 14px;border-left:8px solid var(--c)}
+.occ h4{margin:0 0 4px;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+.occ h4 small{font-size:12px;color:var(--muted);font-weight:400}
+.occ ul{margin:4px 0 0;padding-left:18px;font-size:15px}
+.occ .meter{display:flex;gap:3px;margin-top:6px}.occ .meter i{flex:1;height:6px;border-radius:3px;background:#e9e4dc}.occ .meter i.f{background:var(--c)}
+table.t{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden}
+table.t th,table.t td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+table.t th{background:var(--soft);color:var(--pri);font-weight:700}
+.res{display:grid;gap:8px}
+.ores{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+.ores .cls{grid-row:1/4;grid-column:2;align-self:center;min-width:52px;text-align:center;border-radius:10px;padding:6px 8px;font-weight:800;color:#fff}
+.ores .meta{font-size:12px;color:var(--muted)}
+.ores .rm{font-size:13px;color:var(--warn)}
+.flag{font-size:12px;color:#8a5a00;background:#fff4d6;border-radius:6px;padding:1px 6px;margin-left:4px}
+/* gap */
+.gap-out{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.gap-out>div{background:var(--soft);border-radius:12px;padding:10px}
+.gap-out>div.full{grid-column:1/3;background:var(--softw)}
+.gap-out>div>small{display:block;color:var(--muted);font-size:13px}
+.gap-out b{font-size:20px;color:var(--pri)}
+.gap-out .full b{color:var(--warm);font-size:26px}
+.hbar{height:16px;border-radius:8px;background:#eadfce;overflow:hidden;margin-top:8px;display:flex}
+.hbar i{display:block;height:100%;background:var(--teal)}
+.three{counter-reset:n;display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.three li{background:#fff;border-radius:14px;padding:14px 14px 14px 56px;position:relative;border:1px solid var(--line)}
+.three li:before{counter-increment:n;content:counter(n);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.contact{background:linear-gradient(160deg,#173f70,#1d4e89);color:#fff;border-radius:20px;padding:18px}
+.contact .row{display:flex;align-items:center;gap:10px;margin:8px 0}
+.contact .row a{color:#fff}
+.contact .name{font-size:22px;font-weight:800}
+.contact .edit{display:none;margin-top:10px}
+.contact.editing .edit{display:block}
+.contact.editing .view{display:none}
+.contact label.f{color:#d6e2f2}
+.contact .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.contact .btn{background:#fff;color:var(--pri);border-color:#fff}
+.contact .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+footer{padding:24px 0 48px;font-size:13px;color:var(--muted)}
+footer ol{padding-left:20px}
+footer li{margin:4px 0;word-break:break-all}
+.disc{background:#fff;border:1px dashed #cdbfa9;border-radius:12px;padding:12px;color:var(--ink);font-size:14px;margin-bottom:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.toTop{position:fixed;right:14px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;border:none;background:var(--pri);color:#fff;font-size:20px;box-shadow:var(--sh);display:none;cursor:pointer}
+.scrollx{overflow-x:auto}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">意外風險小教室</span>
+    <h1>意外不會預約，<br>但準備可以先做。</h1>
+    <p>花幾分鐘，一起看懂意外發生時，哪些情況可能有保障、怎麼計算，以及目前的準備夠不夠。</p>
+    <div class="def">
+      <div style="font-weight:700">保險上的「意外」是什麼？</div>
+      <div style="font-size:15px;opacity:.95">依傷害保險單示範條款，意外傷害事故是指「<b>非由疾病引起之外來突發事故</b>」。三個條件缺一不可：</div>
+      <div class="chips3">
+        <div>外來<small>由身體以外的因素造成</small></div>
+        <div>突發<small>突然發生、無法預期</small></div>
+        <div>非疾病<small>不是由疾病引起</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="章節導覽">
+  <div class="wrap" id="tocWrap">
+    <a href="#s1">什麼是意外</a>
+    <a href="#s2">理賠項目及舉例</a>
+    <a href="#s3">職業等級比較</a>
+    <a href="#s4">失能等級表</a>
+    <a href="#s5">舊制 vs 新制</a>
+    <a href="#s6">保障檢視試算</a>
+    <a href="#s7">想想三件事</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===== 1 ===== -->
+<section id="s1">
+  <h2><span class="no">1</span>意外，和你想的一樣嗎？</h2>
+  <p class="lead">同樣是受傷，原因不同，保險上的認定也可能不同。先用幾個生活情境感受一下：</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>✅ 通常屬於意外</h3>
+      <ul style="margin:0;padding-left:20px">
+        <li>雨天騎車打滑摔車，手腕骨折</li>
+        <li>在家踩到積水滑倒，撞到頭</li>
+        <li>切菜時不小心切傷手指</li>
+        <li>搭公車時緊急煞車跌倒受傷</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>⚠️ 可能不屬於意外</h3>
+      <ul style="margin:0;padding-left:20px">
+        <li>因中風、心臟病發作而倒下（由疾病引起）</li>
+        <li>長期姿勢不良造成的椎間盤突出（非突發）</li>
+        <li>運動後的慢性肌腱炎（非單一突發事故）</li>
+      </ul>
+      <p class="note" style="margin:8px 0 0">實際仍以個案事故經過、醫療證明及保險公司審核為準。</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>⏱ 兩個常被忽略的細節</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li><b>180 天</b>：示範條款約定，意外事故發生之日起 180 日內身故或致成失能，依約給付；超過 180 日者，若能證明與該次意外有因果關係，仍可申請。</li>
+      <li><b>兩年時效</b>：保險契約所生的權利，自得為請求之日起，經過兩年不行使而消滅。受傷後記得保留診斷書與收據。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 2 ===== -->
+<section id="s2">
+  <h2><span class="no">2</span>理賠項目及舉例</h2>
+  <p class="lead">意外險常見的給付項目如下，點開每張卡片看說明與生活例子。標示 <span class="pill dep">依商品而定</span> 的項目並非每張保單都有，<b>實際以各商品條款為準</b>。範例金額皆為假設，方便理解計算方式。</p>
+
+  <details class="benefit" open>
+    <summary><span class="ico">🕊️</span><span><span class="t">意外身故保險金</span><br><span class="s">因意外身故，給付保險金額</span></span></summary>
+    <div class="body">
+      <p>被保險人因意外傷害事故，於事故發生日起 180 日內身故，按保險金額給付身故保險金。若同一事故先領過失能保險金，合計最高以保險金額為限。</p>
+      <div class="formula">給付 ＝ 保險金額</div>
+      <div class="ex-box"><b>例子</b>：通勤途中發生車禍不幸身故，意外身故保額 300 萬 → 受益人可申請 300 萬。</div>
+      <p class="note">註：示範條款規定，未滿 15 足歲者身故保險金變更為喪葬費用保險金，並有法定上限。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🦽</span><span><span class="t">意外失能保險金</span><br><span class="s">依失能等級 1～11 級，按比例給付</span></span></summary>
+    <div class="body">
+      <p>意外造成身體永久性的失能，依「失能程度與保險金給付表」的等級，給付保險金額的 5%～100%。第 1 級最嚴重（100%），第 11 級最輕微（5%）。</p>
+      <div class="formula">給付 ＝ 保險金額 × 該失能等級給付比例</div>
+      <div class="ex-box"><b>例子 1</b>：工作時機器夾傷，一手拇指缺失（第 11 級，5%），保額 300 萬 → 15 萬。<br><b>例子 2</b>：車禍造成一目失明（第 7 級，40%），保額 300 萬 → 120 萬。</div>
+      <p class="note">同一事故有兩項以上失能，給付各項之和，最高以保險金額為限；但屬同一手或同一足者，僅給付較嚴重的一項。完整等級請看第 4 段。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🧾</span><span><span class="t">傷害醫療保險金－實支實付型</span><br><span class="s">憑收據，給付健保以外的實際醫療費用</span></span></summary>
+    <div class="body">
+      <p>因意外就醫，對實際支出、超過全民健保給付的醫療費用，在保單約定的「每次限額」內給付。需要醫療院所開立的收據與診斷證明。</p>
+      <div class="formula">給付 ＝ 健保以外的實際醫療費用（以每次限額為上限）</div>
+      <div class="ex-box"><b>例子 1</b>：滑倒骨折，手術使用自費鋼板與自費項目共 6 萬，實支實付限額 10 萬 → 可依收據申請約 6 萬。<br><b>例子 2</b>：騎車擦傷到急診縫合，自付 3,500 元 → 依收據申請（門診是否給付依商品而定）。</div>
+      <p class="note">是否包含門診、自費項目範圍、是否需副本理賠等，<b>實際以各商品條款為準</b>。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🛏️</span><span><span class="t">傷害醫療保險金－日額型</span><br><span class="s">按住院天數 × 日額給付</span></span></summary>
+    <div class="body">
+      <p>因意外住院，按實際住院日數乘以約定的「日額」給付，與實際花費多少無關。示範條款約定每次傷害給付日數最高 90 日。</p>
+      <div class="formula">給付 ＝ 住院日數 × 傷害醫療保險金日額</div>
+      <div class="ex-box"><b>例子</b>：車禍骨折住院 7 天，日額 2,000 元 → 7 × 2,000 ＝ 14,000 元。</div>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🏥</span><span><span class="t">住院日額／加護病房、燒燙傷病房</span> <span class="pill dep">依商品而定</span><br><span class="s">入住特殊病房時，可能另有加給</span></span></summary>
+    <div class="body">
+      <p>部分商品在一般住院日額之外，若入住加護病房（ICU）或燒燙傷病房，會另外按日給付或加倍給付，並訂有給付天數上限。</p>
+      <div class="ex-box"><b>例子</b>：嚴重車禍住院 14 天，其中 5 天在加護病房。若保單約定一般住院日額 2,000 元、加護病房另給付日額 2,000 元 → 14×2,000 ＋ 5×2,000 ＝ 38,000 元（假設）。</div>
+      <p class="note">有無此項、加給方式與上限天數，<b>實際以各商品條款為準</b>。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🦴</span><span><span class="t">骨折未住院</span> <span class="pill dep">依商品而定</span><br><span class="s">日額型常見：沒有住院也能依骨折部位給付</span></span></summary>
+    <div class="body">
+      <p>傷害醫療（日額型）附加條款示範條款約定：骨折未住院，或住院未達該骨折部位所定日數者，未住院部分按「骨折別日數 × 日額 × 1/2」給付。不完全骨折按 1/2、骨骼龜裂按 1/4 計算。</p>
+      <div class="scrollx"><table class="t" style="margin:8px 0">
+        <tr><th>骨折部位（示範條款舉例）</th><th>完全骨折日數</th></tr>
+        <tr><td>鼻骨、眶骨；掌骨、指骨；蹠骨、趾骨</td><td>14 天</td></tr>
+        <tr><td>肋骨；下顎</td><td>20 天</td></tr>
+        <tr><td>鎖骨；橈骨或尺骨；膝蓋骨</td><td>28 天</td></tr>
+        <tr><td>臂骨；腕骨；脛骨或腓骨；踝骨；椎骨；骨盤</td><td>40 天</td></tr>
+        <tr><td>股骨；頭蓋骨；脛骨及腓骨</td><td>50 天</td></tr>
+        <tr><td>大腿骨頸</td><td>60 天</td></tr>
+      </table></div>
+      <div class="ex-box"><b>例子 1</b>：打球手指骨折，打石膏回家休養（未住院），日額 1,000 元 → 14 × 1,000 × 1/2 ＝ 7,000 元。<br><b>例子 2</b>：跌倒鎖骨完全骨折未住院，日額 1,000 元 → 28 × 1,000 × 1/2 ＝ 14,000 元。</div>
+      <p class="note">實支實付型通常沒有此設計。是否提供、日數表內容，<b>實際以各商品條款為準</b>。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🔥</span><span><span class="t">重大燒燙傷保險金</span> <span class="pill dep">依商品而定</span><br><span class="s">符合重大燒燙傷定義時，一次給付</span></span></summary>
+    <div class="body">
+      <p>常見於意外險附約或主約內的給付項目。以某壽險公司附加條款為例，「重大燒燙傷」指「顏面燒燙傷合併五官功能障礙」或「燒燙傷面積達全身 20% 以上」，須於事故後 180 日內經住院治療，契約期間以申領一次為限。</p>
+      <div class="ex-box"><b>例子</b>：廚房油鍋起火，造成大面積燒燙傷，經診斷燒燙傷面積達全身 20% 以上 → 依保單約定金額申請。</div>
+      <p class="note">定義與給付金額各家不同，<b>實際以各商品條款為準</b>。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🚌</span><span><span class="t">大眾運輸／特定意外加倍給付</span> <span class="pill dep">依商品而定</span><br><span class="s">特定情境下，身故或失能給付加倍</span></span></summary>
+    <div class="body">
+      <p>部分商品對「以乘客身分搭乘大眾運輸交通工具（如公車、捷運、火車、高鐵、客機、客輪）」，或電梯、公共場所火災、天然災害等特定意外，提供額外或加倍的身故、失能給付。</p>
+      <div class="ex-box"><b>例子</b>：搭乘客運時發生事故造成第 7 級失能（40%），保額 300 萬。若保單約定大眾運輸意外再加給 1 倍 → 一般 120 萬 ＋ 加給 120 萬（假設）。</div>
+      <p class="note">哪些交通工具或情境適用、加給倍數與上限，<b>實際以各商品條款為準</b>。自己開車、騎車通常不屬於大眾運輸。</p>
+    </div>
+  </details>
+
+  <details class="benefit">
+    <summary><span class="ico">🚫</span><span><span class="t">常見除外責任與不保事項</span> <span class="pill ex">不理賠情形</span><br><span class="s">這些原因造成的傷害，通常不在保障範圍</span></span></summary>
+    <div class="body">
+      <p><b>除外責任（原因）</b>－示範條款列明，因下列原因致死亡、失能或傷害，不負給付責任：</p>
+      <ul>
+        <li>要保人、被保險人的<b>故意行為</b></li>
+        <li>被保險人<b>犯罪行為</b></li>
+        <li><b>酒駕</b>：飲酒後駕（騎）車，吐氣或血液所含酒精成份超過道路交通法令規定標準</li>
+        <li><b>戰爭</b>（不論宣戰與否）、內亂及其他類似的武裝變亂（契約另有約定者除外）</li>
+        <li>原子或核子能裝置所引起的爆炸、灼熱、輻射或污染（契約另有約定者除外）</li>
+      </ul>
+      <p><b>不保事項（活動）</b>－除契約另有約定外：</p>
+      <ul>
+        <li>從事角力、摔跤、柔道、空手道、跆拳道、馬術、拳擊、特技表演等的<b>競賽或表演</b></li>
+        <li>從事汽車、機車及自由車等的<b>競賽或表演</b></li>
+      </ul>
+      <div class="ex-box"><b>例子</b>：聚餐喝酒後騎車回家摔傷，經檢測酒精濃度超標 → 屬除外責任，意外險不理賠。<br>平常上跆拳道課練習受傷，與「參加比賽或表演」不同，需依條款與事故情形判斷。</div>
+      <p class="note">各商品可能另有約定（例如特定危險運動），<b>實際以各商品條款為準</b>。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ===== 3 職業等級 ===== -->
+<section id="s3">
+  <h2><span class="no">3</span>職業等級比較</h2>
+  <p class="lead">意外險會依工作內容的風險，把職業分成 <b>第 1～6 類</b>，另有 <b>D 類（傷害險不承保）</b>。類別越高，代表工作中發生意外的機會或嚴重度越高。</p>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>風險較低</span><span>風險較高</span></div>
+    <div class="occ-scale" id="occScale"></div>
+    <ul style="margin:10px 0 0;padding-left:20px">
+      <li><b>看的是「實際工作性質」</b>，不是公司名稱或職稱。同一家公司，內勤（第 1 類）與外勤（第 2 類）就不同。</li>
+      <li><b>類別越高，風險越高，保費一般也越高</b>；部分類別或職業可能有保額限制或不予承保（各商品規則不同）。</li>
+      <li><b>D 類</b>：表示傷害險不承保的工作性質；壽險或傷害險不承保的職業，醫療險亦不承保。</li>
+    </ul>
+  </div>
+
+  <div class="occ-cards" id="occCards"></div>
+
+  <div class="card" style="border-left:6px solid var(--warn)">
+    <h3>🔔 換工作了，記得通知保險公司</h3>
+    <p style="margin:0 0 6px">傷害保險單示範條款約定「職業或職務變更的通知義務」：被保險人變更職業或職務時，要保人或被保險人應即時通知保險公司。</p>
+    <ul style="margin:0;padding-left:20px">
+      <li><b>風險降低</b>（例如從工地轉內勤）：自變更之日起，按差額比率退還未滿期保險費。</li>
+      <li><b>風險增加</b>：自變更之日起，按差額比率增收未滿期保險費；若新職業屬拒保範圍，保險公司得終止契約並退還未滿期保險費。</li>
+      <li><b>風險增加卻未通知而發生事故</b>：保險公司會<b>按原收保險費與應收保險費的比率折算保險金</b>給付，可能因此少領。</li>
+    </ul>
+    <div class="ex-box"><b>例子</b>：原本是辦公室內勤（第 1 類），轉職為外送員（送外賣機車駕駛，第 3 類）卻沒有通知。之後送餐途中發生事故，理賠可能依保費比例打折。</div>
+  </div>
+
+  <div class="card">
+    <h3>🔎 職業類別查詢</h3>
+    <p class="note" style="margin:0 0 8px">輸入職業關鍵字或 8 碼職業代碼（例如：外送、護士、水電、教師、00010010），可查看分類、工作性質、職類與備註。共收錄 <b id="occCount"></b> 筆。</p>
+    <label class="sr" for="occQ">職業關鍵字或代碼</label>
+    <input type="search" id="occQ" placeholder="輸入職業或代碼，例如：外送" autocomplete="off" enterkeyhint="search">
+    <div class="chipbar" id="occClsChips" role="group" aria-label="依職類篩選"></div>
+    <div id="occInfo" class="note" style="margin-bottom:8px"></div>
+    <div class="res" id="occRes"></div>
+    <div style="text-align:center;margin-top:10px"><button class="btn ghost" id="occMore" type="button" hidden>顯示更多</button></div>
+    <p class="note" style="margin-top:10px">資料來源：公司職業分類表（啟用日期 105.01.01）。分類表可能更新，實際職類以最新公司規定及核保結果為準；標示 <span class="flag">需加強確認</span> 者為該表「附表二：加強確認重要職業／工作性質表」所列項目。</p>
+  </div>
+</section>
+
+<!-- ===== 4 失能表 ===== -->
+<section id="s4">
+  <h2><span class="no">4</span>失能程度與保險金給付表（11 級 80 項）</h2>
+  <p class="lead">這是傷害保險單示範條款的附表，也是意外失能給付的依據。現行版本為 <b>11 級 80 項</b>，依身體部位分為 9 大類。</p>
+
+  <div class="card">
+    <h3>📈 等級與給付比例</h3>
+    <p class="note" style="margin:0 0 8px">點選等級，可篩選下方項目並帶入試算。</p>
+    <div class="lv-list" id="lvList"></div>
+  </div>
+
+  <div class="card" id="calc">
+    <h3>🧮 失能保險金試算</h3>
+    <div class="grid2">
+      <div>
+        <label class="f" for="calcAmt">意外失能保險金額</label>
+        <div class="unit"><input type="number" id="calcAmt" inputmode="decimal" min="0" step="10" value="300"><span>萬元</span></div>
+      </div>
+      <div>
+        <label class="f" for="calcLv">失能等級</label>
+        <select id="calcLv"></select>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <div class="note" id="calcDesc"></div>
+      <div class="big" id="calcOut">—</div>
+      <div class="note" id="calcItem"></div>
+    </div>
+    <details style="margin-top:10px"><summary style="min-height:44px;display:flex;align-items:center;cursor:pointer;color:var(--pri2)">查看全部等級對照</summary><div class="scrollx"><table class="t" id="calcTable"></table></div></details>
+  </div>
+
+  <div class="card">
+    <h3>🧍 依身體部位查詢</h3>
+    <div class="chipbar" id="partChips" role="group" aria-label="依部位篩選"></div>
+    <div class="note" id="itemInfo" style="margin-bottom:8px"></div>
+    <div class="items" id="itemList"></div>
+  </div>
+
+  <div class="card">
+    <h3>🗓 版本沿革</h3>
+    <div class="timeline">
+      <div><b>民國 95 年 10 月 1 日以前</b>：舊表「6 級 28 項」。</div>
+      <div><b>95 年 10 月 1 日起</b>：改為「11 級 75 項」，分級更細、範圍更廣（金管保二字第 09502069411 號，95/8/10）。</div>
+      <div><b>104 年 8 月 4 日起</b>：修正為「11 級 79 項」（金管保壽字第 10402543750 號，104/5/19）。</div>
+      <div class="now"><b>109 年 1 月 1 日起（現行）</b>：新增 4-1-2「鼻未缺損，而鼻機能永久遺存顯著障害者」（第 11 級、5%），成為「11 級 80 項」（金管保壽字第 10804920500 號，108/6/21）。</div>
+    </div>
+    <p style="margin:6px 0 0"><b>舊保單怎麼辦？</b>109 年修正時，金管會函示：實施日前已銷售的長年期及一年期保證續保商品之有效契約，於 109 年 1 月 1 日之後發生的保險事故（以事故日為準），採<b>「從新從優」</b>原則。更早的舊制保單適用規則不同，詳見第 5 段。</p>
+  </div>
+
+  <div class="card">
+    <h3>📌 認定上的重點</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li>失能須為<b>永久</b>狀態，通常需經治療後症狀固定，再由專科醫師開立失能診斷書。</li>
+      <li>同一事故多項失能：各項相加，最高以保險金額為限；同一手或同一足只給付較嚴重的一項。</li>
+      <li>不同事故分別申請失能，累計最高以保險金額為限。</li>
+      <li>表中「缺失」「喪失機能」「顯著運動障害」等用語，各有附註定義（例如關節活動度的百分比），實際以條款附註為準。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 5 舊制 vs 新制 ===== -->
+<section id="s5">
+  <h2><span class="no">5</span>舊制 6 級 28 項 vs 新制 11 級 80 項</h2>
+  <p class="lead">意外險的失能等級表不是一直長這樣。民國 95 年 10 月 1 日以前，傷害保險使用的是舊制「6 級 28 項」；之後改為 11 級，並陸續修正到現在的 80 項。</p>
+
+  <div class="cmp">
+    <div class="col">
+      <div class="note">舊制（95/10/1 以前）</div>
+      <div style="font-size:24px;font-weight:800">6 級 28 項</div>
+      <div class="dots" id="dots28"></div>
+      <p class="note" style="margin:8px 0 0">分級較粗、項目較少。</p>
+    </div>
+    <div class="col new">
+      <div class="note">新制（現行，109/1/1 起）</div>
+      <div style="font-size:24px;font-weight:800;color:var(--pri)">11 級 80 項</div>
+      <div class="dots" id="dots80"></div>
+      <p class="note" style="margin:8px 0 0"><span style="color:var(--pri2)">■</span> 1～6 級 37 項<br><span style="color:var(--warm)">■</span> 7～11 級 43 項</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3>🗓 完整沿革</h3>
+    <div class="timeline">
+      <div><b>95/10/1 以前</b>：舊制 6 級 28 項</div>
+      <div><b>95/10/1 起</b>：11 級 75 項（金管保二字第 09502069411 號，95/8/10）</div>
+      <div><b>104/8/4 起</b>：11 級 79 項</div>
+      <div class="now"><b>109/1/1 起</b>：11 級 80 項（現行）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>新制改了什麼？</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li><b>分級更細</b>：由 6 個等級變成 11 個等級，給付比例從 100% 到 5%，輕度失能也有對應比例。</li>
+      <li><b>範圍更廣</b>：由 28 項擴充為 80 項，同一部位依嚴重程度分得更細，原本未列入的情況也被納入。</li>
+      <li><b>多數比例提高</b>：整體而言，新制對被保險人較有利。</li>
+    </ul>
+  </div>
+
+  <div class="card" style="border-left:6px solid var(--warm)">
+    <h3>🔍 小細節：有兩種情況，舊制給付比較高</h3>
+    <div class="scrollx"><table class="t" style="margin:6px 0">
+      <tr><th>失能情況</th><th>舊制</th><th>新制</th></tr>
+      <tr><td>一目失明 ＋ 一手腕關節或一足踝關節缺失<div class="note">新制為 2-1-6（40%）＋ 8-1-3 或 9-1-3（50%）合計</div></td><td><b>100%</b></td><td>90%</td></tr>
+      <tr><td>一上肢或下肢三大關節中，一關節之機能永久完全喪失<div class="note">新制為 8-3-6 或 9-4-6（第 8 級）</div></td><td><b>35%</b></td><td>30%</td></tr>
+    </table></div>
+    <p style="margin:6px 0 0">所以不能一概而論「新的一定比較好」，要看實際的失能情況與適用的版本。</p>
+  </div>
+
+  <div class="card">
+    <h3>📄 舊保單適用哪一版？先看自己的條款</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li>金管會 95 年函示：<b>保險期間超過一年</b>的長年期保單，已簽訂的有效契約基於對價平衡，<b>仍依原契約條款（舊表）辦理</b>；<b>一年期以下</b>的有效契約，自實施日後發生的事故即適用新表。</li>
+      <li>109 年改為 80 項時，金管會則要求長年期及一年期保證續保商品的有效契約，對 109/1/1 之後發生的事故採<b>「從新從優」</b>。</li>
+      <li>因為各次修正的適用規則不同，<b>舊的長年期保單可能仍依原契約所附的失能表</b>。建議把保單條款後面的附表拿出來核對，實際以各保單條款及保險公司審核為準。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>另一個常見落差：只保「1～6 級」</h3>
+    <p style="margin:0 0 8px">現在有些失能相關保障（例如常見的失能扶助型給付）只針對新制 11 級 80 項中的 <b>第 1～6 級</b>（共 37 項）。如果只有這類保障，<b>第 7～11 級的 43 項較輕度失能</b>就不在給付範圍。以下這些生活中較可能發生的傷害，需要涵蓋 1～11 級的保障才會給付：</p>
+    <div class="items" id="minorList"></div>
+    <p class="note" style="margin-top:8px">意外險的失能保險金通常涵蓋 1～11 級；其他險種涵蓋範圍<b>實際以各商品條款為準</b>。</p>
+  </div>
+</section>
+
+<!-- ===== 6 缺口試算 ===== -->
+<section id="s6">
+  <h2><span class="no">6</span>意外保障檢視試算</h2>
+  <p class="lead">若意外導致無法工作，家裡需要多少準備？填入概略數字，看看目前的保障能照顧多少。所有數字只在這個畫面計算，<b>不會儲存或上傳</b>。</p>
+  <div class="card">
+    <div class="grid2">
+      <div><label class="f" for="gInc">目前年收入</label><div class="unit"><input type="number" id="gInc" inputmode="decimal" min="0" placeholder="例如 80"><span>萬元</span></div></div>
+      <div><label class="f" for="gYrs">若失能，希望收入能支應幾年</label><div class="unit"><input type="number" id="gYrs" inputmode="decimal" min="0" placeholder="例如 10"><span>年</span></div></div>
+      <div><label class="f" for="gCare">每月額外照護／復健費用</label><div class="unit"><input type="number" id="gCare" inputmode="decimal" min="0" placeholder="例如 3"><span>萬元</span></div></div>
+      <div><label class="f" for="gDebt">房貸等負債</label><div class="unit"><input type="number" id="gDebt" inputmode="decimal" min="0" placeholder="例如 500"><span>萬元</span></div></div>
+      <div><label class="f" for="gMed">預估一次性醫療自付（手術、自費材料）</label><div class="unit"><input type="number" id="gMed" inputmode="decimal" min="0" placeholder="例如 30"><span>萬元</span></div></div>
+      <div><label class="f" for="gSave">可動用的存款／其他準備</label><div class="unit"><input type="number" id="gSave" inputmode="decimal" min="0" placeholder="例如 100"><span>萬元</span></div></div>
+      <div><label class="f" for="gHave">現有意外失能保額（含團保）</label><div class="unit"><input type="number" id="gHave" inputmode="decimal" min="0" placeholder="例如 300"><span>萬元</span></div></div>
+      <div><label class="f" for="gMedHave">現有傷害醫療實支實付限額</label><div class="unit"><input type="number" id="gMedHave" inputmode="decimal" min="0" placeholder="例如 5"><span>萬元</span></div></div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn ghost" type="button" id="gDemo">帶入範例</button>
+      <button class="btn ghost" type="button" id="gReset">清除重來</button>
+    </div>
+    <div class="gap-out" id="gOut">
+      <div><small>收入中斷需求</small><b id="oInc">—</b></div>
+      <div><small>照護／復健需求</small><b id="oCare">—</b></div>
+      <div><small>負債＋醫療自付</small><b id="oOther">—</b></div>
+      <div><small>現有準備（存款＋保障）</small><b id="oHave">—</b></div>
+      <div class="full"><small>以最嚴重情況（第 1 級失能）估算的可能缺口</small><b id="oGap">—</b>
+        <div class="hbar" aria-hidden="true"><i id="oBar" style="width:0"></i></div>
+        <small id="oPct" style="margin-top:4px"></small>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>同一份保額，不同等級可以領多少？</h3>
+    <p class="note" style="margin:0 0 8px">依上方「現有意外失能保額」計算：</p>
+    <div class="scrollx"><table class="t" id="gLvTable"></table></div>
+    <p class="note" style="margin-top:8px">試算為簡化估計，未考慮通膨、勞保或其他社會保險給付，僅供討論參考。</p>
+  </div>
+</section>
+
+<!-- ===== 7 結尾 ===== -->
+<section id="s7">
+  <h2><span class="no">7</span>看完，可以想想三件事</h2>
+  <ol class="three">
+    <li><b>如果明天發生意外，家裡的生活費誰來支撐？</b><br><span class="note">想想收入中斷時，固定支出能撐多久。</span></li>
+    <li><b>我現在的保障，涵蓋 1～11 級失能，還是只有嚴重失能？</b><br><span class="note">輕度失能（例如手指、腳趾）發生機率較高，也會影響工作。</span></li>
+    <li><b>我的職業類別、醫療保障，跟現在的生活還一致嗎？</b><br><span class="note">換工作、買房、有了孩子，都是重新檢視的好時機。</span></li>
+  </ol>
+
+  <div class="card" style="margin-top:14px;background:var(--softw);border-color:#f0dcc6">
+    <p style="margin:0">保險不是越多越好，而是<b>剛好接得住你在意的風險</b>。如果你願意，我可以陪你把手上的保單拿出來，一項一項對照今天看到的內容，整理成一張清楚的保障表。不急，也沒有壓力，有需要的時候再找我就好。</p>
+  </div>
+
+  <div class="contact" id="contact">
+    <div class="view">
+      <div style="font-size:13px;opacity:.85" id="cvCo">富邦人壽　業務員</div>
+      <div class="name" id="cvName">梁仕翰</div>
+      <div class="row"><span aria-hidden="true">💬</span><span>LINE：<span id="cvLine">（請點「編輯聯絡資訊」填寫）</span></span></div>
+      <div class="row"><span aria-hidden="true">📞</span><span>電話：<a id="cvTel" href="#">（請點「編輯聯絡資訊」填寫）</a></span></div>
+    </div>
+    <div class="edit">
+      <label class="f" for="ceCo">公司／職稱</label><input type="text" id="ceCo">
+      <label class="f" for="ceName">業務員姓名</label><input type="text" id="ceName">
+      <label class="f" for="ceLine">LINE ID</label><input type="text" id="ceLine" autocapitalize="off">
+      <label class="f" for="ceTel">電話</label><input type="tel" id="ceTel" inputmode="tel">
+      <p style="font-size:12px;opacity:.85;margin:8px 0 0">資料只儲存在這支裝置的瀏覽器（localStorage），不會上傳。</p>
+    </div>
+    <div class="btns">
+      <button class="btn" type="button" id="cEdit">編輯聯絡資訊</button>
+      <button class="btn ghost" type="button" id="cCancel" hidden>取消</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="disc"><b>聲明：</b>本頁為一般說明，實際理賠以保單條款及保險公司審核為準。頁面中的範例金額皆為假設，用於說明計算方式；標示「依商品而定」之項目，實際以各商品條款為準。</div>
+  <div><b>資料來源</b></div>
+  <ol>
+    <li>中華民國人壽保險商業同業公會，〈傷害保險單示範條款〉（113/06/28 修正）：意外傷害事故定義（第 2 條）、身故（第 5 條）、失能給付規則（第 6 條）、除外責任（第 8 條）、不保事項（第 9 條）、職業變更通知（第 13 條）、時效（第 20 條）。<a href="https://law.lia-roc.org.tw/Law/Content?lsid=FL006854">https://law.lia-roc.org.tw/Law/Content?lsid=FL006854</a></li>
+    <li>同上附表〈失能程度與保險金給付表〉（11 級 80 項）PDF：<a href="https://law.lia-roc.org.tw/Law/GetFile/0000273428">https://law.lia-roc.org.tw/Law/GetFile/0000273428</a></li>
+    <li>金融監督管理委員會，金管保壽字第 10804920500 號函（108/06/21）：新增 4-1-2 項，109/1/1 起實施及從新從優適用原則。<a href="https://law.fsc.gov.tw/LawContent.aspx?id=GL002746">https://law.fsc.gov.tw/LawContent.aspx?id=GL002746</a></li>
+    <li>保誠人壽，傷害保險示範條款修正說明：<a href="https://www.pcalife.com.tw/zh/legal-policy/law-advocacy/injury-Insurancemodel-revise/">https://www.pcalife.com.tw/zh/legal-policy/law-advocacy/injury-Insurancemodel-revise/</a>；旺旺友聯產險公告（11 級 79 項修正為 11 級 80 項）：<a href="https://www.wwunion.com/?p=11149">https://www.wwunion.com/?p=11149</a></li>
+    <li>11 級 75 項 → 11 級 79 項（104/8/4 起，金管保壽字第 10402543750 號）：<a href="https://www.rmim.com.tw/news-detail.php?id=7884">https://www.rmim.com.tw/news-detail.php?id=7884</a>；國泰人壽說明 PDF：<a href="https://www.cathaylife.com.tw/cathaylife/-/media/231e55d1e0174de1bf19e4370872b4ba.pdf">https://www.cathaylife.com.tw/cathaylife/-/media/231e55d1e0174de1bf19e4370872b4ba.pdf</a></li>
+    <li>95/10/1 改制（舊制 6 級 28 項 → 11 級 75 項）及新舊表適用原則：金管會金管保二字第 09502069411 號函（95/08/10）<a href="https://law.fsc.gov.tw/LawContent.aspx?id=FE060867">https://law.fsc.gov.tw/LawContent.aspx?id=FE060867</a></li>
+    <li>舊制 6 級 28 項、新舊制差異與兩項「舊制較高」之小細節：淺談保險觀念（大仁）〈失能等級表：新制（11 級 80 項）跟舊制（6 級 28 項）的差別〉<a href="https://letf.com.tw/%E3%80%90%E5%A4%B1%E8%83%BD%E7%AD%89%E7%B4%9A%E8%A1%A8%EF%BC%9A%E6%96%B0%E5%88%B6%EF%BC%8811-%E7%B4%9A-80-%E9%A0%85%EF%BC%89%E8%B7%9F%E8%88%8A%E5%88%B6%EF%BC%886-%E7%B4%9A-28-%E9%A0%85%EF%BC%89/">letf.com.tw</a>；鄭正一〈傷害保險示範條款失能等級表的演變及從新從優原則〉<a href="http://www.bestmethod.com.tw/search/label/6%E7%B4%9A28%E9%A0%85">bestmethod.com.tw</a></li>
+    <li>傷害醫療保險給付附加條款示範條款（實支實付型、日額型、骨折未住院日數表）：<a href="https://www.nlia.org.tw/wp-content/uploads/doc/chiuhui/%E5%82%B7%E5%AE%B3%E4%BF%9D%E9%9A%AA%E5%96%AE%E7%A4%BA%E7%AF%84%E6%A2%9D%E6%AC%BE1090708.pdf">產險公會 傷害保險單示範條款 PDF</a>；壽險公會附件：<a href="https://law.lia-roc.org.tw/Law/GetFile/0000372774">https://law.lia-roc.org.tw/Law/GetFile/0000372774</a></li>
+    <li>重大燒燙傷定義舉例：國泰人壽新意外傷害重大燒燙傷保險金附加條款：<a href="https://www.cathaylife.com.tw/official/content/dam/cathaylife-official/files/laws-policies/public-info/insurance/accessory-contract/OI5.pdf">OI5.pdf</a></li>
+    <li>失能扶助型保障常限 1～6 級之舉例：安達人壽一年期一至六級意外傷害失能扶助保險金附約條款：<a href="https://life.chubb.com/content/dam/chubb-sites/life-chubb-com/tw-zh/documents/dir-code.pdf">dir-code.pdf</a></li>
+    <li>職業等級：公司職業分類表（行政資源／新契約規定／職業分類表，啟用日期 105.01.01，含附表一、附表二）。分類表可能更新，請以最新公司投保規定為準。參考：壽險公會「臺灣地區傷害保險個人職業分類表」。</li>
+  </ol>
+  <p>頁面為離線單檔，不連線、不追蹤；僅聯絡資訊會存在本機。</p>
+</footer>
+
+<button class="toTop" id="toTop" type="button" aria-label="回到頂端">↑</button>
+
+<script>
+const DIS = [["1-1-1","神經","神經障害","中樞神經系統機能遺存極度障害，包括植物人狀態或氣切呼吸器輔助，終身無工作能力，為維持生命必要之日常生活活動，全須他人扶助，經常需醫療護理或專人周密照護者。",1],["1-1-2","神經","神經障害","中樞神經系統機能遺存高度障害，須長期臥床或無法自行翻身，終身無工作能力，為維持生命必要之日常生活活動之一部分須他人扶助者。",2],["1-1-3","神經","神經障害","中樞神經系統機能遺存顯著障害，終身無工作能力，為維持生命必要之日常生活活動尚可自理者。",3],["1-1-4","神經","神經障害","中樞神經系統機能遺存障害，由醫學上可證明局部遺存頑固神經症狀，且勞動能力較一般顯明低下者。",7],["1-1-5","神經","神經障害","中樞神經系統機能遺存障害，由醫學上可證明局部遺存頑固神經症狀，但通常無礙勞動。",11],["2-1-1","眼","視力障害","雙目均失明者。",1],["2-1-2","眼","視力障害","雙目視力減退至0.06以下者。",5],["2-1-3","眼","視力障害","雙目視力減退至0.1以下者。",7],["2-1-4","眼","視力障害","一目失明，他目視力減退至0.06以下者。",4],["2-1-5","眼","視力障害","一目失明，他目視力減退至0.1以下者。",6],["2-1-6","眼","視力障害","一目失明者。",7],["3-1-1","耳","聽覺障害","兩耳鼓膜全部缺損或兩耳聽覺機能均喪失90分貝以上者。",5],["3-1-2","耳","聽覺障害","兩耳聽覺機能均喪失70分貝以上者。",7],["4-1-1","鼻","缺損及機能障害","鼻部缺損，致其機能永久遺存顯著障害者。",9],["4-1-2","鼻","缺損及機能障害","鼻未缺損，而鼻機能永久遺存顯著障害者。",11],["5-1-1","口","咀嚼吞嚥及言語機能障害","永久喪失咀嚼、吞嚥或言語之機能者。",1],["5-1-2","口","咀嚼吞嚥及言語機能障害","咀嚼、吞嚥及言語之機能永久遺存顯著障害者。",5],["5-1-3","口","咀嚼吞嚥及言語機能障害","咀嚼、吞嚥或言語構音之機能永久遺存顯著障害者。",7],["6-1-1","胸腹部臟器","胸腹部臟器機能障害","胸腹部臟器機能遺存極度障害，終身不能從事任何工作，經常需要醫療護理或專人周密照護者。",1],["6-1-2","胸腹部臟器","胸腹部臟器機能障害","胸腹部臟器機能遺存高度障害，終身不能從事任何工作，且日常生活需人扶助。",2],["6-1-3","胸腹部臟器","胸腹部臟器機能障害","胸腹部臟器機能遺存顯著障害，終身不能從事任何工作，但日常生活尚可自理者。",3],["6-1-4","胸腹部臟器","胸腹部臟器機能障害","胸腹部臟器機能遺存顯著障害，終身祇能從事輕便工作者。",7],["6-2-1","胸腹部臟器","臟器切除","任一主要臟器切除二分之一以上者。",9],["6-2-2","胸腹部臟器","臟器切除","脾臟切除者。",11],["6-3-1","胸腹部臟器","膀胱機能障害","膀胱機能完全喪失且無裝置人工膀胱者。",3],["7-1-1","軀幹","脊柱運動障害","脊柱永久遺存顯著運動障害者。",7],["7-1-2","軀幹","脊柱運動障害","脊柱永久遺存運動障害者。",9],["8-1-1","上肢","上肢缺損障害","兩上肢腕關節缺失者。",1],["8-1-2","上肢","上肢缺損障害","一上肢肩、肘及腕關節中，有二大關節以上缺失者。",5],["8-1-3","上肢","上肢缺損障害","一上肢腕關節缺失者。",6],["8-2-1","上肢","手指缺損障害","雙手十指均缺失者。",3],["8-2-2","上肢","手指缺損障害","雙手兩拇指均缺失者。",7],["8-2-3","上肢","手指缺損障害","一手五指均缺失者。",7],["8-2-4","上肢","手指缺損障害","一手包含拇指及食指在內，共有四指缺失者。",7],["8-2-5","上肢","手指缺損障害","一手拇指及食指缺失者。",8],["8-2-6","上肢","手指缺損障害","一手包含拇指或食指在內，共有三指以上缺失者。",8],["8-2-7","上肢","手指缺損障害","一手包含拇指在內，共有二指缺失者。",9],["8-2-8","上肢","手指缺損障害","一手拇指缺失或一手食指缺失者。",11],["8-2-9","上肢","手指缺損障害","一手拇指及食指以外之任何手指，共有二指以上缺失者。",11],["8-3-1","上肢","上肢機能障害","兩上肢肩、肘及腕關節均永久喪失機能者。",2],["8-3-2","上肢","上肢機能障害","兩上肢肩、肘及腕關節中，各有二大關節永久喪失機能者。",3],["8-3-3","上肢","上肢機能障害","兩上肢肩、肘及腕關節中，各有一大關節永久喪失機能者。",6],["8-3-4","上肢","上肢機能障害","一上肢肩、肘及腕關節均永久喪失機能者。",6],["8-3-5","上肢","上肢機能障害","一上肢肩、肘及腕關節中，有二大關節永久喪失機能者。",7],["8-3-6","上肢","上肢機能障害","一上肢肩、肘及腕關節中，有一大關節永久喪失機能者。",8],["8-3-7","上肢","上肢機能障害","兩上肢肩、肘及腕關節均永久遺存顯著運動障害者。",4],["8-3-8","上肢","上肢機能障害","兩上肢肩、肘及腕關節中，各有二大關節永久遺存顯著運動障害者。",5],["8-3-9","上肢","上肢機能障害","兩上肢肩、肘及腕關節中，各有一大關節永久遺存顯著運動障害者。",7],["8-3-10","上肢","上肢機能障害","一上肢肩、肘及腕關節均永久遺存顯著運動障害者。",7],["8-3-11","上肢","上肢機能障害","一上肢肩、肘及腕關節中，有二大關節永久遺存顯著運動障害者。",8],["8-3-12","上肢","上肢機能障害","兩上肢肩、肘及腕關節均永久遺存運動障害者。",6],["8-3-13","上肢","上肢機能障害","一上肢肩、肘及腕關節均永久遺存運動障害者。",9],["8-4-1","上肢","手指機能障害","雙手十指均永久喪失機能者。",5],["8-4-2","上肢","手指機能障害","雙手兩拇指均永久喪失機能者。",8],["8-4-3","上肢","手指機能障害","一手五指均永久喪失機能者。",8],["8-4-4","上肢","手指機能障害","一手包含拇指及食指在內，共有四指永久喪失機能者。",8],["8-4-5","上肢","手指機能障害","一手拇指及食指永久喪失機能者。",11],["8-4-6","上肢","手指機能障害","一手含拇指及食指有三手指以上之機能永久完全喪失者。",9],["8-4-7","上肢","手指機能障害","一手拇指或食指及其他任何手指，共有三指以上永久喪失機能者。",10],["9-1-1","下肢","下肢缺損障害","兩下肢足踝關節缺失者。",1],["9-1-2","下肢","下肢缺損障害","一下肢髖、膝及足踝關節中，有二大關節以上缺失者。",5],["9-1-3","下肢","下肢缺損障害","一下肢足踝關節缺失者。",6],["9-2-1","下肢","縮短障害","一下肢永久縮短五公分以上者。",7],["9-3-1","下肢","足趾缺損障害","雙足十趾均缺失者。",5],["9-3-2","下肢","足趾缺損障害","一足五趾均缺失者。",7],["9-4-1","下肢","下肢機能障害","兩下肢髖、膝及足踝關節均永久喪失機能者。",2],["9-4-2","下肢","下肢機能障害","兩下肢髖、膝及足踝關節中，各有二大關節永久喪失機能者。",3],["9-4-3","下肢","下肢機能障害","兩下肢髖、膝及足踝關節中，各有一大關節永久喪失機能者。",6],["9-4-4","下肢","下肢機能障害","一下肢髖、膝及足踝關節均永久喪失機能者。",6],["9-4-5","下肢","下肢機能障害","一下肢髖、膝及足踝關節中，有二大關節永久喪失機能者。",7],["9-4-6","下肢","下肢機能障害","一下肢髖、膝及足踝關節中，有一大關節永久喪失機能者。",8],["9-4-7","下肢","下肢機能障害","兩下肢髖、膝及足踝關節均永久遺存顯著運動障害者。",4],["9-4-8","下肢","下肢機能障害","兩下肢髖、膝及足踝關節中，各有二大關節永久遺存顯著運動障害者。",5],["9-4-9","下肢","下肢機能障害","兩下肢髖、膝及足踝關節中，各有一大關節永久遺存顯著運動障害者。",7],["9-4-10","下肢","下肢機能障害","一下肢髖、膝及足踝關節均遺存永久顯著運動障害者。",7],["9-4-11","下肢","下肢機能障害","一下肢髖、膝及足踝關節中，有二大關節永久遺存顯著運動障害者。",8],["9-4-12","下肢","下肢機能障害","兩下肢髖、膝及足踝關節均永久遺存運動障害者。",6],["9-4-13","下肢","下肢機能障害","一下肢髖、膝及足踝關節均永久遺存運動障害者。",9],["9-5-1","下肢","足趾機能障害","雙足十趾均永久喪失機能者。",7],["9-5-2","下肢","足趾機能障害","一足五趾均永久喪失機能者。",9]];
+const OCC = [["00010010","一般職業","機關團體公司行號","","內勤人員","1","",0],["00010020","一般職業","機關團體公司行號","","外勤人員","2","",0],["01010010","農牧業","農業","","農場經營者（不親自作業）","1","",0],["01010020","農牧業","農業","","農夫","2","",0],["01010030","農牧業","農業","","長短工","3","",0],["01010040","農牧業","農業","","果農","3","",0],["01010050","農牧業","農業","","苗圃栽培人員","2","",0],["01010060","農牧業","農業","","花圃栽培人員","2","",0],["01010070","農牧業","農業","","飼養家禽家畜人員","2","",0],["01010080","農牧業","農業","","農業技師、指導員","2","",0],["01010090","農牧業","農業","","農業機械之操作或修護人員","3","",0],["01010100","農牧業","農業","","農具商","2","",0],["01010110","農牧業","農業","","農產品加工業實驗人員","1","",0],["01010111","農牧業","農業","","農產品加工業品管人員","2","",0],["01010120","農牧業","農業","","茶農","2","",0],["01010130","農牧業","農業","","檳榔種植、採檳榔","3","",0],["01010140","農牧業","農業","","農會指導員、推廣員","2","",0],["01010150","農牧業","農業","","養鴿、放鴿人員","2","",0],["01010160","農牧業","農業","","農產品加工業領班、工人","2","",0],["01010170","農牧業","農業","","昆蟲（蜜蜂）飼養人員","2","",0],["01010180","農牧業","農業","","病蟲害防治人員","2","",0],["01020010","農牧業","牧業","","畜牧場經營者（不親自作業）","1","",0],["01020020","農牧業","牧業","","畜牧工作人員","3","",0],["01020040","農牧業","牧業","","獸醫（畜牧業、農業）","3","",0],["01020050","農牧業","牧業","","訓犬人員","4","",0],["01020060","農牧業","牧業","","動物養殖人員","4","馬、鹿、鷹、犬、蛇、鱷魚等之養殖。",0],["01020080","農牧業","牧業","","屠宰場工人","3","【電宰】、【屠宰】適用此工作性質。",0],["01990010","農牧業","其他","","採椰子工","5","",0],["02010010","漁業","內陸漁業","","漁塭經營者（不親自作業）","1","",0],["02010011","漁業","內陸漁業","","漁塭經營者（親自作業）","3","",0],["02010020","漁業","內陸漁業","","養殖工人（內陸）","3","",0],["02010021","漁業","內陸漁業","","養殖工人（沿海）","4","",0],["02010030","漁業","內陸漁業","","水族館經營者","2","",0],["02010040","漁業","內陸漁業","","捕魚人（內陸）","3","",0],["02010041","漁業","內陸漁業","","捕魚人（沿海）","4","",0],["02010050","漁業","內陸漁業","","水產實驗人員（室內）","1","",0],["02010051","漁業","內陸漁業","","水產實驗人員（室外）","3","",0],["02010060","漁業","內陸漁業","","海邊撈魚苗者","3","",0],["02010070","漁業","內陸漁業","","漁產加工業實驗人員","1","",0],["02010071","漁業","內陸漁業","","漁產加工業品管員","2","",0],["02010080","漁業","內陸漁業","","釣魚、釣蝦場經營者、工作人員","2","",0],["02010090","漁業","內陸漁業","","漁產加工業領班、一般工人","2","",0],["02020010","漁業","海上漁業","","遠洋漁船船員","D","壽險限額200萬。",0],["02020020","漁業","海上漁業","","近海漁船船員","D","壽險限額200萬。",0],["02020030","漁業","海上漁業","","海釣船人員","4","壽險限額500萬。",0],["03010010","木材森林業","森林砍伐業","","領班","5","",0],["03010020","木材森林業","森林砍伐業","","監工","5","",0],["03010030","木材森林業","森林砍伐業","","伐木工人","6","",0],["03010040","木材森林業","森林砍伐業","","鋸木工人","6","",0],["03010050","木材森林業","森林砍伐業","","運材車輛之司機及押運人員","6","",0],["03010060","木材森林業","森林砍伐業","","起重機之操作人員","6","壽險限額300萬。",0],["03010070","木材森林業","森林砍伐業","","裝運工人","6","【掛鉤人】適用此工作性質及壽險限額。裝運工人、掛鉤人壽險限額300萬。",0],["03020010","木材森林業","木材加工業","","木材工廠現場之職員","2","",0],["03020020","木材森林業","木材加工業","","領班","3","",0],["03020030","木材森林業","木材加工業","","分級員","3","",0],["03020040","木材森林業","木材加工業","","檢查員","3","",0],["03020050","木材森林業","木材加工業","","標記員","3","",0],["03020060","木材森林業","木材加工業","","磅秤員","3","",0],["03020070","木材森林業","木材加工業","","鋸木工人","5","",0],["03020080","木材森林業","木材加工業","","防腐劑工人","4","",0],["03020090","木材森林業","木材加工業","","木材儲藏槽工人","4","",0],["03020100","木材森林業","木材加工業","","木材搬運工人","5","",0],["03020110","木材森林業","木材加工業","","吊車操作人員","3","",0],["03020120","木材森林業","木材加工業","","合板製造工人","4","",0],["03020130","木材森林業","木材加工業","","木材工廠負責人","2","",0],["03020140","木材森林業","木材加工業","","木材工廠品管員","3","【合版製作品管員】適用此工作性質。",0],["03030010","木材森林業","造林業","","領班","3","",0],["03030020","木材森林業","造林業","","山地造林工人","4","",0],["03030030","木材森林業","造林業","","山林管理人員","4","【樹苗區除草工】適用此工作性質。",0],["03030040","木材森林業","造林業","","森林防火人員","6","",0],["03030050","木材森林業","造林業","","平地育苗工人","2","",0],["03030060","木材森林業","造林業","","實驗室育苗栽培人員","1","",0],["03030070","木材森林業","造林業","","救難人員","6","山區、平地救難人員。",0],["03030080","木材森林業","造林業","","導覽解說員","2","",0],["04010010","礦業採石業","坑道內作業","","礦工","D","壽險限額200萬。",0],["04020010","礦業採石業","坑外作業","","經營者（不到現場者）","1","",0],["04020020","礦業採石業","坑外作業","","經營者（到現場者）、現場監督人員","2","",0],["04020030","礦業採石業","坑外作業","","經理人員、行政人員","2","",0],["04020040","礦業採石業","坑外作業","","礦業工程師、技師、領班","4","",0],["04020050","礦業採石業","坑外作業","","工人","5","",0],["04020060","礦業採石業","坑外作業","","工礦安全人員","4","",0],["04030010","礦業採石業","海上作業","","所有作業人員（不含潛水人員）","6","海上作業人員（不含潛水人員）壽險限額500萬。",0],["04040010","礦業採石業","採砂石業","","採石業工人（河床）","4","",0],["04040011","礦業採石業","採砂石業","","採石業工人（山地）","6","",0],["04040020","礦業採石業","採砂石業","","採砂業工人","4","",0],["04040030","礦業採石業","採砂石業","","砂石場負責人","2","",0],["04040040","礦業採石業","採砂石業","","採石爆破人員","D","採石爆破人員壽險、傷害險均不承保。",0],["04040050","礦業採石業","採砂石業","","石材切割工人（大理石、花崗石）","4","【石棉瓦工人】適用此工作性質。",0],["04040060","礦業採石業","採砂石業","","石材磨光工人（大理石、花崗石）","4","",0],["04040070","礦業採石業","採砂石業","","採石輸送帶機器操作人員","4","",0],["04050010","礦業採石業","陸上油礦開採業","","行政人員","2","",0],["04050020","礦業採石業","陸上油礦開採業","","工程師、領班（不參與現場工作者）","3","",0],["04050030","礦業採石業","陸上油礦開採業","","技術員","5","",0],["04050040","礦業採石業","陸上油礦開採業","","油氣井清潔保養修護工","5","",0],["04050050","礦業採石業","陸上油礦開採業","","鑽勘設備安裝換修保養工","5","",0],["04050060","礦業採石業","陸上油礦開採業","","鑽油井工人","5","",0],["04050070","礦業採石業","陸上油礦開採業","","儲油槽清潔工","5","【儲氣槽清潔工】、【油船清理工】、【瓦斯儲氣槽、分裝廠之工作人員】適用此工作性質。",0],["04060010","礦業採石業","海上油礦開採業","","工程師","4","壽險限額500萬。",0],["04060020","礦業採石業","海上油礦開採業","","技術員","6","壽險限額500萬。",0],["04060030","礦業採石業","海上油礦開採業","","油氣井清潔保養修護工","6","壽險限額500萬。",0],["04060040","礦業採石業","海上油礦開採業","","鑽勘設備安裝換修保養工","6","壽險限額500萬。",0],["04060050","礦業採石業","海上油礦開採業","","鑽油井工人","6","壽險限額500萬。",0],["04990010","礦業採石業","其他","","海上作業潛水人員","D","海上作業潛水人員壽險、傷害險均不承保。",0],["05010010","交通運輸業","陸運","","計程車行、貨運行之負責人（不參與駕駛者）","1","【快遞郵務公司負責人】、【租車公司負責人】適用此工作性質。",0],["05010020","交通運輸業","陸運","","外務員","2","",0],["05010030","交通運輸業","陸運","","內勤工作人員","1","【租車公司內勤人員】適用此工作性質。",0],["05010040","交通運輸業","陸運","","自用小客車司機","2","",0],["05010050","交通運輸業","陸運","","自用大客車司機","2","",0],["05010060","交通運輸業","陸運","","計程車司機","4","",0],["05010070","交通運輸業","陸運","","遊覽車司機及服務員","3","",0],["05010080","交通運輸業","陸運","","客運車司機及服務員","3","【公車司機及服務員】適用此工作性質。",0],["05010090","交通運輸業","陸運","","小型客貨兩用車司機","3","【租車公司外務、司機】適用此工作性質。",0],["05010100","交通運輸業","陸運","","自用貨車司機、隨車工人、小型自用貨車司機","4","【餐具桌椅出租運送】適用此工作性質。",0],["05010110","交通運輸業","陸運","","人力三輪車伕","3","",0],["05010120","交通運輸業","陸運","","鐵牛車駕駛人員","5","",0],["05010130","交通運輸業","陸運","","機動三輪車伕","5","",0],["05010140","交通運輸業","陸運","","櫃臺售票員","1","",0],["05010150","交通運輸業","陸運","","客運車稽核人員","2","",0],["05010160","交通運輸業","陸運","","營業用貨車司機","6","",0],["05010170","交通運輸業","陸運","","營業用貨車隨車工人","6","",0],["05010180","交通運輸業","陸運","","搬運、搬家司機、隨車工人","4","",0],["05010190","交通運輸業","陸運","","砂石車司機、隨車工人","6","",0],["05010200","交通運輸業","陸運","","工程卡車司機、隨車工人","5","",0],["05010210","交通運輸業","陸運","","液化、氣化、油罐車司機、隨車工人","6","",0],["05010220","交通運輸業","陸運","","貨櫃車司機、隨車工人","4","",0],["05010230","交通運輸業","陸運","","纜車操縱員","3","",0],["05010240","交通運輸業","陸運","","垃圾車（司機及隨車人員）","3","",0],["05010250","交通運輸業","陸運","","靈車司機","3","【靈車隨車人員】、【靈柩搬運人員、駕駛】適用此工作性質。",0],["05010260","交通運輸業","陸運","","快遞司機（貨車）","4","【快遞外務、郵務司機、郵務外務（貨車）】適用此工作性質。",0],["05010261","交通運輸業","陸運","","快遞送貨（機車）","3","【快遞外務、郵務司機、郵務外務（機車）】適用此工作性質。",0],["05010270","交通運輸業","陸運","","拖吊車司機、隨車人員（一般道路）","3","",0],["05010271","交通運輸業","陸運","","拖吊車司機、隨車人員（高速公路）","4","",0],["05010280","交通運輸業","陸運","","堆高機駕駛（非航運）","3","",0],["05010290","交通運輸業","陸運","","貨櫃場管理員","3","",0],["05010300","交通運輸業","陸運","","娃娃車司機","2","",0],["05010310","交通運輸業","陸運","","救護車司機","4","【救護車隨車人員】適用此項作性質。",0],["05010320","交通運輸業","陸運","","消防車司機","4","",0],["05010330","交通運輸業","陸運","","貨櫃場吊車駕駛","4","",0],["05010340","交通運輸業","陸運","","拖板車司機、隨車人員","4","",0],["05010350","交通運輸業","陸運","","混凝土預拌車司機、隨車工人","5","",0],["05010360","交通運輸業","陸運","","拼裝車司機","5","",0],["05010370","交通運輸業","陸運","","聯結車司機、隨車工人","4","",0],["05010380","交通運輸業","陸運","","吊車司機、隨車工人","5","",0],["05010390","交通運輸業","陸運","","曳引車司機、隨車工人","4","",0],["05010400","交通運輸業","陸運","","教練車教練","3","【汽車駕駛訓練班教練】適用此工作性質。",0],["05010410","交通運輸業","陸運","","送外賣機車駕駛","3","",0],["05010430","交通運輸業","陸運","","環保資源回收車司機、隨車人員","3","",0],["05010440","交通運輸業","陸運","","道路工程車司機、機械操作員","4","",0],["05010450","交通運輸業","陸運","","挖土機（怪手）操作員","5","",0],["05010460","交通運輸業","陸運","","鏟土機駕駛","4","",0],["05020010","交通運輸業","鐵路、捷運、高鐵","","站長","1","",0],["05020020","交通運輸業","鐵路、捷運、高鐵","","票房工作人員","1","",0],["05020030","交通運輸業","鐵路、捷運、高鐵","","播音員","1","",0],["05020040","交通運輸業","鐵路、捷運、高鐵","","一般內勤人員","1","",0],["05020050","交通運輸業","鐵路、捷運、高鐵","","車站剪票員","1","",0],["05020060","交通運輸業","鐵路、捷運、高鐵","","服務臺人員","1","【捷運局站務人員】適用此工作性質。",0],["05020070","交通運輸業","鐵路、捷運、高鐵","","月臺工作人員","2","",0],["05020080","交通運輸業","鐵路、捷運、高鐵","","行李搬運工人","2","",0],["05020090","交通運輸業","鐵路、捷運、高鐵","","車站清潔人員","2","",0],["05020100","交通運輸業","鐵路、捷運、高鐵","","隨車人員（技術人員除外）","2","",0],["05020110","交通運輸業","鐵路、捷運、高鐵","","駕駛員","3","【捷運司機】適用此工作性質。",0],["05020120","交通運輸業","鐵路、捷運、高鐵","","燃料填充員","3","",0],["05020130","交通運輸業","鐵路、捷運、高鐵","","機工","4","",0],["05020140","交通運輸業","鐵路、捷運、高鐵","","電工","4","",0],["05020150","交通運輸業","鐵路、捷運、高鐵","","修護廠廠長","1","",0],["05020160","交通運輸業","鐵路、捷運、高鐵","","修護廠一般內勤人員","1","",0],["05020170","交通運輸業","鐵路、捷運、高鐵","","修護廠工程師","2","",0],["05020180","交通運輸業","鐵路、捷運、高鐵","","修護廠技工","3","",0],["05020190","交通運輸業","鐵路、捷運、高鐵","","修路工","4","壽險限額500萬。",0],["05020200","交通運輸業","鐵路、捷運、高鐵","","維護工","4","壽險限額500萬。",0],["05020210","交通運輸業","鐵路、捷運、高鐵","","平交道看守人員","2","",0],["05020220","交通運輸業","鐵路、捷運、高鐵","","貨運：領班","3","",0],["05020230","交通運輸業","鐵路、捷運、高鐵","","貨運：搬運工人","4","",0],["05020240","交通運輸業","鐵路、捷運、高鐵","","巡查人員","4","",0],["05030010","交通運輸業","航運","客輪、油輪、貨櫃輪","船長","4","客輪、油輪、貨櫃輪之船長。",0],["05030020","交通運輸業","航運","客輪、油輪、貨櫃輪","輪機長","4","客輪、油輪、貨櫃輪之輪機長。",0],["05030030","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","大副","4","",0],["05030040","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","二副","4","",0],["05030050","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","三副","4","",0],["05030060","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","大管輪","4","",0],["05030070","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","二管輪","4","",0],["05030080","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","三管輪","4","",0],["05030090","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","報務員","4","",0],["05030100","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","事務長","4","",0],["05030110","交通運輸業","航運","客輪、油輪、貨櫃輪 高級船員","醫務人員","4","",0],["05030120","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","水手長","6","",0],["05030130","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","水手","6","",0],["05030140","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","銅匠","6","",0],["05030150","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","木匠","6","",0],["05030160","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","泵匠","6","",0],["05030170","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","電機師","6","",0],["05030180","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","廚師","6","",0],["05030190","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","服務生","6","",0],["05030200","交通運輸業","航運","客輪、油輪、貨櫃輪 一般船員","實習生","6","",0],["05990010","交通運輸業","航運","原木輪、雜貨輪","船長","D","壽險限額200萬。",0],["05990020","交通運輸業","航運","原木輪、雜貨輪","輪機長","D","壽險限額200萬。",0],["05990030","交通運輸業","航運","原木輪、雜貨輪 高級船員","大副","D","壽險限額200萬。",0],["05990040","交通運輸業","航運","原木輪、雜貨輪 高級船員","二副","D","壽險限額200萬。",0],["05990050","交通運輸業","航運","原木輪、雜貨輪 高級船員","三副","D","壽險限額200萬。",0],["05990060","交通運輸業","航運","原木輪、雜貨輪 高級船員","大管輪","D","壽險限額200萬。",0],["05990070","交通運輸業","航運","原木輪、雜貨輪 高級船員","二管輪","D","壽險限額200萬。",0],["05990080","交通運輸業","航運","原木輪、雜貨輪 高級船員","三管輪","D","壽險限額200萬。",0],["05990090","交通運輸業","航運","原木輪、雜貨輪 高級船員","報務員","D","壽險限額200萬。",0],["05990100","交通運輸業","航運","原木輪、雜貨輪 高級船員","事務長","D","壽險限額200萬。",0],["05990110","交通運輸業","航運","原木輪、雜貨輪 高級船員","醫務人員","D","壽險限額200萬。",0],["05990120","交通運輸業","航運","原木輪、雜貨輪 一般船員","水手長","D","壽險限額200萬。",0],["05990130","交通運輸業","航運","原木輪、雜貨輪 一般船員","水手","D","壽險限額200萬。",0],["05990140","交通運輸業","航運","原木輪、雜貨輪 一般船員","銅匠","D","壽險限額200萬。",0],["05990150","交通運輸業","航運","原木輪、雜貨輪 一般船員","木匠","D","壽險限額200萬。",0],["05990160","交通運輸業","航運","原木輪、雜貨輪 一般船員","泵匠","D","壽險限額200萬。",0],["05990170","交通運輸業","航運","原木輪、雜貨輪 一般船員","電機師","D","壽險限額200萬。",0],["05990180","交通運輸業","航運","原木輪、雜貨輪 一般船員","廚師","D","壽險限額200萬。",0],["05990190","交通運輸業","航運","原木輪、雜貨輪 一般船員","服務生","D","壽險限額200萬。",0],["05990200","交通運輸業","航運","原木輪、雜貨輪 一般船員","實習生","D","壽險限額200萬。",0],["05030210","交通運輸業","航運","遊覽船及小汽艇","遊覽船之駕駛及工作人員","6","壽險限額300萬。",0],["05030220","交通運輸業","航運","遊覽船及小汽艇","小汽艇之駕駛及工作人員","6","壽險限額300萬。",0],["05030230","交通運輸業","航運","港口作業","碼頭工人及領班","4","",0],["05030240","交通運輸業","航運","港口作業","推高機操作員","4","",0],["05030250","交通運輸業","航運","港口作業","倉庫管理人","3","",0],["05030260","交通運輸業","航運","港口作業","領航員","4","",0],["05030270","交通運輸業","航運","港口作業","引水人","4","",0],["05030280","交通運輸業","航運","港口作業","關務人員","2","",0],["05030290","交通運輸業","航運","港口作業","稽查人員","3","",0],["05030300","交通運輸業","航運","港口作業","緝私人員","4","",0],["05030310","交通運輸業","航運","港口作業","拖船駕駛員及工作人員","4","",0],["05030320","交通運輸業","航運","港口作業","渡輪駕駛員及工作人員","4","",0],["05030330","交通運輸業","航運","港口作業","救難船員","6","壽險限額300萬。",0],["05030340","交通運輸業","航運","港口作業","港口疏濬","5","",0],["05030350","交通運輸業","航運","港口作業","碼頭吊車操作人員","6","",0],["05030360","交通運輸業","航運","港口作業","船艙清潔（船舶靠岸後）","4","【港檢所檢驗消毒人員】適用此工作性質。",0],["05040010","交通運輸業","空運","航空站","站長","1","",0],["05040020","交通運輸業","空運","航空站","播音員","1","",0],["05040030","交通運輸業","空運","航空站","服務臺人員","1","",0],["05040040","交通運輸業","空運","航空站","一般內勤人員","1","",0],["05040050","交通運輸業","空運","航空站","塔臺工作人員","1","",0],["05040060","交通運輸業","空運","航空站","關務人員","1","",0],["05040070","交通運輸業","空運","航空站","檢查人員","1","",0],["05040080","交通運輸業","空運","航空站","運務人員","1","",0],["05040090","交通運輸業","空運","航空站","緝私人員","2","",0],["05040100","交通運輸業","空運","航空站","站內清潔人員","2","",0],["05040110","交通運輸業","空運","航空站","機場內交通車司機、空橋車駕駛","3","",0],["05040120","交通運輸業","空運","航空站","行李貨運搬運工人","3","",0],["05040130","交通運輸業","空運","航空站","加添燃料員","4","",0],["05040140","交通運輸業","空運","航空站","飛機洗刷人員","4","",0],["05040150","交通運輸業","空運","航空站","清潔工（高牆或天花板）","4","",0],["05040160","交通運輸業","空運","航空站","跑道維護工","4","",0],["05040170","交通運輸業","空運","航空站","機械員","4","",0],["05040180","交通運輸業","空運","航空站","飛機修護人員","4","",0],["05040181","交通運輸業","空運","航空站","地面導航人員","3","",0],["05040190","交通運輸業","空運","航空公司","辦事處人員","1","",0],["05040200","交通運輸業","空運","航空公司","票務人員","1","",0],["05040210","交通運輸業","空運","航空公司","機場櫃臺人員","1","",0],["05040220","交通運輸業","空運","航空公司","清艙員","2","",0],["05040221","交通運輸業","空運","航空公司","櫃檯行李員","2","",0],["05040230","交通運輸業","空運","航空貨運","一般內勤人員","1","",0],["05040240","交通運輸業","空運","航空貨運","外務員","2","",0],["05040250","交通運輸業","空運","航空貨運","報關人員","2","",0],["05040260","交通運輸業","空運","航空貨運","理貨員","3","",0],["05040270","交通運輸業","空運","空勤人員","民航機飛行人員","6","",0],["05040280","交通運輸業","空運","空勤人員","機上服務員","6","",0],["05040290","交通運輸業","空運","空勤人員","直昇機飛行人員（含輕型航空器駕駛人員）","6","壽險限額300萬。",0],["05040291","交通運輸業","空運","空勤人員","民航機培訓人員（航空公司飛行訓練學員）","6","壽險限額300萬。",0],["05040292","交通運輸業","空運","空勤人員","民航機飛行空安官","6","壽險限額300萬。",0],["05040293","交通運輸業","空運","空勤人員","民航機試飛員","D","壽險限額100萬。",0],["06010010","餐旅業","旅遊業","","一般內勤人員","1","",0],["06010020","餐旅業","旅遊業","","外務員","2","",0],["06010030","餐旅業","旅遊業","","導遊、領隊","2","",0],["06010040","餐旅業","旅遊業","","送機人員","2","",0],["06010050","餐旅業","旅遊業","","機場接送人員、泊車人員","2","",0],["06010060","餐旅業","旅遊業","","登山嚮導","4","",0],["06010070","餐旅業","旅遊業","","國內泛舟安全人員","4","壽險限額300萬。",0],["06010080","餐旅業","旅遊業","","導覽解說員","2","",0],["06020010","餐旅業","旅館業","","負責人","1","",0],["06020020","餐旅業","旅館業","","一般內勤服務人員（辦公室職員、櫃檯、服務檯）","1","",0],["06020030","餐旅業","旅館業","","外務員","2","",0],["06020040","餐旅業","旅館業","","收帳員","2","",0],["06020050","餐旅業","旅館業","","技工（註：餐飲部工作人員比照餐飲業。）","3","",0],["06020060","餐旅業","旅館業","","搬運行李服務人員","2","",0],["06020070","餐旅業","旅館業","","客房服務人員","2","",0],["06020080","餐旅業","旅館業","","清潔工","2","",0],["06020090","餐旅業","旅館業","","洗衣人員","2","",0],["06020100","餐旅業","旅館業","","水電、機電工","4","",0],["06020110","餐旅業","旅館業","","飯店保全人員","2","",0],["06020120","餐旅業","旅館業","","泊車人員","2","",0],["06030010","餐旅業","餐飲業","","經理人員","1","",0],["06030020","餐旅業","餐飲業","","一般內勤工作人員","1","",0],["06030030","餐旅業","餐飲業","","櫃臺人員","1","",0],["06030040","餐旅業","餐飲業","","收帳員","2","",0],["06030050","餐旅業","餐飲業","","採購人員","2","",0],["06030060","餐旅業","餐飲業","","廚師","2","",0],["06030070","餐旅業","餐飲業","","服務人員","2","",0],["06030080","餐旅業","餐飲業","","洗碗工","2","",0],["06030090","餐旅業","餐飲業","","清潔工","2","",0],["06030100","餐旅業","餐飲業","","調酒師","2","",0],["06030110","餐旅業","餐飲業","","外務員","2","",0],["06030120","餐旅業","餐飲業","","早餐店工作人員","2","",0],["06030130","餐旅業","餐飲業","","自助餐工作人員","2","",0],["06030140","餐旅業","餐飲業","","領檯帶位人員","1","",0],["06030150","餐旅業","餐飲業","","速食店工作人員","2","",0],["06030160","餐旅業","餐飲業","","小吃店人員","2","",0],["06030170","餐旅業","餐飲業","","外燴辦桌人員","2","",0],["06030180","餐旅業","餐飲業","","咖啡店人員","2","",0],["06030190","餐旅業","餐飲業","","泡沫茶店人員","2","一般泡沫紅茶店之工作人員。",0],["06030200","餐旅業","餐飲業","","行動咖啡車工作人員","2","",0],["06030210","餐旅業","餐飲業","","飲食攤販","2","",0],["07010010","建築工程業","建築公司土木工程","","建築師","1","",0],["07010020","建築工程業","建築公司土木工程","","製圖員","1","",0],["07010030","建築工程業","建築公司土木工程","","內勤工作人員","1","【工地售屋人員】適用此工作性質。",0],["07010040","建築工程業","建築公司土木工程","","測量員","3","",0],["07010050","建築工程業","建築公司土木工程","","工程師","3","",0],["07010060","建築工程業","建築公司土木工程","","監工","3","",0],["07010070","建築工程業","建築公司土木工程","","業務員","2","",0],["07010080","建築工程業","建築公司土木工程","","引導參觀工地之服務人員","2","",0],["07010090","建築工程業","建築公司土木工程","","領班","3","",0],["07010100","建築工程業","建築公司土木工程","","模板工","4","",0],["07010110","建築工程業","建築公司土木工程","","木匠","3","",0],["07010120","建築工程業","建築公司土木工程","","泥水匠","4","【混凝土混合機操作員】適用此工作性質。",0],["07010140","建築工程業","建築公司土木工程","","油漆工","4","【噴漆工】適用此工作性質。",0],["07010150","建築工程業","建築公司土木工程","","水電工","4","",0],["07010170","建築工程業","建築公司土木工程","","鋼骨結構架設工人","5","壽險限額400萬。",0],["07010180","建築工程業","建築公司土木工程","","鷹架架設工人","5","壽險限額400萬。",0],["07010190","建築工程業","建築公司土木工程","","焊工","5","【西工】適用此工作性質。",0],["07010200","建築工程業","建築公司土木工程","","建築工程車輛駕駛員","5","",0],["07010210","建築工程業","建築公司土木工程","","建築工程車輛機械操作員","5","",0],["07010220","建築工程業","建築公司土木工程","","承包商（土木建築）","3","",0],["07010230","建築工程業","建築公司土木工程","","磨石工人","3","",0],["07010240","建築工程業","建築公司土木工程","","洗石工人","4","",0],["07010250","建築工程業","建築公司土木工程","","石棉瓦或浪板安裝工人","4","",0],["07010260","建築工程業","建築公司土木工程","","鋁門窗裝修人員","4","【鐵門窗裝修工人】適用此工作性質。",0],["07010270","建築工程業","建築公司土木工程","","排水工程人員","4","",0],["07010280","建築工程業","建築公司土木工程","","防水工程人員","4","",0],["07010290","建築工程業","建築公司土木工程","","防熱工程人員","4","",0],["07010300","建築工程業","建築公司土木工程","","營造廠負責人","2","",0],["07010310","建築工程業","建築公司土木工程","","挑磚工人","4","",0],["07010320","建築工程業","建築公司土木工程","","貼瓷磚（室內）","3","",0],["07010321","建築工程業","建築公司土木工程","","貼瓷磚（外牆）","5","",0],["07010330","建築工程業","建築公司土木工程","","帆布鐵架架設","4","【棚架搭建人員】適用此工作性質。",0],["07010340","建築工程業","建築公司土木工程","","空調風管架設人員","4","",0],["07010350","建築工程業","建築公司土木工程","","拆屋、遷屋工人","4","【違建拆除大隊】適用此工作性質。",0],["07010360","建築工程業","建築公司土木工程","","輕鋼架架設人員","4","",0],["07010370","建築工程業","建築公司土木工程","","挖井工程人員（鑽井工人）","5","【地面鑿井、挖井、鑽井工程人員及工人】適用此工作性質。",0],["07010380","建築工程業","建築公司土木工程","","鐵屋架設、施工（搭設鐵皮屋）","5","",0],["07010390","建築工程業","建築公司土木工程","","寺廟彩繪人員","4","",0],["07010400","建築工程業","建築公司土木工程","","大樓玻璃帷幕安裝","5","【空中吊車操作人員】適用此工作性質。",0],["07010410","建築工程業","建築公司土木工程","","雜工、臨時工","4","【臨時工人（含一般工人）】適用此工作性質。",0],["07010420","建築工程業","建築公司土木工程","","綁鐵工、鐵工","4","",0],["07010430","建築工程業","建築公司土木工程","","建築機具維修工","4","",0],["07010440","建築工程業","建築公司土木工程","","工地清潔工","4","",0],["07010450","建築工程業","建築公司土木工程","","鐵塔架設人員","5","",0],["07010460","建築工程業","建築公司土木工程","","搭設舞台人員","4","",0],["07010470","建築工程業","建築公司土木工程","","圍牆鐵網搭建","4","",0],["07010480","建築工程業","建築公司土木工程","","擋土牆施工","4","",0],["07010490","建築工程業","建築公司土木工程","","園藝造景人員","3","",0],["07020010","建築工程業","道路鋪設","","工程師","3","",0],["07020020","建築工程業","道路鋪設","","領班、監工","3","",0],["07020030","建築工程業","道路鋪設","","山地舖設工人","5","",0],["07020031","建築工程業","道路鋪設","","平地舖設工人","4","",0],["07020040","建築工程業","道路鋪設","","維護工人","4","【馬路景觀工作人員、修路工、維護工、舖柏油工人】適用此工作性質。",0],["07020050","建築工程業","道路鋪設","","電線架設及維護工人","5","",0],["07020060","建築工程業","道路鋪設","","管道舖設及維護工人","4","",0],["07020070","建築工程業","道路鋪設","","高速公路工程人員（含美化工程）","5","",0],["07020080","建築工程業","道路鋪設","","交通號誌裝設及標線人員","3","",0],["07020090","建築工程業","道路鋪設","","公園、道路路燈裝修工","3","",0],["07020100","建築工程業","道路鋪設","","高速公路工程監工","5","",0],["07030010","建築工程業","造修船業","","工程師","3","",0],["07030020","建築工程業","造修船業","","領班、監工","4","",0],["07030030","建築工程業","造修船業","","工人","5","壽險限額400萬。",0],["07030040","建築工程業","造修船業","","修護遊艇工人","4","壽險限額500萬。",0],["07030050","建築工程業","造修船業","","船體切割人員（陸上）","6","壽險限額300萬。",0],["07030060","建築工程業","造修船業","","船體切割人員（海上）","D","船體切割人員（海上）壽險、傷害險均不承保。",0],["07030070","建築工程業","造修船業","","拆船工人","6","壽險限額300萬。",0],["07030080","建築工程業","造修船業","","船舶驗收人員","3","",0],["07040010","建築工程業","電梯昇降梯","","安裝工人","4","",0],["07040020","建築工程業","電梯昇降梯","","修理及維護工人","4","",0],["07040030","建築工程業","電梯昇降梯","","操作員（不包括礦場使用者）","2","",0],["07050010","建築工程業","裝璜業","","設計製圖人員","1","",0],["07050020","建築工程業","裝璜業","","地毯之裝設人員","2","",0],["07050030","建築工程業","裝璜業","","室內裝璜人員","3","",0],["07050040","建築工程業","裝璜業","","室外裝璜人員","4","",0],["07050050","建築工程業","裝璜業","","承包商、監工","2","",0],["07060010","建築工程業","其他工程業","","地質探測員（山區、海上）","4","",0],["07060011","建築工程業","其他工程業","","地質探測員（平地）","2","",0],["07060020","建築工程業","其他工程業","","工地看守員","4","",0],["07060030","建築工程業","其他工程業","","海灣、港口工程人員","5","壽險限額400萬。",0],["07060040","建築工程業","其他工程業","","水壩工程人員","5","壽險限額400萬。",0],["07060050","建築工程業","其他工程業","","橋樑工程人員","5","壽險限額400萬。",0],["07060060","建築工程業","其他工程業","","隧道工程人員","6","【隧道工程師】適用此工作性質。隧道工程人員壽險限額300萬。",0],["07060070","建築工程業","其他工程業","","潛水工作人員","D","【潛水工程人員】適用此工作性質。潛水工作人員、潛水工程人員壽險、傷害險均不承保。",0],["07060080","建築工程業","其他工程業","","爆破工作人員","D","【爆破工程人員】適用此工作性質。爆破工作人員、爆破工程人員壽險、傷害險均不承保。",0],["07060090","建築工程業","其他工程業","","挖泥船工人","5","",0],["08010010","製造業","鋼鐵場","","技師","3","",0],["08010020","製造業","鋼鐵場","","工程師","3","",0],["08010030","製造業","鋼鐵場","","領班、監工","3","",0],["08010040","製造業","鋼鐵場","","工人","5","",0],["08010050","製造業","鋼鐵場","","負責人（不需到現場）","1","",0],["08010060","製造業","鋼鐵場","","負責人（需現場指導或實際參與工作）、廠長","3","",0],["08010070","製造業","鋼鐵場","","品管人員","3","",0],["08010080","製造業","鋼鐵場","","勞工安全檢查人員","3","",0],["08020010","製造業","鐵工廠機械廠","","領班、監工","3","",0],["08020020","製造業","鐵工廠機械廠","","板金工","4","",0],["08020030","製造業","鐵工廠機械廠","","裝配工","4","",0],["08020040","製造業","鐵工廠機械廠","","焊接工","5","",0],["08020050","製造業","鐵工廠機械廠","","車床工（全自動）","4","",0],["08020051","製造業","鐵工廠機械廠","","車床工（其他）","5","",0],["08020060","製造業","鐵工廠機械廠","","鑄造工","5","",0],["08020070","製造業","鐵工廠機械廠","","鍋爐工","5","",0],["08020080","製造業","鐵工廠機械廠","","鉛字鑄造工","4","",0],["08020090","製造業","鐵工廠機械廠","","鐵工廠工人","5","",0],["08020100","製造業","鐵工廠機械廠","","機械廠工人","5","",0],["08020110","製造業","鐵工廠機械廠","","電鍍工","4","",0],["08020120","製造業","鐵工廠機械廠","","銑床工","5","",0],["08020130","製造業","鐵工廠機械廠","","剪床工","5","",0],["08020140","製造業","鐵工廠機械廠","","沖床工","5","",0],["08020150","製造業","鐵工廠機械廠","","CNC操作（電腦雕刻機）","3","",0],["08020160","製造業","鐵工廠機械廠","","線割（銅線電子切割）","3","",0],["08020170","製造業","鐵工廠機械廠","","品管人員、工安人員","3","",0],["08020180","製造業","鐵工廠機械廠","","技工","4","",0],["08020190","製造業","鐵工廠機械廠","","高爾夫球具製造工","4","",0],["08020200","製造業","鐵工廠機械廠","","高爾夫球桿頭磨光","4","",0],["08020210","製造業","鐵工廠機械廠","","修理工","4","",0],["08020220","製造業","鐵工廠機械廠","","彎管工","4","",0],["08020230","製造業","鐵工廠機械廠","","熱處理","4","",0],["08020240","製造業","鐵工廠機械廠","","大小五金製造工","4","",0],["08020250","製造業","鐵工廠機械廠","","風管製造工","4","",0],["08020260","製造業","鐵工廠機械廠","","鋁合金鑄造","4","",0],["08020270","製造業","鐵工廠機械廠","","鐵櫃技工","4","",0],["08020280","製造業","鐵工廠機械廠","","貨櫃製造工人","4","",0],["08020290","製造業","鐵工廠機械廠","","鉗工、丸鐵工","4","",0],["08020300","製造業","鐵工廠機械廠","","模具工","4","【鋼鐵場製模工人】適用此工作性質。",0],["08020310","製造業","鐵工廠機械廠","","翻砂工","5","",0],["08020320","製造業","鐵工廠機械廠","","鐵捲工","5","",0],["08020330","製造業","鐵工廠機械廠","","鑽床工","5","",0],["08020340","製造業","鐵工廠機械廠","","泵浦裝配技師","4","",0],["08020350","製造業","鐵工廠機械廠","","模具設計","2","",0],["08020360","製造業","鐵工廠機械廠","","機械操作修理員","4","",0],["08020370","製造業","鐵工廠機械廠","","螺絲製造","4","",0],["08020380","製造業","鐵工廠機械廠","","配電盤人員","4","【水電工】適用此工作性質。",0],["08020390","製造業","鐵工廠機械廠","","油壓機操作","4","",0],["08020400","製造業","鐵工廠機械廠","","磨床","4","",0],["08020410","製造業","鐵工廠機械廠","","冷作","5","",0],["08020420","製造業","鐵工廠機械廠","","鍛造","5","",0],["08030010","製造業","電子業","","工程師","2","",0],["08030020","製造業","電子業","","技師","2","",0],["08030030","製造業","電子業","","領班、監工","2","",0],["08030040","製造業","電子業","","裝配工","2","",0],["08030050","製造業","電子業","","修理工","3","",0],["08030060","製造業","電子業","","包裝工人","2","",0],["08030070","製造業","電子業","","製造工","4","",0],["08030080","製造業","電子業","","品管人員","2","",0],["08030090","製造業","電子業","","無塵室工作人員","2","",0],["08030100","製造業","電子業","","操作自動IC工人","2","",0],["08030110","製造業","電子業","","物料倉管","2","",0],["08030120","製造業","電子業","","IC板電鍍","3","",0],["08030130","製造業","電子業","","負責人（不需到現場）","1","",0],["08030140","製造業","電子業","","負責人（需現場指導或實際參與工作）","2","",0],["08030150","製造業","電子業","","光電及光學工作人員","2","",0],["08030160","製造業","電子業","","電氣焊接工","3","",0],["08030170","製造業","電子業","","研發人員、設計人員、製程人員","1","",0],["08030180","製造業","電子業","","電路板維修工","3","",0],["08040010","製造業","電機業","","工程師","3","",0],["08040020","製造業","電機業","","技師","3","",0],["08040030","製造業","電機業","","領班、監工","3","",0],["08040040","製造業","電機業","","空氣調節器之裝修人員","4","",0],["08040050","製造業","電機業","","有關高壓電之工作人員","6","壽險限額300萬。",0],["08040060","製造業","電機業","","冷凍修理工","4","",0],["08040070","製造業","電機業","","負責人（不需到現場）","1","",0],["08040080","製造業","電機業","","負責人（需現場指導或實際參與工作）","2","",0],["08040090","製造業","電機業","","品管人員","2","",0],["08040100","製造業","電機業","","家電用品維修","3","",0],["08040110","製造業","電機業","","室內消防器材裝修人員","4","",0],["08040120","製造業","電機業","","電機裝配修理人員","4","",0],["08040130","製造業","電機業","","室內消防器材檢測（不含安裝）","3","",0],["08040140","製造業","電機業","","變壓器裝置維修","5","",0],["08040150","製造業","電機業","","烤漆","4","",0],["08050010","製造業","塑膠、橡膠業","","工程師","2","",0],["08050020","製造業","塑膠、橡膠業","","技師","2","",0],["08050030","製造業","塑膠、橡膠業","","領班、監工","2","",0],["08050040","製造業","塑膠、橡膠業","","一般工人","3","【旅行箱製造工人】適用此工作性質。",0],["08050050","製造業","塑膠、橡膠業","","塑膠、橡膠射出成型工人（自動）","3","",0],["08050060","製造業","塑膠、橡膠業","","塑膠、橡膠射出成型工人（其他）","4","",0],["08050070","製造業","塑膠、橡膠業","","負責人（不需到現場）","1","",0],["08050080","製造業","塑膠、橡膠業","","負責人（需現場指導或實際參與工作）","2","",0],["08050090","製造業","塑膠、橡膠業","","品管人員","2","",0],["08050100","製造業","塑膠、橡膠業","","塑膠袋製造、印刷","3","",0],["08050110","製造業","塑膠、橡膠業","","高週波充氣玩具製造","3","",0],["08050120","製造業","塑膠、橡膠業","","鞋模製造工人","3","",0],["08050130","製造業","塑膠、橡膠業","","高爾夫球、乒乓球製造","3","",0],["08050140","製造業","塑膠、橡膠業","","塑膠、橡膠射出機器維修","4","",0],["08060010","製造業","水泥業（包括水泥、石膏、石灰）","","工程師","2","",0],["08060020","製造業","水泥業（包括水泥、石膏、石灰）","","技師","2","【品管人員】適用此工作性質。",0],["08060030","製造業","水泥業（包括水泥、石膏、石灰）","","領班、監工","3","【陶瓷、磚塊（磁磚）製造、砂輪製造工】適用此工作性質。",0],["08060040","製造業","水泥業（包括水泥、石膏、石灰）","","工人","4","",0],["08060050","製造業","水泥業（包括水泥、石膏、石灰）","","採掘工","5","壽險限額400萬。",0],["08060060","製造業","水泥業（包括水泥、石膏、石灰）","","爆破工","D","爆破工壽險、傷害險均不承保。",0],["08060070","製造業","水泥業（包括水泥、石膏、石灰）","","工安人員","2","",0],["08070010","製造業","化學原料業","","工程師","2","",0],["08070020","製造業","化學原料業","","技師","2","",0],["08070030","製造業","化學原料業","","一般工人、作業員","3","",0],["08070040","製造業","化學原料業","","硫酸、鹽酸、硝酸製造工、有毒物品製造工","D","硫酸、鹽酸、硝酸製造工、有毒物品製造工壽險、傷害險均不承保。",0],["08070050","製造業","化學原料業","","電池製造（技師）","3","",0],["08070051","製造業","化學原料業","","電池製造（工人）","4","",0],["08070060","製造業","化學原料業","","液化氣體製造工","5","",0],["08070070","製造業","化學原料業","","製藥廠工作人員","2","",0],["08070080","製造業","化學原料業","","製藥廠品管員","2","【製藥廠技師】適用此工作性質。",0],["08070090","製造業","化學原料業","","化學品管人員","2","",0],["08070100","製造業","化學原料業","","化學實驗師","2","",0],["08070110","製造業","化學原料業","","殺蟲劑製造工","3","",0],["08070120","製造業","化學原料業","","油漆製造工","3","",0],["08070130","製造業","化學原料業","","海綿、泡綿製造工","3","",0],["08080010","製造業","炸藥業","","火藥、爆竹製造及處理人員（包括爆竹、煙火製造工）","D","壽險限額100萬。",0],["08080020","製造業","炸藥業","","廠務管理、廠長","D","壽險限額200萬。",0],["08090010","製造業","汽車、機車、自行車製造業、修理業","","工程師","2","",0],["08090020","製造業","汽車、機車、自行車製造業、修理業","","技師","2","",0],["08090030","製造業","汽車、機車、自行車製造業、修理業","","製造工人（汽、機車）","4","",0],["08090040","製造業","汽車、機車、自行車製造業、修理業","","製造工人（自行車）","3","",0],["08090050","製造業","汽車、機車、自行車製造業、修理業","","修理保養工人（汽、機車）","4","【機車、汽車買賣商（需參與現場作業）】適用此工作性質。",0],["08090060","製造業","汽車、機車、自行車製造業、修理業","","修理保養工人（自行車）","3","【自行車買賣商（需參與現場作業）】適用此工作性質。",0],["08090070","製造業","汽車、機車、自行車製造業、修理業","","領班、監工","2","",0],["08090080","製造業","汽車、機車、自行車製造業、修理業","","試車人員","4","",0],["08090090","製造業","汽車、機車、自行車製造業、修理業","","負責人（不需到現場）","1","",0],["08090100","製造業","汽車、機車、自行車製造業、修理業","","負責人（需現場指導或實際參與工作）","2","",0],["08090110","製造業","汽車、機車、自行車製造業、修理業","","品管人員","2","",0],["08090120","製造業","汽車、機車、自行車製造業、修理業","","鈑金工人","4","",0],["08090130","製造業","汽車、機車、自行車製造業、修理業","","汽車輪胎換修買賣、定位","3","【汽車美容裝璜】適用此工作性質。",0],["08090140","製造業","汽車、機車、自行車製造業、修理業","","汽車修理廠引導員（不參與修理）","2","",0],["08090150","製造業","汽車、機車、自行車製造業、修理業","","汽車檢驗員","2","",0],["08090160","製造業","汽車、機車、自行車製造業、修理業","","瓦斯車安裝人員","4","",0],["08100010","製造業","紡織及成衣業","","工程師","2","",0],["08100020","製造業","紡織及成衣業","","設計師","1","",0],["08100030","製造業","紡織及成衣業","","技師","2","",0],["08100040","製造業","紡織及成衣業","","製造工人","2","",0],["08100050","製造業","紡織及成衣業","","染整工人","3","",0],["08100060","製造業","紡織及成衣業","","負責人（不需到現場）","1","",0],["08100070","製造業","紡織及成衣業","","打版師","1","",0],["08100080","製造業","紡織及成衣業","","負責人（需現場指導或實際參與工作）","2","",0],["08100090","製造業","紡織及成衣業","","針織工人","2","",0],["08100100","製造業","紡織及成衣業","","品管人員","2","",0],["08100110","製造業","紡織及成衣業","","成衣（毛衣、針織）代工","2","",0],["08100120","製造業","紡織及成衣業","","機械維修","4","",0],["08100130","製造業","紡織及成衣業","","紡紗工人","2","",0],["08110010","製造業","造紙工業","","技師","3","",0],["08110020","製造業","造紙工業","","監工、領班","3","",0],["08110030","製造業","造紙工業","","造紙廠工人","4","",0],["08110040","製造業","造紙工業","","紙漿廠工人","5","",0],["08110050","製造業","造紙工業","","紙箱製造工人","4","【軋紙盒工人】適用此工作性質。",0],["08110060","製造業","造紙工業","","紙箱包裝工人","2","【包裝工人】適用此工作性質。",0],["08110070","製造業","造紙工業","","紙盒黏貼工人","2","",0],["08110080","製造業","造紙工業","","品管人員","2","",0],["08110090","製造業","造紙工業","","裁紙工人","3","",0],["08120010","製造業","傢俱製造業","","技師","3","",0],["08120020","製造業","傢俱製造業","","領班、監工","3","",0],["08120030","製造業","傢俱製造業","","木製傢俱製造工人","3","",0],["08120040","製造業","傢俱製造業","","木製傢俱修理工","3","",0],["08120050","製造業","傢俱製造業","","金屬傢俱製造工人","4","",0],["08120060","製造業","傢俱製造業","","金屬傢俱修理工","3","",0],["08120070","製造業","傢俱製造業","","設計師","1","",0],["08120080","製造業","傢俱製造業","","品管人員","2","",0],["08120090","製造業","傢俱製造業","","傢俱油漆工（噴漆、烤漆）","3","",0],["08120100","製造業","傢俱製造業","","傢俱運送、組裝工人","3","",0],["08120110","製造業","傢俱製造業","","石材傢俱製造、修理工","4","",0],["08130010","製造業","手工藝品業","","竹木製手工藝品之加工工人","2","",0],["08130020","製造業","手工藝品業","","竹木製手工藝品之雕刻工人","2","",0],["08130030","製造業","手工藝品業","","金屬手工藝品之加工工人","3","",0],["08130040","製造業","手工藝品業","","金屬手工藝品之雕刻工人","3","",0],["08130050","製造業","手工藝品業","","布類紙品工藝品之加工工人","1","",0],["08130060","製造業","手工藝品業","","礦石手工藝品加工人員","3","【玻璃藝品製造工】適用此工作性質。",0],["08130070","製造業","手工藝品業","","珠寶加工工人","2","【珠寶首飾加工工人、陶瓷彩繪工】適用此工作性質。",1],["08130080","製造業","手工藝品業","","皮革手工藝品加工","2","",0],["08130090","製造業","手工藝品業","","陶瓷廠工人","3","【雕塑工人】適用此工作性質。",0],["08140010","製造業","電線電纜業","","技師","3","【品管人員】適用此工作性質。",0],["08140020","製造業","電線電纜業","","工人","4","",0],["08150010","製造業","食品飲料製造業","","冰塊製造","3","",0],["08150020","製造業","食品飲料製造業","","技師","2","",0],["08150030","製造業","食品飲料製造業","","製造工人","3","",0],["08150040","製造業","食品飲料製造業","","碾米廠操作人員","3","",0],["08150050","製造業","食品飲料製造業","","麵包師父","2","【麵食點心製作人員】適用此工作性質。",0],["08150060","製造業","食品飲料製造業","","製麵工人","2","",0],["08150070","製造業","食品飲料製造業","","品管人員","2","",0],["08150080","製造業","食品飲料製造業","","食品加工工人","2","【豆類食品加工工人】適用此工作性質。",0],["08150090","製造業","食品飲料製造業","","包裝工","2","【包裝工人、裝罐工人、裝瓶工人、利樂包包裝工人】適用此工作性質。",0],["08150100","製造業","食品飲料製造業","","煙、酒製造工人","3","",0],["08150110","製造業","食品飲料製造業","","領班、監工","2","",0],["08150120","製造業","食品飲料製造業","","酒廠化驗人員","2","",0],["08150130","製造業","食品飲料製造業","","煙酒廠機械操作","4","",0],["08150140","製造業","食品飲料製造業","","煙酒廠機械維修人員","4","",0],["08160010","製造業","家電製造業","","技師","2","",0],["08160020","製造業","家電製造業","","一般製造工人","4","",0],["08160030","製造業","家電製造業","","裝配工","3","",0],["08160040","製造業","家電製造業","","包裝工","3","",0],["08160050","製造業","家電製造業","","焊接工","5","",0],["08160060","製造業","家電製造業","","沖床工","5","",0],["08160070","製造業","家電製造業","","剪床工","5","",0],["08160080","製造業","家電製造業","","銑床工","5","",0],["08160090","製造業","家電製造業","","鑄造工","5","",0],["08160100","製造業","家電製造業","","車床工（全自動）","4","",0],["08160110","製造業","家電製造業","","車床工（其他）","5","",0],["08160120","製造業","家電製造業","","品管人員","2","",0],["08160130","製造業","家電製造業","","家電維修人員","3","",0],["08170010","製造業","玻璃及琉璃製造業","","品管人員、工安人員","3","",0],["08170020","製造業","玻璃及琉璃製造業","","技師","3","",0],["08170030","製造業","玻璃及琉璃製造業","","領班、監工","3","【玻璃、琉璃安裝工】適用此工作性質。",0],["08170040","製造業","玻璃及琉璃製造業","","玻璃、琉璃製造工人","4","【玻璃、琉璃切割】適用此工作性質。",0],["08180010","製造業","皮革製品製造業","","技師、品管人員","2","",0],["08180020","製造業","皮革製品製造業","","製造工人","2","【皮包代工、皮包、皮革、皮衣、皮鞋之製造工人】適用此工作性質。",0],["08190010","製造業","其他製造業","","倉管人員（不搬貨）","2","",0],["08190011","製造業","其他製造業","","倉管人員（搬貨）","3","",0],["08190020","製造業","其他製造業","","樂器安裝組合維修人員","2","",0],["08190030","製造業","其他製造業","","中藥材加工人員","2","",0],["08190040","製造業","其他製造業","","鑰匙加工人員、刻印加工人員","2","",0],["08190050","製造業","其他製造業","","化妝品製造工人","2","",0],["08190060","製造業","其他製造業","","木炭製造工","3","【原子炭製造工】適用此工作性質。",0],["08190070","製造業","其他製造業","","木雕人員","3","",0],["08190080","製造業","其他製造業","","香燭製造工","3","",0],["08190090","製造業","其他製造業","","醫療器材裝修工","3","",0],["08190100","製造業","其他製造業","","工廠機器維修人員","4","",0],["09010010","新聞廣告業","新聞業雜誌業","","內勤人員","1","【打字人員、照相製版】適用此工作性質。",0],["09010020","新聞廣告業","新聞業雜誌業","","外勤記者","2","",0],["09010030","新聞廣告業","新聞業雜誌業","","攝影記者","2","",0],["09010040","新聞廣告業","新聞業雜誌業","","戰地記者","D","壽險限額100萬。",0],["09010050","新聞廣告業","新聞業雜誌業","","推銷員","2","",0],["09010060","新聞廣告業","新聞業雜誌業","","排版、製版工","2","",0],["09010061","新聞廣告業","新聞業雜誌業","","電腦排版工","1","",0],["09010070","新聞廣告業","新聞業雜誌業","","裝訂工","2","",0],["09010080","新聞廣告業","新聞業雜誌業","","印刷工","2","",0],["09010090","新聞廣告業","新聞業雜誌業","","送貨員","2","",0],["09010100","新聞廣告業","新聞業雜誌業","","送報員","3","",0],["09010110","新聞廣告業","新聞業雜誌業","","裁紙工人","3","",0],["09020010","新聞廣告業","廣告業","","一般內勤人員","1","【美工設計、企劃人員】適用此工作性質。",0],["09020020","新聞廣告業","廣告業","","業務員、AE公關","2","",0],["09020030","新聞廣告業","廣告業","","廣告影片之拍攝錄製人員","2","【媒體影片之拍攝錄製人員】適用此工作性質。",0],["09020040","新聞廣告業","廣告業","","戶外廣告招牌製作架設人員","5","",0],["09020050","新聞廣告業","廣告業","","廣告招牌繪製人員（地面工作）","2","",0],["09020060","新聞廣告業","廣告業","","廣告旗幟製作","2","",0],["09020070","新聞廣告業","廣告業","","獎牌紀念品製作","2","",0],["09020080","新聞廣告業","廣告業","","道路號誌、標誌製造工","3","",0],["10010010","衛生保健業","醫院","","一般醫務行政人員","1","",0],["10010020","衛生保健業","醫院","","一般醫師、護士及藥劑師","1","",0],["10010030","衛生保健業","醫院","","精神病科醫師、看護及護士","3","",0],["10010040","衛生保健業","醫院","","獸醫","2","",0],["10010050","衛生保健業","醫院","","醫院炊事","2","",0],["10010060","衛生保健業","醫院","","雜工","2","",0],["10010070","衛生保健業","醫院","","清潔工","2","",0],["10010080","衛生保健業","醫院","","一般看護人員","2","",0],["10010090","衛生保健業","醫院","","物理、職能（復健）治療師","1","",0],["10020010","衛生保健業","保健人員","","醫學及病理檢驗人員","1","",0],["10020020","衛生保健業","保健人員","","分析員","1","",0],["10020030","衛生保健業","保健人員","","放射線之技術人員","2","",0],["10020040","衛生保健業","保健人員","","放射線之修護人員","4","",0],["10020050","衛生保健業","保健人員","","助產士","2","",0],["10020060","衛生保健業","保健人員","","跌打損傷治療人員（接骨、氣功推拿）","2","",0],["10020070","衛生保健業","保健人員","","監獄、看守所醫生、護理人員","2","【法醫】適用此工作性質。",0],["10020080","衛生保健業","保健人員","","做月子、育嬰中心工作人員","1","",0],["10020090","衛生保健業","保健人員","","中途之家、安養院工作人員","1","",0],["10020100","衛生保健業","保健人員","","齒模工","2","【齒模製作】適用此工作性質。",0],["10020110","衛生保健業","保健人員","","勞、健保局調查人員（外勤）","2","",0],["10020120","衛生保健業","保健人員","","煙毒勒戒所人員","3","",0],["11010010","娛樂業","電影業電視業","","製片人、一般內勤人員","1","",0],["11010020","娛樂業","電影業電視業","","影片商、系統商、頻道商","1","",0],["11010030","娛樂業","電影業電視業","","編劇、電視導播","1","",0],["11010040","娛樂業","電影業電視業","","一般演員（導演）","2","",0],["11010050","娛樂業","電影業電視業","","武打演員","5","",0],["11010060","娛樂業","電影業電視業","","特技演員","D","特技演員壽險、傷害險均不承保。",0],["11010070","娛樂業","電影業電視業","","化粧師","1","",0],["11010080","娛樂業","電影業電視業","","場記","2","",0],["11010090","娛樂業","電影業電視業","","攝影工作人員","2","",0],["11010100","娛樂業","電影業電視業","","燈光及音響效果工作人員","2","",0],["11010110","娛樂業","電影業電視業","","沖片工作人員","2","",0],["11010120","娛樂業","電影業電視業","","洗片工作人員","2","",0],["11010130","娛樂業","電影業電視業","","電視記者","2","",0],["11010140","娛樂業","電影業電視業","","機械工、電工","4","",0],["11010150","娛樂業","電影業電視業","","佈景搭設人員","4","",0],["11010160","娛樂業","電影業電視業","","電影院售票員","1","",0],["11010170","娛樂業","電影業電視業","","電影院放映人員","2","",0],["11010180","娛樂業","電影業電視業","","電影院服務人員兼餐飲販賣","2","",0],["11010190","娛樂業","電影業電視業","","影片剪接人員","1","",0],["11010200","娛樂業","電影業電視業","","播音、錄音、配音人員","1","",0],["11010210","娛樂業","電影業電視業","","燈光及音響器材架設人員","4","",0],["11010220","娛樂業","電影業電視業","","現場指導、助理導播","2","",0],["11010230","娛樂業","電影業電視業","","採訪車、轉播車駕駛","3","",0],["11010240","娛樂業","電影業電視業","","武術指導","3","",0],["11010250","娛樂業","電影業電視業","","有線電視架設人員","4","",0],["11010260","娛樂業","電影業電視業","","電影院清潔人員","2","",0],["11020010","娛樂業","高爾夫球場","","教練","2","",0],["11020020","娛樂業","高爾夫球場","","球場保養人","2","",0],["11020030","娛樂業","高爾夫球場","","維護工人","2","",0],["11020040","娛樂業","高爾夫球場","","球僮","2","",0],["11030010","娛樂業","保齡球館","","計分員","1","",0],["11030020","娛樂業","保齡球館","","櫃臺人員","1","",0],["11030030","娛樂業","保齡球館","","機械修護工人","3","",0],["11030040","娛樂業","保齡球館","","清潔工人","2","",0],["11030050","娛樂業","保齡球館","","負責人","1","",0],["11040010","娛樂業","撞球場","","負責人","2","",0],["11040020","娛樂業","撞球場","","計分員","2","",0],["11050010","娛樂業","游泳池","","負責人","1","",0],["11050020","娛樂業","游泳池","","管理員","1","",0],["11050030","娛樂業","游泳池","","教練","2","",0],["11050040","娛樂業","游泳池","","售票員","1","",0],["11050050","娛樂業","游泳池","","救生員","4","",0],["11060010","娛樂業","海水浴場","","負責人","1","",0],["11060020","娛樂業","海水浴場","","管理員","1","",0],["11060030","娛樂業","海水浴場","","售票員、售貨員","1","",0],["11060040","娛樂業","海水浴場","","救生員","5","壽險限額400萬。",0],["11070010","娛樂業","其他遊樂園（包括動物園）","","負責人","1","",0],["11070020","娛樂業","其他遊樂園（包括動物園）","","售票員、售貨員","1","",0],["11070030","娛樂業","其他遊樂園（包括動物園）","","電動玩具操作員","2","",0],["11070040","娛樂業","其他遊樂園（包括動物園）","","一般清潔工","2","",0],["11070050","娛樂業","其他遊樂園（包括動物園）","","獸欄清潔工","4","",0],["11070060","娛樂業","其他遊樂園（包括動物園）","","水電機械工","4","",0],["11070070","娛樂業","其他遊樂園（包括動物園）","","動物園、馬戲團馴獸師","D","壽險限額200萬。",0],["11070080","娛樂業","其他遊樂園（包括動物園）","","飼養人員","4","壽險限額500萬。",0],["11070090","娛樂業","其他遊樂園（包括動物園）","","獸醫（動物園）","3","",0],["11070100","娛樂業","其他遊樂園（包括動物園）","","動物訓練員（非馴獸師）","3","【鳥類、海豚訓練員】適用此工作性質。",0],["11070110","娛樂業","其他遊樂園（包括動物園）","","娛樂場所工作人員及負責人","2","【一般KTV、MTV、PUB工作人員、Disco DJ及工作人員、電動遊樂場所負責人、會計、服務生】適用此工作性質。【網路咖啡店工作人員】適用此工作性質。",0],["11070120","娛樂業","其他遊樂園（包括動物園）","","電動玩具店器具維修工人","2","",0],["11070130","娛樂業","其他遊樂園（包括動物園）","","大型遊樂場器具維修工人","5","",0],["11080010","娛樂業","藝術及演藝人員","","作曲人員","1","",0],["11080020","娛樂業","藝術及演藝人員","","編曲人員","1","",0],["11080030","娛樂業","藝術及演藝人員","","演奏人員","1","",0],["11080040","娛樂業","藝術及演藝人員","","繪畫人員","1","",0],["11080050","娛樂業","藝術及演藝人員","","歌唱、舞蹈演藝人員","2","",0],["11080060","娛樂業","藝術及演藝人員","","雕塑人員","2","",0],["11080070","娛樂業","藝術及演藝人員","","戲劇演員","2","",0],["11080080","娛樂業","藝術及演藝人員","","巡迴演出戲劇團體人員","3","",0],["11080090","娛樂業","藝術及演藝人員","","作家","1","",0],["11080100","娛樂業","藝術及演藝人員","","模特兒","2","【巡迴演出模特兒、一般演出模特兒】適用此工作性質。",0],["11080110","娛樂業","藝術及演藝人員","","魔術師","2","",0],["11080120","娛樂業","藝術及演藝人員","","魔術助理人員","2","",0],["11080130","娛樂業","藝術及演藝人員","","演藝經紀人","2","",0],["11080140","娛樂業","藝術及演藝人員","","宣傳","2","",0],["11080150","娛樂業","藝術及演藝人員","","布袋戲偶操作人員","2","",0],["11080160","娛樂業","藝術及演藝人員","","人體彩繪師","1","",0],["11080170","娛樂業","藝術及演藝人員","","舞蹈教室老師","2","",0],["11090010","娛樂業","特種營業","","咖啡廳工作人員","4","",0],["11090020","娛樂業","特種營業","","茶室工作人員","4","",1],["11090030","娛樂業","特種營業","","酒家工作人員","4","",1],["11090040","娛樂業","特種營業","","樂戶工作人員","4","",1],["11090050","娛樂業","特種營業","","舞廳工作人員","4","",1],["11090060","娛樂業","特種營業","","歌廳工作人員","3","",1],["11090070","娛樂業","特種營業","","酒吧工作人員","3","【俱樂部工作人員】適用此工作性質。",1],["11090080","娛樂業","特種營業","","負責人","3","【咖啡廳、茶室、酒家、樂戶、舞廳、歌廳、酒吧、俱樂部負責人】適用此工作性質。",1],["11090090","娛樂業","特種營業","","其他場所工作人員","4","【有坐檯之KTV、MTV、PUB、CLUB、酒廊、餐廳、泡沫紅茶店、茶藝館、理容院、按摩院、護膚中心、聯誼社、交友中心等之工作人員】、【三溫暖負責人、櫃檯人員及一般工作人員】、【電玩、小鋼珠工作人員】、【泊車人員】適用此工作性質。",1],["11090100","娛樂業","特種營業","","從事特種營業服務人員（吧女、酒女、舞女、咖啡女郎、按摩女郎、…等）","D","【鋼管秀、電子花車舞者】、【按摩師、指壓、油壓人員】、【酒吧看守者】、【六合彩組頭】適用此工作性質。【俱樂部公關】適用此工作性質。壽險限額200萬。",1],["11090110","娛樂業","特種營業","","保鑣","D","保鑣壽險、傷害險均不承保。",0],["12010010","文教機關","教育機構","","教師、行政人員","1","【救國團張老師、團康人員】適用此工作性質。",0],["12010020","文教機關","教育機構","","學生（不含軍校、警校）","1","【孩童】適用此工作性質。",0],["12010030","文教機關","教育機構","","校工","2","",0],["12010040","文教機關","教育機構","","軍訓教官","2","",0],["12010050","文教機關","教育機構","","體育教師","2","",0],["12010060","文教機關","教育機構","","健身房、有氧運動教練","2","【有氧舞蹈教師、武道館教練】適用此工作性質。",0],["12010070","文教機關","教育機構","","餐飲補習班教師","2","",0],["12010080","文教機關","教育機構","","工藝教師","2","【職校工科實習教師】適用此工作性質。",0],["12010090","文教機關","教育機構","","校警","2","",0],["12010100","文教機關","教育機構","","學校志工","1","",0],["12020010","文教機關","其他","","負責人（出版商、書店、文具店）","1","",0],["12020020","文教機關","其他","","店員（出版商、書店、文具店）","1","",0],["12020030","文教機關","其他","","書店外務員","2","",0],["12020040","文教機關","其他","","書店送貨員","2","",0],["12020050","文教機關","其他","","圖書館工作人員","1","",0],["12020060","文教機關","其他","","博物館工作人員","1","",0],["12020070","文教機關","其他","","汽車駕駛訓練班教練","3","",0],["12020080","文教機關","其他","","監理所路考官","2","",0],["13000010","宗教團體","宗教人士","","寺廟及教堂管理人員","1","",1],["13000020","宗教團體","宗教人士","","宗教團體工作人員","1","",1],["13000030","宗教團體","宗教人士","","僧尼、道士、法師及傳教人員","1","【和尚、尼姑、神父、修女】適用此工作性質。",1],["13000040","宗教團體","宗教人士","","乩童","3","",1],["13000050","宗教團體","宗教人士","","神壇工作人員","2","【寺廟雜工】適用此工作性質。",1],["13000060","宗教團體","宗教人士","","算命師","1","【相命師、命理分析師】適用此工作性質。",1],["13000070","宗教團體","宗教人士","","勘與師","2","",1],["13000080","宗教團體","宗教人士","","八家將","4","",1],["14010010","公共事業","郵政","","內勤人員","1","",0],["14010020","公共事業","郵政","","外勤郵務人員","3","",0],["14010030","公共事業","郵政","","包裹搬運人員","2","",0],["14020010","公共事業","電信及電力","","內勤人員","1","【工程師（設計規劃內勤）】適用此工作性質。",0],["14020020","公共事業","電信及電力","","抄錶員、收費員","2","",0],["14020030","公共事業","電信及電力","","電信裝置維護修理工","3","【電信工程設施架設工程師（現場）】適用此工作性質。",0],["14020031","公共事業","電信及電力","","電力裝置維護修理工","4","【電力工程設施架設工程師（現場）】適用此工作性質。",0],["14020040","公共事業","電信及電力","","電信工程設施之架設人員","4","",0],["14020041","公共事業","電信及電力","","電力工程設施之架設人員","5","",0],["14020050","公共事業","電信及電力","","電力高壓電工程設施人員","D","電力高壓電工程設施人員壽險、傷害險均不承保。",0],["14020060","公共事業","電信及電力","","電臺天線維護人員","5","",0],["14020080","公共事業","電信及電力","","核能電廠行政人員","2","",0],["14020081","公共事業","電信及電力","","核能電廠工作人員","4","",0],["14020090","公共事業","電信及電力","","設計工程師（含現場監工）","2","",0],["14020100","公共事業","電信及電力","","水力、火力發電廠工作人員","4","",0],["14020110","公共事業","電信及電力","","核廢料處理人員","D","壽險限額200萬。",0],["14020120","公共事業","電信及電力","","核能工作人員（核工系、中研院、中科院、台電核工人員）","6","【核子化學工程工作人員（核工系、中研院、中科院、台電核工人員）】、【核工工程環保人員】適用此工作性質。",0],["14030010","公共事業","自來水水利","","工程師","2","",0],["14030020","公共事業","自來水水利","","水壩、水庫管理人員","3","",0],["14030030","公共事業","自來水水利","","水利工程設施人員","4","",0],["14030040","公共事業","自來水水利","","自來水管裝修人員","3","",0],["14030050","公共事業","自來水水利","","抄錶員、收費員","2","",0],["14030060","公共事業","自來水水利","","自來水廠水質分析員（實地）","3","",0],["14030070","公共事業","自來水水利","","巡水員","3","",0],["14040010","公共事業","瓦斯","","工程師","2","",0],["14040020","公共事業","瓦斯","","管線裝修工","3","",0],["14040030","公共事業","瓦斯","","收費員、抄錶員","2","",0],["14040040","公共事業","瓦斯","","檢查員","2","",0],["14040050","公共事業","瓦斯","","瓦斯器具製造工","4","",0],["14050010","公共事業","環境保護","","探測員","2","",0],["14050020","公共事業","環境保護","","技師","3","",0],["14050030","公共事業","環境保護","","一般工廠環保人員","3","",0],["14050040","公共事業","環境保護","","道路清潔工","3","",0],["14050050","公共事業","環境保護","","環保稽核巡查人員、垃圾車駕駛及清潔隊員","3","【垃圾車隨車人員】適用此工作性質。",0],["14050060","公共事業","環境保護","","捕狗大隊","3","",0],["14050070","公共事業","環境保護","","化學工程環保人員","4","",0],["14050080","公共事業","環境保護","","下水道清潔工","4","",0],["14050090","公共事業","環境保護","","儲油槽、儲氣槽清理人員","5","",0],["14050100","公共事業","環境保護","","海上油污處理人員","D","壽險限額200萬。",0],["14050110","公共事業","環境保護","","資源回收站分類人員","3","",0],["14050120","公共事業","環境保護","","環境噴灑工人","2","",0],["14050130","公共事業","環境保護","","工廠廢棄物清潔人員","3","",0],["14050140","公共事業","環境保護","","污水處理（化糞池/水塔清潔人員）","3","",0],["14050150","公共事業","環境保護","","垃圾焚化爐處理人員","3","",0],["14050160","公共事業","環境保護","","廢五金處理人員","3","",0],["14060010","公共事業","石化工業","","廠區行政人員","2","",0],["14060020","公共事業","石化工業","","煉油廠工程師","3","",0],["14060030","公共事業","石化工業","","煉油廠領班","3","",0],["14060040","公共事業","石化工業","","煉油廠技術工人","5","",0],["14060050","公共事業","石化工業","","煉油廠加油工作人員","3","",0],["14060060","公共事業","石化工業","","煉油廠管線維修","5","",0],["14060070","公共事業","石化工業","","加油站管線維修","5","",0],["15000010","一般商業","買賣","","廚具商（不含安裝）","1","",0],["15000020","一般商業","買賣","","陶瓷器商","1","",0],["15000030","一般商業","買賣","","古董商","1","",1],["15000040","一般商業","買賣","","花卉商","1","",0],["15000050","一般商業","買賣","","米商（不參與碾米作業）","1","",0],["15000060","一般商業","買賣","","雜貨商","1","",0],["15000070","一般商業","買賣","","玻璃商","2","",0],["15000080","一般商業","買賣","","果菜商（固定攤販）","1","",0],["15000090","一般商業","買賣","","石材商","2","",0],["15000100","一般商業","買賣","","建材商","2","",0],["15000110","一般商業","買賣","","鐵材商","2","【鐵櫃角鋼買賣商】適用此工作性質。",0],["15000120","一般商業","買賣","","木材商","2","",0],["15000130","一般商業","買賣","","五金商","2","",0],["15000140","一般商業","買賣","","電器商（不含安裝）","2","",0],["15000150","一般商業","買賣","","水電衛生器材商（不含安裝）","2","",0],["15000160","一般商業","買賣","","傢俱、寢具商（不含安裝）","1","",0],["15000170","一般商業","買賣","","自行車買賣商（不含修理）","1","",0],["15000180","一般商業","買賣","","機車買賣商（不含修理）","1","",0],["15000190","一般商業","買賣","","汽車買賣商（不含修理）","1","【流當汽車買賣商】適用此工作性質。",0],["15000200","一般商業","買賣","","車輛器材、用品買賣商（不含礦物油）","2","【汽車及用品推展員】適用此工作性質。",0],["15000210","一般商業","買賣","","礦物油買賣商","3","",0],["15000220","一般商業","買賣","","眼鏡商、驗光師","1","",0],["15000230","一般商業","買賣","","食品飲料商","1","",0],["15000240","一般商業","買賣","","文具商、禮品買賣商","1","【獎牌記念品買賣】、【體育用品商】適用此工作性質。",0],["15000250","一般商業","買賣","","布商","1","",0],["15000260","一般商業","買賣","","服飾、皮鞋、皮件買賣商","1","",0],["15000270","一般商業","買賣","","魚販（含流動、固定攤販）","2","",0],["15000280","一般商業","買賣","","肉販（含流動、固定攤販）","2","",0],["15000290","一般商業","買賣","","藥品買賣商","1","",0],["15000300","一般商業","買賣","","化學原料商、肥料買賣商","3","【農藥買賣商】適用此工作性質。",0],["15000310","一般商業","買賣","","醫療機械儀器商","2","",0],["15000320","一般商業","買賣","","手工藝品買賣商","1","",0],["15000330","一般商業","買賣","瓦斯器具商","負責人","1","",0],["15000340","一般商業","買賣","瓦斯器具商","店員","1","",0],["15000350","一般商業","買賣","瓦斯器具商","送貨員","3","",0],["15000360","一般商業","買賣","瓦斯器具商","裝設工","3","",0],["15000370","一般商業","買賣","液化瓦斯零售商","負責人","2","",0],["15000380","一般商業","買賣","液化瓦斯零售商","店員","2","",0],["15000390","一般商業","買賣","液化瓦斯零售商","送貨員","4","",0],["15000400","一般商業","買賣","液化瓦斯零售商","瓦斯分裝工","5","",0],["15000410","一般商業","買賣","","舊貨收購人員","3","",0],["15000420","一般商業","買賣","","超市、便利商店店員","1","",0],["15000430","一般商業","買賣","","銀樓商","1","",1],["15000440","一般商業","買賣","","珠寶買賣（不參與加工作業）、珠寶公司內勤人員","1","",1],["15000450","一般商業","買賣","","當鋪商","1","【當舖工作人員】適用此工作性質。",1],["15000460","一般商業","買賣","","香燭、紙錢、爆竹買賣","2","",0],["15000470","一般商業","買賣","","檳榔商","2","【檳榔攤】適用此工作性質。",0],["15000480","一般商業","買賣","","一般流動、固定攤販","2","【跑單幫】適用此工作性質。",0],["15000490","一般商業","買賣","","廢五金買賣商","3","",0],["15000500","一般商業","買賣","","碾米商","2","",0],["16010010","服務業","銀行、保險、信託、租賃","","一般內勤人員","1","【證券公司負責人、期貨仲介經紀公司負責人】適用此工作性質。",0],["16010020","服務業","銀行、保險、信託、租賃","","外務員","2","【證券外交割人員】適用此工作性質。",1],["16010030","服務業","銀行、保險、信託、租賃","","收費員","2","",1],["16010040","服務業","銀行、保險、信託、租賃","","調查徵信人員","2","【不動產鑑價人員】、【民間二胎】適用此工作性質。",1],["16010050","服務業","銀行、保險、信託、租賃","","現金運送員、司機","3","【金融機構（銀行、合作社）駐衛警】適用此工作性質。",1],["16990010","服務業","其他","","同業壽險從業人員（內勤）","1","",1],["16990020","服務業","其他","","同業壽險從業人員（外勤）","2","",1],["16020010","服務業","自由業","","律師","1","",1],["16020020","服務業","自由業","","會計師","1","",1],["16020030","服務業","自由業","","代書（內勤）","1","",1],["16020040","服務業","自由業","","經紀人（內勤）","1","",1],["16020050","服務業","自由業","","外勤人員","2","",0],["16020060","服務業","自由業","","房屋土地仲介","2","",1],["16030010","服務業","其他","","公證行外務員","2","【公証行外勤人員】適用此工作性質。",0],["16030020","服務業","其他","","報關行外務員","2","【報關行外勤人員】適用此工作性質。",0],["16030030","服務業","其他","","理髮師、造型師","1","",0],["16030040","服務業","其他","","美容師","1","",0],["16030041","服務業","其他","","寵物美容師","2","",0],["16030050","服務業","其他","","鐘錶匠","1","",1],["16030060","服務業","其他","","鞋匠、雨傘匠、磨刀匠","2","",0],["16030070","服務業","其他","","洗衣店工人","2","",0],["16030090","服務業","其他","","警衛、保全人員（內勤）","2","",0],["16030091","服務業","其他","","警衛、保全人員（負有巡邏押運任務者）","4","【港口警衛及安全人員】、【機場警衛及安全人員】、【保全公司保全人員】適用此工作性質。",0],["16030100","服務業","其他","","大樓管理員","2","",0],["16030110","服務業","其他","","攝影師","1","",0],["16030140","服務業","其他","","清潔、打蠟、消毒、除蟲工人","2","【工友，佣工】、【修理紗窗紗門】適用此工作性質。",0],["16030150","服務業","其他","","高樓外部清潔工","5","壽險限額400萬。",0],["16030160","服務業","其他","","車輛保管人員","2","",0],["16030170","服務業","其他","","加油（氣）站工作人員","2","",0],["16030180","服務業","其他","","地磅工作人員","2","",0],["16030190","服務業","其他","","煙囪清潔工","5","",0],["16030200","服務業","其他","","三溫暖業負責人（非特種營業）","1","",0],["16030210","服務業","其他","","三溫暖業櫃臺人員（非特種營業）","1","",0],["16030220","服務業","其他","","三溫暖業工作人員（非特種營業）","2","",0],["16030230","服務業","其他","","鎖匠、刻印章人員","2","",0],["16030240","服務業","其他","","汽車洗車、打臘美容工人","2","",0],["16030250","服務業","其他","","裁縫師","1","",0],["16030260","服務業","其他","","水塔、化糞池清理人員","3","",0],["16030280","服務業","其他","","搬家工人","4","",0],["16030290","服務業","其他","","職業潛水夫","D","職業潛水夫壽險、傷害險均不承保。",0],["16030300","服務業","其他","","保全設備裝設人員","3","【大樓機電人員】適用此工作性質。",0],["16030310","服務業","其他","","火災現場勘查人員","3","",0],["16030320","服務業","其他","","徵信社外勤人員","3","",0],["16030330","服務業","其他","","水電工人","4","",0],["16030340","服務業","其他","","紋身藝術人員","2","",0],["16030350","服務業","其他","","民意代表、監立委、省縣市議員","1","",1],["16030360","服務業","其他","","村里幹事","1","【民眾服務站工作人員】適用此工作性質。",1],["16030370","服務業","其他","","錄影帶/光碟片出租店負責人、店員","1","",0],["16040010","服務業","殯葬業","","葬儀社負責人","1","",0],["16040020","服務業","殯葬業","","內勤工作人員","1","",0],["16040030","服務業","殯葬業","","司儀","1","",0],["16040040","服務業","殯葬業","","化粧人員","1","",0],["16040050","服務業","殯葬業","","外務員、生前契約傳銷人員","2","【靈骨塔傳銷人員】適用此工作性質。",0],["16040060","服務業","殯葬業","","殯儀館管理人員","2","",0],["16040070","服務業","殯葬業","","陣頭、樂隊人員","2","",0],["16040080","服務業","殯葬業","","墓園管理員","2","",0],["16040090","服務業","殯葬業","","禮堂佈置人員","3","",0],["16040100","服務業","殯葬業","","火葬場處理人員","2","",0],["16040110","服務業","殯葬業","","墓地建造工人","3","",0],["16040120","服務業","殯葬業","","撿骨師","2","",0],["16990030","服務業","其他","","公益彩券販賣（有店面）","1","",0],["16990040","服務業","其他","","公益彩券販賣（無店面）","2","",0],["17000010","家庭管理","家庭管理","","家庭主婦","1","",1],["17000020","家庭管理","家庭管理","","佣人","2","【女傭、看護工】適用此工作性質。",0],["17000030","家庭管理","家庭管理","","褓姆","1","",0],["17000040","家庭管理","家庭管理","","退休人員","1","",1],["17000050","家庭管理","家庭管理","","無業、待業","1","壽險限額300萬。",1],["17990010","家庭管理","其他","","房東、股票族","1","",0],["18010010","治安人員","治安人員","","警務行政及內勤人員","1","【警校文職教師】適用此工作性質。",0],["18010020","治安人員","治安人員","","警察（負有巡邏任務者）","3","【警官、警員（負有巡邏任務者）】、【電信警察】、【港警所警察】適用此工作性質。",0],["18010030","治安人員","治安人員","","監獄、看守所管理人員","3","",0],["18010040","治安人員","治安人員","","交通警察","4","",0],["18010050","治安人員","治安人員","","刑警","5","壽險限額400萬。",0],["18010060","治安人員","治安人員","","消防隊隊員","6","壽險限額300萬。",0],["18010061","治安人員","治安人員","","義消","4","",0],["18010070","治安人員","治安人員","","保安警察","3","【保一~保七總隊】適用此工作性質。",0],["18010080","治安人員","治安人員","","警察大學、警察專科學生","2","",0],["18010090","治安人員","治安人員","","警校教官","2","",0],["18010100","治安人員","治安人員","","防爆小組","D","防爆小組壽險、傷害險均不承保。",0],["18010110","治安人員","治安人員","","空中警察","6","",0],["18010120","治安人員","治安人員","","義警","3","",0],["18010130","治安人員","治安人員","","義交","4","",0],["18010140","治安人員","治安人員","","法警","2","不負責押解任務之法警。【監獄教導人員（非獄政之管理人員）】適用此工作性質。",0],["18010150","治安人員","治安人員","","警務特勤人員（維安小組、霹靂小組）","6","壽險限額300萬。",0],["18010160","治安人員","治安人員","","守望相助人員","3","",0],["18020010","治安人員","海巡署","","空巡人員","6","",0],["18020020","治安人員","海巡署","","岸巡人員","3","【海巡署（岸上巡邏及緝私）】適用此工作性質。",0],["18020030","治安人員","海巡署","","海巡人員","6","【海巡署（海上巡邏及緝私）】適用此工作性質。",0],["18030010","治安人員","法務人員","","法官、書記官、檢察官","1","",0],["18030020","治安人員","法務人員","","調查局之調查員（不需蒐証）","1","",0],["18030030","治安人員","法務人員","","調查局之調查員（需蒐証）","3","",0],["18030040","治安人員","法務人員","","觀護人","1","",0],["19000010","軍人","現役軍人","","一般軍人","3","【入伍受訓新兵】適用此工作性質。",0],["19000030","軍人","現役軍人","","志願役行政及內勤人員","1","【軍事研究單位紙上設計人員】、【後備軍人團管區軍官】、【一級單位行政及內勤人員（總統府、國防部、陸、海、空、聯勤司令部、後備司令部、海巡部、中科院、軍管區、師管區、團管區、軍校文職教師）】適用此工作性質。",0],["19000040","軍人","現役軍人","","憲兵","4","",0],["19000050","軍人","現役軍人","","軍醫院官兵","1","",0],["19000060","軍人","現役軍人","","軍校教官","2","【軍訓教官、軍事學校教官】適用此工作性質。",0],["19000070","軍人","現役軍人","","軍校學生","3","【軍校學生（陸、海、空、政戰軍官及士官學校、中正預校、憲兵學校、警官學校、警察學校、國防管理學院、國防醫學院等）】適用此工作性質。",0],["19000080","軍人","現役軍人","","機械、車輛、飛機、修護人員","4","",0],["19000090","軍人","現役軍人","","艦艇及潛艦官兵","6","【海上服勤人員（各式艦艇、潛艇、救難艇官兵）】適用此工作性質。艦艇及潛艦官兵、海上服勤人員（各式艦艇、潛艇、救難艇官兵）壽險限額300萬。",0],["19000100","軍人","現役軍人","","武器或彈藥製造人員","D","武器或彈藥製造人員壽險、傷害險均不承保。",1],["19000110","軍人","現役軍人","","軍機駕駛及機上工作人員","D","【空中服勤人員（各式飛機及飛行器）】適用此工作性質。壽險限額300萬。",0],["19990010","軍人","其他","","海軍陸戰隊","3","壽險限額500萬。",0],["19990020","軍人","其他","","軍事情報局內勤通信人員","2","",0],["19990030","軍人","其他","","國防部示範樂隊官兵、國防部藝工隊官兵","2","",0],["19990040","軍人","其他","","特種軍人（兩棲（蛙人）部隊、傘兵、化學兵）","D","壽險限額200萬。",0],["19990050","軍人","其他","","特種軍人（水中爆破兵、佈雷爆破工兵、情治單位負特殊任務者）","D","壽險限額100萬。",0],["19990060","軍人","其他","","軍事單位武器、彈藥研究及管理人員","D","壽險限額300萬。",1],["20000010","資訊業","資訊業","","維護工程師","2","",0],["20000020","資訊業","資訊業","","系統工程師","1","",0],["20000030","資訊業","資訊業","","銷售工程師(內勤)","1","",0],["20000031","資訊業","資訊業","","銷售工程師(外務)","2","",0],["20000040","資訊業","資訊業","","電腦程式設計師","1","",0],["20000050","資訊業","資訊業","","通信器材買賣商、店員","1","",0],["20000060","資訊業","資訊業","","事務機器維修人員","2","",0],["20000070","資訊業","資訊業","","硬體測試人員","2","",0],["20000080","資訊業","資訊業","","室內管線安裝人員","3","",0],["21010010","職業運動人員","高爾夫球","","教練","2","",0],["21010020","職業運動人員","高爾夫球","","高爾夫球球員","2","",0],["21010030","職業運動人員","高爾夫球","","球僮","2","",0],["21020010","職業運動人員","保齡球","","教練","2","",0],["21020020","職業運動人員","保齡球","","保齡球球員","2","",0],["21030010","職業運動人員","桌球","","教練","2","",0],["21030020","職業運動人員","桌球","","桌球球員","2","",0],["21040010","職業運動人員","羽球","","教練","2","",0],["21040020","職業運動人員","羽球","","羽球球員","2","",0],["21050010","職業運動人員","游泳","","教練","2","",0],["21050020","職業運動人員","游泳","","游泳人員","2","",0],["21060010","職業運動人員","射箭","","教練","2","",0],["21060020","職業運動人員","射箭","","射箭人員","2","",0],["21070010","職業運動人員","網球","","教練","2","",0],["21070020","職業運動人員","網球","","網球球員","2","",0],["21080010","職業運動人員","壘球","","教練","2","",0],["21080020","職業運動人員","壘球","","壘球球員","2","",0],["21090010","職業運動人員","溜冰","","教練","2","",0],["21090020","職業運動人員","溜冰","","溜冰人員","2","",0],["21100010","職業運動人員","射擊","","教練","2","",0],["21100020","職業運動人員","射擊","","射擊人員","2","",0],["21110010","職業運動人員","民俗體育活動","","教練","2","",0],["21110020","職業運動人員","民俗體育活動","","民俗體育活動人員","2","",0],["21120010","職業運動人員","舉重","","教練","2","",0],["21120020","職業運動人員","舉重","","舉重人員","3","",0],["21130010","職業運動人員","籃球","","教練","2","",0],["21130020","職業運動人員","籃球","","籃球球員","3","",0],["21140010","職業運動人員","排球","","教練","2","",0],["21140020","職業運動人員","排球","","排球球員","3","",0],["21150010","職業運動人員","棒球","","教練","2","",0],["21150020","職業運動人員","棒球","","棒球球員","3","",0],["21160010","職業運動人員","田徑","","教練","2","",0],["21160020","職業運動人員","田徑","","與賽人員","3","",0],["21170010","職業運動人員","體操","","教練","2","",0],["21170020","職業運動人員","體操","","體操人員","3","",0],["21180010","職業運動人員","滑草","","教練","3","",0],["21180020","職業運動人員","滑草","","滑草人員","3","",0],["21190010","職業運動人員","帆船","","教練","3","",0],["21190020","職業運動人員","帆船","","駕乘人員","3","",0],["21200010","職業運動人員","划船","","教練","3","",0],["21200020","職業運動人員","划船","","駕乘人員","3","",0],["21210010","職業運動人員","泛舟","","教練","3","壽險限額500萬。",0],["21210020","職業運動人員","泛舟","","駕乘人員","3","壽險限額500萬。",0],["21220010","職業運動人員","巧固球","","教練","2","",0],["21220020","職業運動人員","巧固球","","巧固球球員","3","",0],["21230010","職業運動人員","手球","","教練","2","",0],["21230020","職業運動人員","手球","","手球球員","3","",0],["21240010","職業運動人員","風浪板","","教練","4","壽險限額500萬。",0],["21240020","職業運動人員","風浪板","","駕乘人員","4","壽險限額500萬。",0],["21250010","職業運動人員","水上摩托車","","教練","4","壽險限額500萬。",0],["21250020","職業運動人員","水上摩托車","","駕乘人員","4","壽險限額500萬。",0],["21260010","職業運動人員","足球","","教練","2","",0],["21260020","職業運動人員","足球","","足球球員","4","",0],["21270010","職業運動人員","曲棍球","","教練","2","",0],["21270020","職業運動人員","曲棍球","","曲棍球球員","5","",0],["21280010","職業運動人員","冰上曲棍球","","教練","3","",0],["21280020","職業運動人員","冰上曲棍球","","冰上曲棍球球員","6","",0],["21290010","職業運動人員","橄欖球","","教練","2","",0],["21290020","職業運動人員","橄欖球","","橄欖球球員","6","壽險限額300萬。",0],["21300010","職業運動人員","自由車","","教練","2","",0],["21300020","職業運動人員","自由車","","自由車選手","3","",0],["21310010","職業運動人員","角力","","教練","3","",0],["21310020","職業運動人員","角力","","角力人員","6","壽險限額300萬。",0],["21320010","職業運動人員","摔角","","教練","3","",0],["21320020","職業運動人員","摔角","","摔角人員","6","壽險限額300萬。",0],["21330010","職業運動人員","柔道","","教練","3","",0],["21330020","職業運動人員","柔道","","柔道人員","4","",0],["21340010","職業運動人員","空手道","","教練","3","",0],["21340020","職業運動人員","空手道","","空手道人員","4","",0],["21350010","職業運動人員","跆拳道","","教練","3","",0],["21350020","職業運動人員","跆拳道","","跆拳道人員","4","",0],["21360010","職業運動人員","國術","","教練","3","",0],["21360020","職業運動人員","國術","","國術人員","4","",0],["21370010","職業運動人員","拳擊","","教練","3","",0],["21370020","職業運動人員","拳擊","","拳擊人員","6","",0],["21380010","職業運動人員","潛水","","教練","3","壽險限額500萬。",0],["21380020","職業運動人員","潛水","","潛水人員","3","壽險限額500萬。",0],["21390010","職業運動人員","滑水","","教練","3","壽險限額500萬。",0],["21390020","職業運動人員","滑水","","滑水人員","3","壽險限額500萬。",0],["21400010","職業運動人員","滑雪","","教練","5","",0],["21400020","職業運動人員","滑雪","","滑雪人員","6","",0],["21410010","職業運動人員","馬術","","教練","4","",0],["21410020","職業運動人員","馬術","","馬術人員","4","",0],["21420010","職業運動人員","特技表演","","教練","5","壽險限額400萬。",0],["21420020","職業運動人員","特技表演","","特技表演人員","6","壽險限額300萬。",0],["21430010","職業運動人員","雪車","","教練","5","",0],["21430020","職業運動人員","雪車","","與賽人員","6","",0],["21440010","職業運動人員","滑翔機具","","教練","4","壽險限額500萬。",0],["21440020","職業運動人員","滑翔機具","","駕駛人員","4","壽險限額500萬。",0],["21450010","職業運動人員","汽車、機車賽車","","教練","5","壽險限額400萬。",0],["21450020","職業運動人員","汽車、機車賽車","","賽車人員","D","壽險限額400萬。",0],["21460010","職業運動人員","跳傘","","教練","D","壽險限額500萬。",0],["21460020","職業運動人員","跳傘","","跳傘人員","D","壽險限額500萬。",0],["21470010","職業運動人員","動力及無動力飛行載具","","教練","4","壽險限額500萬。",0],["21470020","職業運動人員","動力及無動力飛行載具","","駕駛人員","4","壽險限額500萬。",0],["21480010","職業運動人員","撞球","","教練","1","",0],["21480020","職業運動人員","撞球","","撞球球員","2","",0],["21490010","職業運動人員","迴力球（壁球）","","教練","2","",0],["21490020","職業運動人員","迴力球（壁球）","","迴力球球員","3","",0],["21500010","職業運動人員","滑板、直排輪","","教練","2","",0],["21500020","職業運動人員","滑板、直排輪","","選手","3","",0],["21510010","職業運動人員","鐵人三項","","教練","2","",0],["21510020","職業運動人員","鐵人三項","","選手","3","",0],["21520010","職業運動人員","相撲","","教練","3","",0],["21520020","職業運動人員","相撲","","相撲選手","6","",0],["21530010","職業運動人員","合氣道","","教練","3","",0],["21530020","職業運動人員","合氣道","","合氣道選手","4","",0],["21540010","職業運動人員","衝浪","","教練","4","",0],["21540020","職業運動人員","衝浪","","衝浪選手","4","",0],["21550010","職業運動人員","跳水","","教練","4","壽險限額500萬。",0],["21550020","職業運動人員","跳水","","跳水選手","4","壽險限額500萬。",0],["21560010","職業運動人員","高空彈跳","","教練","D","壽險限額300萬。",0],["21560020","職業運動人員","高空彈跳","","選手","D","壽險限額300萬。",0],["21570010","職業運動人員","攀岩","","教練","D","壽險限額300萬。",0],["21570020","職業運動人員","攀岩","","選手","D","壽險限額300萬。",0],["21580010","職業運動人員","馬球","","教練","4","",0],["21580020","職業運動人員","馬球","","選手","4","",0],["21590010","職業運動人員","劍道","","教練","2","",0],["21590020","職業運動人員","劍道","","選手","3","",0],["21600010","職業運動人員","西洋劍","","教練","2","",0],["21600020","職業運動人員","西洋劍","","選手","3","",0],["21610010","職業運動人員","槌球","","教練","1","",0],["21610020","職業運動人員","槌球","","選手","2","",0]];
+const RATE = {1:100,2:90,3:80,4:70,5:60,6:50,7:40,8:30,9:20,10:10,11:5};
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtWan = v => { if (!isFinite(v)) return '—'; const r = Math.round(v*100)/100; return r.toLocaleString('zh-TW',{maximumFractionDigits:2}) + ' 萬'; };
+const fmtYuan = wan => { const y = Math.round(wan*10000); return y.toLocaleString('zh-TW') + ' 元'; };
+const num = id => { const v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; };
+
+/* ---------- disability ---------- */
+let selLv = 0, selPart = '全部';
+const PARTS = ['全部','神經','眼','耳','鼻','口','胸腹部臟器','軀幹','上肢','下肢'];
+function renderLv(){
+  const cnt = {}; DIS.forEach(d => cnt[d[4]] = (cnt[d[4]]||0)+1);
+  $('#lvList').innerHTML = Object.keys(RATE).map(l => `<button type="button" class="lv" data-lv="${l}" aria-pressed="${selLv==l}"><b>第${l}級</b><span class="bar"><i style="width:${RATE[l]}%"></i></span><span class="p">${RATE[l]}%</span></button>`).join('');
+  $('#lvList').querySelectorAll('.lv').forEach(b => b.onclick = () => { const l = +b.dataset.lv; selLv = (selLv===l?0:l); if(selLv){ $('#calcLv').value = selLv; calc(); } renderLv(); renderItems(); });
+}
+function renderParts(){
+  $('#partChips').innerHTML = PARTS.map(p => `<button type="button" class="chip" aria-pressed="${p===selPart}" data-p="${p}">${p}</button>`).join('');
+  $('#partChips').querySelectorAll('.chip').forEach(b => b.onclick = () => { selPart = b.dataset.p; renderParts(); renderItems(); });
+}
+function itemHTML(d, withBtn){
+  return `<div class="item ${d[4]>=7?'minor':''}"><div><div class="c">${esc(d[0])}｜${esc(d[1])}・${esc(d[2])}</div><div>${esc(d[3])}</div></div><div class="lvb">第${d[4]}級<small>${RATE[d[4]]}%</small></div>${withBtn?`<button type="button" class="small-btn" data-code="${d[0]}">帶入試算</button>`:''}</div>`;
+}
+function renderItems(){
+  const list = DIS.filter(d => (selPart==='全部'||d[1]===selPart) && (!selLv || d[4]===selLv));
+  $('#itemInfo').textContent = `${selPart==='全部'?'全部部位':selPart}${selLv?`・第${selLv}級`:''}：共 ${list.length} 項` + (selLv? '（再點一次等級可取消）':'');
+  $('#itemList').innerHTML = list.length ? list.map(d => itemHTML(d,true)).join('') : '<div class="note">此部位沒有這個等級的項目。</div>';
+  $('#itemList').querySelectorAll('button[data-code]').forEach(b => b.onclick = () => {
+    const d = DIS.find(x => x[0]===b.dataset.code); $('#calcLv').value = d[4]; calc(d); $('#calc').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+function calc(item){
+  const amt = num('#calcAmt'), lv = +$('#calcLv').value;
+  $('#calcDesc').textContent = `第 ${lv} 級 × ${RATE[lv]}%`;
+  $('#calcOut').textContent = amt ? fmtYuan(amt*RATE[lv]/100) : '請輸入保額';
+  $('#calcItem').textContent = (item && item[0]) ? `項目 ${item[0]}：${item[3]}` : `本等級共 ${DIS.filter(d=>d[4]===lv).length} 項，例如：${DIS.filter(d=>d[4]===lv).slice(0,2).map(d=>d[3].replace(/者?。$/,'')).join('；')}`;
+  $('#calcTable').innerHTML = '<tr><th>等級</th><th>比例</th><th>可領金額</th></tr>' + Object.keys(RATE).map(l => `<tr${l==lv?' style="background:#fbf1e7;font-weight:700"':''}><td>第${l}級</td><td>${RATE[l]}%</td><td>${amt?fmtYuan(amt*RATE[l]/100):'—'}</td></tr>`).join('');
+}
+function initCalc(){
+  $('#calcLv').innerHTML = Object.keys(RATE).map(l => `<option value="${l}">第 ${l} 級（${RATE[l]}%）</option>`).join('');
+  $('#calcLv').value = 7;
+  $('#calcAmt').oninput = () => calc(); $('#calcLv').onchange = () => calc();
+  calc();
+}
+function initCompare(){
+  $('#dots28').innerHTML = '<i></i>'.repeat(28);
+  $('#dots80').innerHTML = DIS.slice().sort((a,b)=>a[4]-b[4]).map(d => `<i class="${d[4]<=6?'s':'m'}"></i>`).join('');
+  const pick = ['8-2-8','8-2-9','8-2-7','8-2-5','8-4-5','9-3-2','9-5-2','9-5-1','8-3-6','7-1-2','6-2-2','2-1-6'];
+  $('#minorList').innerHTML = pick.map(c => itemHTML(DIS.find(d=>d[0]===c), false)).join('');
+}
+
+/* ---------- occupation ---------- */
+const OC = {'1':'#2e8b57','2':'#6aa84f','3':'#c9a227','4':'#e08a2e','5':'#d4622a','6':'#b8322a','D':'#5c5c5c'};
+const OCC_EX = {
+  '1':{d:'辦公室、教學、居家為主，較少接觸機具或交通風險',c:['00010010','12010010','10010020','20000020','16020010','17000010']},
+  '2':{d:'需外出走動、駕駛自用車或輕度體力工作',c:['00010020','05010040','06030060','12010050','16030090','16020060']},
+  '3':{d:'經常騎乘機車、站立勞動或一般執勤工作',c:['05010261','05010410','18010020','19000010','07010220','07010320']},
+  '4':{d:'職業駕駛、裝修施工、需巡邏押運等較高風險工作',c:['05010060','07010150','07010140','07010120','18010040','16030091']},
+  '5':{d:'高處作業、焊接、大型機具或刑事執勤',c:['07010180','07010170','07010190','07010321','07010400','18010050']},
+  '6':{d:'伐木、消防、飛航、特殊危險環境',c:['03010030','18010060','18010110','05040270','05040280','14020120']},
+  'D':{d:'傷害險不承保之工作性質（醫療險亦不承保）',c:['04010010','04040040','04990010','02020010','18010100','05040293']}
+};
+const occMap = Object.fromEntries(OCC.map(o => [o[0], o]));
+let occCls = '', occLimit = 30;
+function initOcc(){
+  $('#occScale').innerHTML = Object.keys(OC).map(k => `<span style="background:${OC[k]}" title="${k}"></span>`).join('');
+  const cnt = {}; OCC.forEach(o => cnt[o[5]] = (cnt[o[5]]||0)+1);
+  $('#occCards').innerHTML = Object.keys(OCC_EX).map((k,i) => {
+    const ex = OCC_EX[k].c.map(c => occMap[c]).filter(Boolean);
+    const lvl = k==='D'?7:+k;
+    return `<div class="occ" style="--c:${OC[k]}"><h4>${k==='D'?'D 類｜傷害險不承保':'第 '+k+' 類'}<small>表中 ${cnt[k]||0} 筆</small></h4><div class="note">${OCC_EX[k].d}</div><div class="meter">${Array.from({length:7},(_,j)=>`<i class="${j<lvl?'f':''}"></i>`).join('')}</div><ul>${ex.map(o => `<li>${esc(o[4])} <span class="note">（${esc(o[2])}）</span></li>`).join('')}</ul></div>`;
+  }).join('');
+  $('#occCount').textContent = OCC.length.toLocaleString('zh-TW');
+  const cls = [['','全部'],['1','1類'],['2','2類'],['3','3類'],['4','4類'],['5','5類'],['6','6類'],['D','D類']];
+  $('#occClsChips').innerHTML = cls.map(([v,t]) => `<button type="button" class="chip" data-c="${v}" aria-pressed="${occCls===v}">${t}</button>`).join('');
+  $('#occClsChips').querySelectorAll('.chip').forEach(b => b.onclick = () => { occCls = b.dataset.c; occLimit = 30; $('#occClsChips').querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x.dataset.c===occCls)); renderOcc(); });
+  $('#occQ').addEventListener('input', () => { occLimit = 30; renderOcc(); });
+  $('#occMore').onclick = () => { occLimit += 50; renderOcc(); };
+  renderOcc();
+}
+function renderOcc(){
+  const q = $('#occQ').value.trim().replace(/\s+/g,' ');
+  const ALIAS = {'外送':'送外賣|外送|快遞','外賣':'送外賣|外賣','護理師':'護士|護理','護理':'護士|護理','uber':'計程車','工地':'建築|土木|工人','保全':'保全|警衛','老師':'教師|教練|講師','司機':'司機|駕駛','公務員':'公務|行政|內勤','上班族':'內勤人員|外勤人員','學生':'學生'};
+  const terms = q ? q.split(' ') : [];
+  const list = OCC.filter(o => (!occCls || o[5]===occCls) && terms.every(t => { const hay=(o[0]+' '+o[1]+' '+o[2]+' '+o[3]+' '+o[4]+' '+o[6]).toLowerCase(); const alts=(ALIAS[t.toLowerCase()]||t).toLowerCase().split('|'); return alts.some(a => hay.includes(a)); }));
+  if (!q && !occCls){ $('#occInfo').textContent = '輸入關鍵字或點選職類開始查詢。'; $('#occRes').innerHTML=''; $('#occMore').hidden = true; return; }
+  $('#occInfo').textContent = `找到 ${list.length} 筆` + (list.length>occLimit?`，先顯示 ${occLimit} 筆`:'');
+  $('#occRes').innerHTML = list.slice(0,occLimit).map(o => `<div class="ores"><div><b>${esc(o[4])}</b>${o[7]?'<span class="flag">需加強確認</span>':''}</div><div class="meta">${esc(o[0])}｜${esc(o[1])} › ${esc(o[2])}${o[3]?' › '+esc(o[3]):''}</div>${o[6]?`<div class="rm">備註：${esc(o[6])}</div>`:'<div></div>'}<div class="cls" style="background:${OC[o[5]]}">${o[5]==='D'?'D':o[5]+'類'}</div></div>`).join('') || '<div class="note">查無符合的職業，可以換個關鍵字試試（例如用「司機」「工人」「教師」）。</div>';
+  $('#occMore').hidden = list.length <= occLimit;
+}
+
+/* ---------- gap ---------- */
+const G = ['#gInc','#gYrs','#gCare','#gDebt','#gMed','#gSave','#gHave','#gMedHave'];
+function gap(){
+  const inc = num('#gInc')*num('#gYrs'), care = num('#gCare')*12*num('#gYrs'), other = num('#gDebt') + num('#gMed');
+  const have = num('#gSave') + num('#gHave') + Math.min(num('#gMedHave'), num('#gMed'));
+  const need = inc + care + other, any = G.some(id => $(id).value !== '');
+  $('#oInc').textContent = any?fmtWan(inc):'—'; $('#oCare').textContent = any?fmtWan(care):'—';
+  $('#oOther').textContent = any?fmtWan(other):'—'; $('#oHave').textContent = any?fmtWan(have):'—';
+  const g = Math.max(0, need - have);
+  $('#oGap').textContent = any ? (need ? (g>0 ? fmtWan(g) : '目前準備足以涵蓋') : '—') : '—';
+  const pct = need ? Math.min(100, have/need*100) : 0;
+  $('#oBar').style.width = pct + '%';
+  $('#oPct').textContent = any && need ? `現有準備約可涵蓋需求的 ${Math.round(pct)}%` : '';
+  const h = num('#gHave');
+  $('#gLvTable').innerHTML = '<tr><th>等級</th><th>比例</th><th>可領</th><th>占需求</th></tr>' + [1,3,5,7,9,11].map(l => `<tr><td>第${l}級</td><td>${RATE[l]}%</td><td>${h?fmtWan(h*RATE[l]/100):'—'}</td><td>${h&&need?Math.round(h*RATE[l]/100/need*100)+'%':'—'}</td></tr>`).join('');
+}
+function initGap(){
+  G.forEach(id => $(id).addEventListener('input', gap));
+  $('#gReset').onclick = () => { G.forEach(id => $(id).value=''); gap(); };
+  $('#gDemo').onclick = () => { const v = [80,10,3,500,30,100,300,5]; G.forEach((id,i) => $(id).value = v[i]); gap(); };
+  gap();
+}
+
+/* ---------- contact (localStorage only) ---------- */
+const CK = 'acc-tool-contact-v1';
+const CDEF = {co:'富邦人壽　業務員', name:'梁仕翰', line:'', tel:''};
+function loadC(){ try { return Object.assign({}, CDEF, JSON.parse(localStorage.getItem(CK)||'{}')); } catch(e){ return Object.assign({}, CDEF); } }
+function showC(){
+  const c = loadC();
+  $('#cvCo').textContent = c.co || ''; $('#cvName').textContent = c.name || '';
+  $('#cvLine').textContent = c.line || '（請點「編輯聯絡資訊」填寫）';
+  const t = $('#cvTel'); t.textContent = c.tel || '（請點「編輯聯絡資訊」填寫）';
+  if (c.tel) t.href = 'tel:' + c.tel.replace(/[^\d+]/g,''); else t.removeAttribute('href');
+}
+function initContact(){
+  const box = $('#contact');
+  $('#cEdit').onclick = () => {
+    if (!box.classList.contains('editing')){
+      const c = loadC(); $('#ceCo').value=c.co; $('#ceName').value=c.name; $('#ceLine').value=c.line; $('#ceTel').value=c.tel;
+      box.classList.add('editing'); $('#cEdit').textContent='儲存'; $('#cCancel').hidden=false;
+    } else {
+      const c = {co:$('#ceCo').value.trim(), name:$('#ceName').value.trim(), line:$('#ceLine').value.trim(), tel:$('#ceTel').value.trim()};
+      try { localStorage.setItem(CK, JSON.stringify(c)); } catch(e){}
+      box.classList.remove('editing'); $('#cEdit').textContent='編輯聯絡資訊'; $('#cCancel').hidden=true; showC();
+    }
+  };
+  $('#cCancel').onclick = () => { box.classList.remove('editing'); $('#cEdit').textContent='編輯聯絡資訊'; $('#cCancel').hidden=true; };
+  showC();
+}
+
+/* ---------- nav ---------- */
+function initNav(){
+  const links = [...document.querySelectorAll('nav.toc a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const onScroll = () => {
+    const y = window.scrollY + 90; let idx = -1;
+    secs.forEach((s,i) => { if (s.offsetTop <= y) idx = i; });
+    links.forEach((a,i) => a.classList.toggle('on', i===idx));
+    if (idx>=0){ const a = links[idx], w = $('#tocWrap'); if (a.offsetLeft < w.scrollLeft || a.offsetLeft+a.offsetWidth > w.scrollLeft + w.clientWidth) w.scrollLeft = a.offsetLeft - 16; }
+    $('#toTop').style.display = window.scrollY > 600 ? 'block' : 'none';
+  };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  $('#toTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderLv(); renderParts(); renderItems(); initCalc(); initCompare(); initOcc(); initGap(); initContact(); initNav();
+</script>
+</body>
+</html>
