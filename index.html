@@ -41,12 +41,12 @@ h3{font-size:18px;margin:0 0 6px}
 .pill.ex{background:#fdecec;color:#a33}
 .grid2{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
-details.benefit{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid #eee8de;margin:0 0 12px;overflow:hidden}
-details.benefit summary{list-style:none;cursor:pointer;min-height:56px;padding:14px 48px 14px 16px;position:relative;display:flex;align-items:center;gap:12px}
+details.benefit{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid #eee8de;margin:0 0 8px;overflow:hidden}
+details.benefit summary{list-style:none;cursor:pointer;min-height:52px;padding:10px 44px 10px 14px;position:relative;display:flex;align-items:center;gap:12px}
 details.benefit summary::-webkit-details-marker{display:none}
 details.benefit summary:after{content:"＋";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--pri2);font-size:20px}
 details.benefit[open] summary:after{content:"－"}
-.ico{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:20px}
+.ico{flex:0 0 auto;width:34px;height:34px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:20px}
 .benefit .t{font-weight:700;line-height:1.4}
 .benefit .s{font-size:13px;color:var(--muted);font-weight:400}
 .benefit .body{padding:0 16px 16px}
@@ -121,7 +121,7 @@ table.t th{background:var(--soft);color:var(--pri);font-weight:700}
 .hbar{height:16px;border-radius:8px;background:#eadfce;overflow:hidden;margin-top:8px;display:flex}
 .hbar i{display:block;height:100%;background:var(--teal)}
 .three{counter-reset:n;display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.three li{background:#fff;border-radius:14px;padding:14px 14px 14px 56px;position:relative;border:1px solid var(--line)}
+.three li{background:#fff;border-radius:14px;padding:12px 12px 12px 52px;position:relative;border:1px solid var(--line)}
 .three li:before{counter-increment:n;content:counter(n);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
 .contact{background:linear-gradient(160deg,#173f70,#1d4e89);color:#fff;border-radius:20px;padding:18px}
 .contact .row{display:flex;align-items:center;gap:10px;margin:8px 0}
@@ -141,6 +141,25 @@ footer li{margin:4px 0;word-break:break-all}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .toTop{position:fixed;right:14px;bottom:18px;z-index:30;width:48px;height:48px;border-radius:50%;border:none;background:var(--pri);color:#fff;font-size:20px;box-shadow:var(--sh);display:none;cursor:pointer}
 .scrollx{overflow-x:auto}
+details.acc{background:#fff;border-radius:var(--r);box-shadow:var(--sh);border:1px solid #eee8de;margin:0 0 10px;overflow:hidden}
+details.acc>summary{list-style:none;cursor:pointer;min-height:52px;padding:12px 44px 12px 16px;position:relative;display:block}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary:after{content:"＋";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--pri2);font-size:20px}
+details.acc[open]>summary:after{content:"－"}
+details.acc>summary b{display:block;font-size:16px;line-height:1.4}
+details.acc>summary span{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:2px}
+details.acc>.body{padding:0 16px 14px}
+details.acc.warnl{border-left:6px solid var(--warn)}
+details.acc.warml{border-left:6px solid var(--warm)}
+.seg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#ece6dc;border-radius:14px;padding:4px;margin:6px 0 10px}
+.seg button{min-height:44px;border:none;border-radius:10px;background:transparent;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer;font-family:inherit;padding:0}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--c,var(--pri));box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.ctr{text-align:center}
+section{padding:22px 0 4px}
+.lead{margin:0 0 12px}
+.g2m{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.g2m label.f{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(min-width:760px){.g2m{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
@@ -179,42 +198,34 @@ footer li{margin:4px 0;word-break:break-all}
 <!-- ===== 1 ===== -->
 <section id="s1">
   <h2><span class="no">1</span>意外，和你想的一樣嗎？</h2>
-  <p class="lead">同樣是受傷，原因不同，保險上的認定也可能不同。先用幾個生活情境感受一下：</p>
-  <div class="grid2">
-    <div class="card">
-      <h3>✅ 通常屬於意外</h3>
+  <p class="lead">同樣是受傷，原因不同，保險上的認定也可能不同。點開看看：</p>
+  <details class="acc"><summary><b>✅ 通常屬於意外</b><span>例：雨天摔車骨折、在家滑倒撞頭、切菜切傷手指</span></summary><div class="body">
       <ul style="margin:0;padding-left:20px">
         <li>雨天騎車打滑摔車，手腕骨折</li>
         <li>在家踩到積水滑倒，撞到頭</li>
         <li>切菜時不小心切傷手指</li>
         <li>搭公車時緊急煞車跌倒受傷</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>⚠️ 可能不屬於意外</h3>
+      </ul></div></details>
+  <details class="acc"><summary><b>⚠️ 可能不屬於意外</b><span>例：中風倒下、長期姿勢不良、慢性肌腱炎</span></summary><div class="body">
       <ul style="margin:0;padding-left:20px">
         <li>因中風、心臟病發作而倒下（由疾病引起）</li>
         <li>長期姿勢不良造成的椎間盤突出（非突發）</li>
         <li>運動後的慢性肌腱炎（非單一突發事故）</li>
       </ul>
-      <p class="note" style="margin:8px 0 0">實際仍以個案事故經過、醫療證明及保險公司審核為準。</p>
-    </div>
-  </div>
-  <div class="card">
-    <h3>⏱ 兩個常被忽略的細節</h3>
+      <p class="note" style="margin:8px 0 0">實際仍以個案事故經過、醫療證明及保險公司審核為準。</p></div></details>
+  <details class="acc"><summary><b>⏱ 兩個常被忽略的細節</b><span>180 天內的因果關係、兩年請求時效</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li><b>180 天</b>：示範條款約定，意外事故發生之日起 180 日內身故或致成失能，依約給付；超過 180 日者，若能證明與該次意外有因果關係，仍可申請。</li>
       <li><b>兩年時效</b>：保險契約所生的權利，自得為請求之日起，經過兩年不行使而消滅。受傷後記得保留診斷書與收據。</li>
-    </ul>
-  </div>
+    </ul></div></details>
 </section>
 
 <!-- ===== 2 ===== -->
 <section id="s2">
   <h2><span class="no">2</span>理賠項目及舉例</h2>
-  <p class="lead">意外險常見的給付項目如下，點開每張卡片看說明與生活例子。標示 <span class="pill dep">依商品而定</span> 的項目並非每張保單都有，<b>實際以各商品條款為準</b>。範例金額皆為假設，方便理解計算方式。</p>
+  <p class="lead">點開卡片看說明與例子。<span class="pill dep">依商品而定</span> 表示並非每張保單都有，<b>實際以各商品條款為準</b>；範例金額皆為假設。</p>
 
-  <details class="benefit" open>
+  <details class="benefit">
     <summary><span class="ico">🕊️</span><span><span class="t">意外身故保險金</span><br><span class="s">因意外身故，給付保險金額</span></span></summary>
     <div class="body">
       <p>被保險人因意外傷害事故，於事故發生日起 180 日內身故，按保險金額給付身故保險金。若同一事故先領過失能保險金，合計最高以保險金額為限。</p>
@@ -323,22 +334,24 @@ footer li{margin:4px 0;word-break:break-all}
 <!-- ===== 3 職業等級 ===== -->
 <section id="s3">
   <h2><span class="no">3</span>職業等級比較</h2>
-  <p class="lead">意外險會依工作內容的風險，把職業分成 <b>第 1～6 類</b>，另有 <b>D 類（傷害險不承保）</b>。類別越高，代表工作中發生意外的機會或嚴重度越高。</p>
+  <p class="lead">意外險依工作風險把職業分成 <b>第 1～6 類</b>，另有 <b>D 類（傷害險不承保）</b>。類別越高，工作中發生意外的機會或嚴重度越高。</p>
 
   <div class="card">
     <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>風險較低</span><span>風險較高</span></div>
     <div class="occ-scale" id="occScale"></div>
-    <ul style="margin:10px 0 0;padding-left:20px">
+    <div class="note" style="margin-top:6px">點選類別，查看代表職業：</div>
+    <div class="seg" id="occSeg" role="group" aria-label="選擇職業類別"></div>
+    <div id="occCards"></div>
+  </div>
+
+  <details class="acc"><summary><b>📘 職業類別怎麼看？</b><span>看實際工作性質；類別越高風險越高，保費一般也越高</span></summary><div class="body">
+    <ul style="margin:0;padding-left:20px">
       <li><b>看的是「實際工作性質」</b>，不是公司名稱或職稱。同一家公司，內勤（第 1 類）與外勤（第 2 類）就不同。</li>
       <li><b>類別越高，風險越高，保費一般也越高</b>；部分類別或職業可能有保額限制或不予承保（各商品規則不同）。</li>
       <li><b>D 類</b>：表示傷害險不承保的工作性質；壽險或傷害險不承保的職業，醫療險亦不承保。</li>
-    </ul>
-  </div>
+    </ul></div></details>
 
-  <div class="occ-cards" id="occCards"></div>
-
-  <div class="card" style="border-left:6px solid var(--warn)">
-    <h3>🔔 換工作了，記得通知保險公司</h3>
+  <details class="acc warnl"><summary><b>🔔 換工作了，記得通知保險公司</b><span>職業變更通知義務；風險增加未通知，理賠可能按比例折算</span></summary><div class="body">
     <p style="margin:0 0 6px">傷害保險單示範條款約定「職業或職務變更的通知義務」：被保險人變更職業或職務時，要保人或被保險人應即時通知保險公司。</p>
     <ul style="margin:0;padding-left:20px">
       <li><b>風險降低</b>（例如從工地轉內勤）：自變更之日起，按差額比率退還未滿期保險費。</li>
@@ -346,7 +359,7 @@ footer li{margin:4px 0;word-break:break-all}
       <li><b>風險增加卻未通知而發生事故</b>：保險公司會<b>按原收保險費與應收保險費的比率折算保險金</b>給付，可能因此少領。</li>
     </ul>
     <div class="ex-box"><b>例子</b>：原本是辦公室內勤（第 1 類），轉職為外送員（送外賣機車駕駛，第 3 類）卻沒有通知。之後送餐途中發生事故，理賠可能依保費比例打折。</div>
-  </div>
+  </div></details>
 
   <div class="card">
     <h3>🔎 職業類別查詢</h3>
@@ -364,13 +377,11 @@ footer li{margin:4px 0;word-break:break-all}
 <!-- ===== 4 失能表 ===== -->
 <section id="s4">
   <h2><span class="no">4</span>失能程度與保險金給付表（11 級 80 項）</h2>
-  <p class="lead">這是傷害保險單示範條款的附表，也是意外失能給付的依據。現行版本為 <b>11 級 80 項</b>，依身體部位分為 9 大類。</p>
+  <p class="lead">意外失能給付的依據（傷害保險單示範條款附表），現行為 <b>11 級 80 項</b>，依身體部位分 9 大類。</p>
 
-  <div class="card">
-    <h3>📈 等級與給付比例</h3>
-    <p class="note" style="margin:0 0 8px">點選等級，可篩選下方項目並帶入試算。</p>
+  <details class="acc"><summary><b>📈 等級與給付比例</b><span>第 1 級 100% → 第 11 級 5%，點等級可帶入試算</span></summary><div class="body">
     <div class="lv-list" id="lvList"></div>
-  </div>
+  </div></details>
 
   <div class="card" id="calc">
     <h3>🧮 失能保險金試算</h3>
@@ -394,13 +405,13 @@ footer li{margin:4px 0;word-break:break-all}
 
   <div class="card">
     <h3>🧍 依身體部位查詢</h3>
-    <div class="chipbar" id="partChips" role="group" aria-label="依部位篩選"></div>
-    <div class="note" id="itemInfo" style="margin-bottom:8px"></div>
+    <label class="f" for="partSel" style="margin-top:0">選擇身體部位，查看該部位的失能項目</label>
+    <select id="partSel"></select>
+    <div class="note" id="itemInfo" style="margin:8px 0"></div>
     <div class="items" id="itemList"></div>
   </div>
 
-  <div class="card">
-    <h3>🗓 版本沿革</h3>
+  <details class="acc"><summary><b>🗓 版本沿革</b><span>75 項 → 104/8/4 79 項 → 109/1/1 80 項（現行）</span></summary><div class="body">
     <div class="timeline">
       <div><b>民國 95 年 10 月 1 日以前</b>：舊表「6 級 28 項」。</div>
       <div><b>95 年 10 月 1 日起</b>：改為「11 級 75 項」，分級更細、範圍更廣（金管保二字第 09502069411 號，95/8/10）。</div>
@@ -408,23 +419,22 @@ footer li{margin:4px 0;word-break:break-all}
       <div class="now"><b>109 年 1 月 1 日起（現行）</b>：新增 4-1-2「鼻未缺損，而鼻機能永久遺存顯著障害者」（第 11 級、5%），成為「11 級 80 項」（金管保壽字第 10804920500 號，108/6/21）。</div>
     </div>
     <p style="margin:6px 0 0"><b>舊保單怎麼辦？</b>109 年修正時，金管會函示：實施日前已銷售的長年期及一年期保證續保商品之有效契約，於 109 年 1 月 1 日之後發生的保險事故（以事故日為準），採<b>「從新從優」</b>原則。更早的舊制保單適用規則不同，詳見第 5 段。</p>
-  </div>
+  </div></details>
 
-  <div class="card">
-    <h3>📌 認定上的重點</h3>
+  <details class="acc"><summary><b>📌 認定上的重點</b><span>永久失能、多項合計上限、同一手足擇重給付</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li>失能須為<b>永久</b>狀態，通常需經治療後症狀固定，再由專科醫師開立失能診斷書。</li>
       <li>同一事故多項失能：各項相加，最高以保險金額為限；同一手或同一足只給付較嚴重的一項。</li>
       <li>不同事故分別申請失能，累計最高以保險金額為限。</li>
       <li>表中「缺失」「喪失機能」「顯著運動障害」等用語，各有附註定義（例如關節活動度的百分比），實際以條款附註為準。</li>
     </ul>
-  </div>
+  </div></details>
 </section>
 
 <!-- ===== 5 舊制 vs 新制 ===== -->
 <section id="s5">
   <h2><span class="no">5</span>舊制 6 級 28 項 vs 新制 11 級 80 項</h2>
-  <p class="lead">意外險的失能等級表不是一直長這樣。民國 95 年 10 月 1 日以前，傷害保險使用的是舊制「6 級 28 項」；之後改為 11 級，並陸續修正到現在的 80 項。</p>
+  <p class="lead">民國 95 年 10 月 1 日以前，傷害保險使用舊制「6 級 28 項」；之後改為 11 級，並陸續修正到現在的 80 項。</p>
 
   <div class="cmp">
     <div class="col">
@@ -441,66 +451,61 @@ footer li{margin:4px 0;word-break:break-all}
     </div>
   </div>
 
-  <div class="card" style="margin-top:12px">
-    <h3>🗓 完整沿革</h3>
+  <details class="acc "><summary><b>🗓 完整沿革</b><span>95/10/1 前 6級28項 → 11級75項 → 79項 → 109/1/1 80項</span></summary><div class="body">
     <div class="timeline">
       <div><b>95/10/1 以前</b>：舊制 6 級 28 項</div>
       <div><b>95/10/1 起</b>：11 級 75 項（金管保二字第 09502069411 號，95/8/10）</div>
       <div><b>104/8/4 起</b>：11 級 79 項</div>
       <div class="now"><b>109/1/1 起</b>：11 級 80 項（現行）</div>
     </div>
-  </div>
+  </div></details>
 
-  <div class="card">
-    <h3>新制改了什麼？</h3>
+  <details class="acc "><summary><b>新制改了什麼？</b><span>分級更細、範圍更廣、多數比例提高</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li><b>分級更細</b>：由 6 個等級變成 11 個等級，給付比例從 100% 到 5%，輕度失能也有對應比例。</li>
       <li><b>範圍更廣</b>：由 28 項擴充為 80 項，同一部位依嚴重程度分得更細，原本未列入的情況也被納入。</li>
       <li><b>多數比例提高</b>：整體而言，新制對被保險人較有利。</li>
     </ul>
-  </div>
+  </div></details>
 
-  <div class="card" style="border-left:6px solid var(--warm)">
-    <h3>🔍 小細節：有兩種情況，舊制給付比較高</h3>
+  <details class="acc warml"><summary><b>🔍 小細節：兩種情況舊制給付較高</b><span>一目失明＋腕／踝缺失 100% vs 90%；一關節機能喪失 35% vs 30%</span></summary><div class="body">
     <div class="scrollx"><table class="t" style="margin:6px 0">
       <tr><th>失能情況</th><th>舊制</th><th>新制</th></tr>
       <tr><td>一目失明 ＋ 一手腕關節或一足踝關節缺失<div class="note">新制為 2-1-6（40%）＋ 8-1-3 或 9-1-3（50%）合計</div></td><td><b>100%</b></td><td>90%</td></tr>
       <tr><td>一上肢或下肢三大關節中，一關節之機能永久完全喪失<div class="note">新制為 8-3-6 或 9-4-6（第 8 級）</div></td><td><b>35%</b></td><td>30%</td></tr>
     </table></div>
     <p style="margin:6px 0 0">所以不能一概而論「新的一定比較好」，要看實際的失能情況與適用的版本。</p>
-  </div>
+  </div></details>
 
-  <div class="card">
-    <h3>📄 舊保單適用哪一版？先看自己的條款</h3>
+  <details class="acc "><summary><b>📄 舊保單適用哪一版？</b><span>長年期舊保單可能仍依原契約失能表，請核對條款</span></summary><div class="body">
     <ul style="margin:0;padding-left:20px">
       <li>金管會 95 年函示：<b>保險期間超過一年</b>的長年期保單，已簽訂的有效契約基於對價平衡，<b>仍依原契約條款（舊表）辦理</b>；<b>一年期以下</b>的有效契約，自實施日後發生的事故即適用新表。</li>
       <li>109 年改為 80 項時，金管會則要求長年期及一年期保證續保商品的有效契約，對 109/1/1 之後發生的事故採<b>「從新從優」</b>。</li>
       <li>因為各次修正的適用規則不同，<b>舊的長年期保單可能仍依原契約所附的失能表</b>。建議把保單條款後面的附表拿出來核對，實際以各保單條款及保險公司審核為準。</li>
     </ul>
-  </div>
+  </div></details>
 
-  <div class="card">
-    <h3>另一個常見落差：只保「1～6 級」</h3>
+  <details class="acc "><summary><b>另一個常見落差：只保「1～6 級」</b><span>第 7～11 級的 43 項輕度失能（如手指、腳趾）不在範圍</span></summary><div class="body">
     <p style="margin:0 0 8px">現在有些失能相關保障（例如常見的失能扶助型給付）只針對新制 11 級 80 項中的 <b>第 1～6 級</b>（共 37 項）。如果只有這類保障，<b>第 7～11 級的 43 項較輕度失能</b>就不在給付範圍。以下這些生活中較可能發生的傷害，需要涵蓋 1～11 級的保障才會給付：</p>
     <div class="items" id="minorList"></div>
     <p class="note" style="margin-top:8px">意外險的失能保險金通常涵蓋 1～11 級；其他險種涵蓋範圍<b>實際以各商品條款為準</b>。</p>
-  </div>
+  </div></details>
 </section>
 
 <!-- ===== 6 缺口試算 ===== -->
 <section id="s6">
   <h2><span class="no">6</span>意外保障檢視試算</h2>
-  <p class="lead">若意外導致無法工作，家裡需要多少準備？填入概略數字，看看目前的保障能照顧多少。所有數字只在這個畫面計算，<b>不會儲存或上傳</b>。</p>
+  <p class="lead">若意外導致無法工作，家裡需要多少準備？填入概略數字即可，<b>不會儲存或上傳</b>。</p>
   <div class="card">
-    <div class="grid2">
-      <div><label class="f" for="gInc">目前年收入</label><div class="unit"><input type="number" id="gInc" inputmode="decimal" min="0" placeholder="例如 80"><span>萬元</span></div></div>
-      <div><label class="f" for="gYrs">若失能，希望收入能支應幾年</label><div class="unit"><input type="number" id="gYrs" inputmode="decimal" min="0" placeholder="例如 10"><span>年</span></div></div>
-      <div><label class="f" for="gCare">每月額外照護／復健費用</label><div class="unit"><input type="number" id="gCare" inputmode="decimal" min="0" placeholder="例如 3"><span>萬元</span></div></div>
+    <div class="g2m">
+      <div><label class="f" for="gInc">年收入</label><div class="unit"><input type="number" id="gInc" inputmode="decimal" min="0" placeholder="例如 80"><span>萬元</span></div></div>
+      <div><label class="f" for="gYrs">收入需支應幾年</label><div class="unit"><input type="number" id="gYrs" inputmode="decimal" min="0" placeholder="例如 10"><span>年</span></div></div>
+      <div><label class="f" for="gCare">每月照護／復健</label><div class="unit"><input type="number" id="gCare" inputmode="decimal" min="0" placeholder="例如 3"><span>萬元</span></div></div>
       <div><label class="f" for="gDebt">房貸等負債</label><div class="unit"><input type="number" id="gDebt" inputmode="decimal" min="0" placeholder="例如 500"><span>萬元</span></div></div>
-      <div><label class="f" for="gMed">預估一次性醫療自付（手術、自費材料）</label><div class="unit"><input type="number" id="gMed" inputmode="decimal" min="0" placeholder="例如 30"><span>萬元</span></div></div>
-      <div><label class="f" for="gSave">可動用的存款／其他準備</label><div class="unit"><input type="number" id="gSave" inputmode="decimal" min="0" placeholder="例如 100"><span>萬元</span></div></div>
-      <div><label class="f" for="gHave">現有意外失能保額（含團保）</label><div class="unit"><input type="number" id="gHave" inputmode="decimal" min="0" placeholder="例如 300"><span>萬元</span></div></div>
-      <div><label class="f" for="gMedHave">現有傷害醫療實支實付限額</label><div class="unit"><input type="number" id="gMedHave" inputmode="decimal" min="0" placeholder="例如 5"><span>萬元</span></div></div>
+      <div><label class="f" for="gMed">一次性醫療自付</label><div class="unit"><input type="number" id="gMed" inputmode="decimal" min="0" placeholder="例如 30"><span>萬元</span></div></div>
+      <div><label class="f" for="gSave">可動用存款</label><div class="unit"><input type="number" id="gSave" inputmode="decimal" min="0" placeholder="例如 100"><span>萬元</span></div></div>
+      <div><label class="f" for="gHave">現有意外失能保額</label><div class="unit"><input type="number" id="gHave" inputmode="decimal" min="0" placeholder="例如 300"><span>萬元</span></div></div>
+      <div><label class="f" for="gMedHave">實支實付限額</label><div class="unit"><input type="number" id="gMedHave" inputmode="decimal" min="0" placeholder="例如 5"><span>萬元</span></div></div>
     </div>
     <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn ghost" type="button" id="gDemo">帶入範例</button>
@@ -517,12 +522,11 @@ footer li{margin:4px 0;word-break:break-all}
       </div>
     </div>
   </div>
-  <div class="card">
-    <h3>同一份保額，不同等級可以領多少？</h3>
-    <p class="note" style="margin:0 0 8px">依上方「現有意外失能保額」計算：</p>
+  <details class="acc "><summary><b>同一份保額，不同等級可以領多少？</b><span>依「現有意外失能保額」換算各等級給付</span></summary><div class="body">
+    
     <div class="scrollx"><table class="t" id="gLvTable"></table></div>
     <p class="note" style="margin-top:8px">試算為簡化估計，未考慮通膨、勞保或其他社會保險給付，僅供討論參考。</p>
-  </div>
+  </div></details>
 </section>
 
 <!-- ===== 7 結尾 ===== -->
@@ -560,7 +564,7 @@ footer li{margin:4px 0;word-break:break-all}
 
 <footer class="wrap">
   <div class="disc"><b>聲明：</b>本頁為一般說明，實際理賠以保單條款及保險公司審核為準。頁面中的範例金額皆為假設，用於說明計算方式；標示「依商品而定」之項目，實際以各商品條款為準。</div>
-  <div><b>資料來源</b></div>
+  <details class="acc"><summary><b>📚 資料來源</b><span>示範條款、失能表、金管會函令、職業分類表等</span></summary><div class="body">
   <ol>
     <li>中華民國人壽保險商業同業公會，〈傷害保險單示範條款〉（113/06/28 修正）：意外傷害事故定義（第 2 條）、身故（第 5 條）、失能給付規則（第 6 條）、除外責任（第 8 條）、不保事項（第 9 條）、職業變更通知（第 13 條）、時效（第 20 條）。<a href="https://law.lia-roc.org.tw/Law/Content?lsid=FL006854">https://law.lia-roc.org.tw/Law/Content?lsid=FL006854</a></li>
     <li>同上附表〈失能程度與保險金給付表〉（11 級 80 項）PDF：<a href="https://law.lia-roc.org.tw/Law/GetFile/0000273428">https://law.lia-roc.org.tw/Law/GetFile/0000273428</a></li>
@@ -574,6 +578,7 @@ footer li{margin:4px 0;word-break:break-all}
     <li>失能扶助型保障常限 1～6 級之舉例：安達人壽一年期一至六級意外傷害失能扶助保險金附約條款：<a href="https://life.chubb.com/content/dam/chubb-sites/life-chubb-com/tw-zh/documents/dir-code.pdf">dir-code.pdf</a></li>
     <li>職業等級：公司職業分類表（行政資源／新契約規定／職業分類表，啟用日期 105.01.01，含附表一、附表二）。分類表可能更新，請以最新公司投保規定為準。參考：壽險公會「臺灣地區傷害保險個人職業分類表」。</li>
   </ol>
+  </div></details>
   <p>頁面為離線單檔，不連線、不追蹤；僅聯絡資訊會存在本機。</p>
 </footer>
 
@@ -590,7 +595,7 @@ const fmtYuan = wan => { const y = Math.round(wan*10000); return y.toLocaleStrin
 const num = id => { const v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; };
 
 /* ---------- disability ---------- */
-let selLv = 0, selPart = '全部';
+let selLv = 0, selPart = '';
 const PARTS = ['全部','神經','眼','耳','鼻','口','胸腹部臟器','軀幹','上肢','下肢'];
 function renderLv(){
   const cnt = {}; DIS.forEach(d => cnt[d[4]] = (cnt[d[4]]||0)+1);
@@ -598,15 +603,22 @@ function renderLv(){
   $('#lvList').querySelectorAll('.lv').forEach(b => b.onclick = () => { const l = +b.dataset.lv; selLv = (selLv===l?0:l); if(selLv){ $('#calcLv').value = selLv; calc(); } renderLv(); renderItems(); });
 }
 function renderParts(){
-  $('#partChips').innerHTML = PARTS.map(p => `<button type="button" class="chip" aria-pressed="${p===selPart}" data-p="${p}">${p}</button>`).join('');
-  $('#partChips').querySelectorAll('.chip').forEach(b => b.onclick = () => { selPart = b.dataset.p; renderParts(); renderItems(); });
+  const sel = $('#partSel');
+  sel.innerHTML = '<option value="">請選擇身體部位</option>' + PARTS.filter(p=>p!=='全部').map(p => `<option value="${p}">${p}（${DIS.filter(d=>d[1]===p).length} 項）</option>`).join('') + '<option value="全部">全部部位（80 項）</option>';
+  sel.value = selPart;
+  sel.onchange = () => { selPart = sel.value; renderItems(); };
 }
 function itemHTML(d, withBtn){
   return `<div class="item ${d[4]>=7?'minor':''}"><div><div class="c">${esc(d[0])}｜${esc(d[1])}・${esc(d[2])}</div><div>${esc(d[3])}</div></div><div class="lvb">第${d[4]}級<small>${RATE[d[4]]}%</small></div>${withBtn?`<button type="button" class="small-btn" data-code="${d[0]}">帶入試算</button>`:''}</div>`;
 }
 function renderItems(){
+  if (!selPart){
+    $('#itemInfo').textContent = selLv ? `已選第 ${selLv} 級，請再選擇身體部位查看項目。` : '選擇部位後，只會顯示該部位的項目。';
+    $('#itemList').innerHTML = ''; return;
+  }
   const list = DIS.filter(d => (selPart==='全部'||d[1]===selPart) && (!selLv || d[4]===selLv));
-  $('#itemInfo').textContent = `${selPart==='全部'?'全部部位':selPart}${selLv?`・第${selLv}級`:''}：共 ${list.length} 項` + (selLv? '（再點一次等級可取消）':'');
+  $('#itemInfo').innerHTML = esc(`${selPart==='全部'?'全部部位':selPart}${selLv?`・第${selLv}級`:''}：共 ${list.length} 項`) + (selLv? ' <button type="button" class="small-btn" id="clrLv">取消等級篩選</button>':'');
+  if (selLv) $('#clrLv').onclick = () => { selLv = 0; renderLv(); renderItems(); };
   $('#itemList').innerHTML = list.length ? list.map(d => itemHTML(d,true)).join('') : '<div class="note">此部位沒有這個等級的項目。</div>';
   $('#itemList').querySelectorAll('button[data-code]').forEach(b => b.onclick = () => {
     const d = DIS.find(x => x[0]===b.dataset.code); $('#calcLv').value = d[4]; calc(d); $('#calc').scrollIntoView({behavior:'smooth',block:'start'});
@@ -648,11 +660,15 @@ let occCls = '', occLimit = 30;
 function initOcc(){
   $('#occScale').innerHTML = Object.keys(OC).map(k => `<span style="background:${OC[k]}" title="${k}"></span>`).join('');
   const cnt = {}; OCC.forEach(o => cnt[o[5]] = (cnt[o[5]]||0)+1);
-  $('#occCards').innerHTML = Object.keys(OCC_EX).map((k,i) => {
+  const showCls = k => {
     const ex = OCC_EX[k].c.map(c => occMap[c]).filter(Boolean);
     const lvl = k==='D'?7:+k;
-    return `<div class="occ" style="--c:${OC[k]}"><h4>${k==='D'?'D 類｜傷害險不承保':'第 '+k+' 類'}<small>表中 ${cnt[k]||0} 筆</small></h4><div class="note">${OCC_EX[k].d}</div><div class="meter">${Array.from({length:7},(_,j)=>`<i class="${j<lvl?'f':''}"></i>`).join('')}</div><ul>${ex.map(o => `<li>${esc(o[4])} <span class="note">（${esc(o[2])}）</span></li>`).join('')}</ul></div>`;
-  }).join('');
+    $('#occCards').innerHTML = `<div class="occ" style="--c:${OC[k]}"><h4>${k==='D'?'D 類｜傷害險不承保':'第 '+k+' 類'}<small>表中 ${cnt[k]||0} 筆</small></h4><div class="note">${OCC_EX[k].d}</div><div class="meter">${Array.from({length:7},(_,j)=>`<i class="${j<lvl?'f':''}"></i>`).join('')}</div><ul>${ex.map(o => `<li>${esc(o[4])} <span class="note">（${esc(o[2])}）</span></li>`).join('')}</ul></div>`;
+    $('#occSeg').querySelectorAll('button').forEach(b => { const on = b.dataset.k===k; b.setAttribute('aria-pressed', on); b.style.setProperty('--c', OC[b.dataset.k]); });
+  };
+  $('#occSeg').innerHTML = Object.keys(OCC_EX).map(k => `<button type="button" data-k="${k}" aria-pressed="false" aria-label="${k==='D'?'D類':'第'+k+'類'}">${k}</button>`).join('');
+  $('#occSeg').querySelectorAll('button').forEach(b => b.onclick = () => showCls(b.dataset.k));
+  showCls('1');
   $('#occCount').textContent = OCC.length.toLocaleString('zh-TW');
   const cls = [['','全部'],['1','1類'],['2','2類'],['3','3類'],['4','4類'],['5','5類'],['6','6類'],['D','D類']];
   $('#occClsChips').innerHTML = cls.map(([v,t]) => `<button type="button" class="chip" data-c="${v}" aria-pressed="${occCls===v}">${t}</button>`).join('');
